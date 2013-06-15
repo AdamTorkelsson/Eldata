@@ -1,0 +1,96 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/relativelayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#3B8686" >
+    
+   <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+         android:background="@drawable/roundbutton" 
+         >
+
+        <com.example.eldata.rest.Graph
+            android:id="@+id/graph1"
+            android:layout_width="wrap_content"
+            android:layout_height="230dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+           />
+
+    </LinearLayout>
+
+
+ <LinearLayout
+     android:id="@+id/linearLayout4"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:gravity="center"
+     android:layout_marginTop="10dp"
+     android:layout_alignParentLeft="true"
+     android:orientation="vertical" 
+     android:background="@drawable/roundbutton" 
+     android:layout_below="@+id/linearLayout1">
+
+     <TextView
+         android:id="@+id/buttonCamera"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+		 android:layout_weight="1"
+         android:onClick="buttonCamera2"
+         android:text="Kostnad vid FastPris" />
+
+
+     <TextView
+         android:id="@+id/textFastPris"
+         android:inputType="number"
+         android:layout_weight="1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+          android:hint="Error" 
+          android:textSize="20sp"
+ />
+
+     <TextView
+         android:id="@+id/TextView02"
+         android:layout_weight="1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:onClick="buttonCamera2"
+         android:text="Kostnad vid rörlig elkostnad" />
+
+
+     <TextView
+         android:id="@+id/textVariablePris"
+         android:inputType="number"
+         android:layout_weight="1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+          android:textSize="20sp"
+         android:hint="Error"  />
+     
+      <TextView
+         android:id="@+id/TextView02"
+         android:layout_weight="1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:onClick="buttonCamera2"
+         android:text="Sparade pengar" />
+
+
+     <TextView
+         android:id="@+id/textDifferencePris"
+         android:inputType="number"
+         android:layout_weight="1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+          android:textSize="20sp"
+         android:hint="Error"  />
+ </LinearLayout>
+
+
+
+     
+</RelativeLayout>

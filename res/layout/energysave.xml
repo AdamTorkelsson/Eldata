@@ -1,0 +1,90 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativelayout1"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content" >
+     
+
+
+<RelativeLayout 
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#3B8686"
+   >
+
+ <LinearLayout
+     android:id="@+id/linearLayout4"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:gravity="center"
+     android:layout_alignParentLeft="true"
+     android:orientation="vertical" 
+     android:layout_marginTop="5dp"
+     android:background="@drawable/roundbutton" >
+
+ 
+
+     <TextView
+         android:id="@+id/textmedeluse"
+         android:inputType="number"
+         android:layout_weight="1"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+          android:hint="Här får du 39 spartips till:\n
+UPPVÄRMNING \n
+3 Sänk värmen när du åker bort.\n
+4 Stäng dörrar till rum som inte används till vardags.\n
+5 Hitta tjuvdragen. Täta fönster och dörrar.\n
+KÖKET\n
+6 Fyll diskmaskin.\n
+7 Skrapa tallrikarna rena i stället för att skölja.\n
+8 Anslut maskinen till kallvatten.\n
+9 Diska på max 55 grader.\n
+10 Handdiska inte under rinnande vatten.\n
+11 Tina fryst mat i kylen.\n
+12 Använd mikron i stället för ugn när det går.\n
+13 Värm vatten till pasta och potatis i vattenkokaren i stället för på spisplattan.\n
+14 Lägg på locket när du kokar vatten på spisen.\n
+15 Använd kastruller som har samma storlek som plattan.\n
+16 Stäng av plattan i förtid och använd eftervärmen.\n
+17 Ångkoka grönsaker i en sil (under lock) i samma kastrull som pastan/potatisen/riset.\n
+18 Stäng av fläkten när du kokat klart, den skickar ut varmluften.\n
+19 Damma av baksidan av kyl och frys.\n
+20 Frosta av frysen. Perfekt när det är kallt ute!\n
+21 Byt ut gammal kyl och frys. Cirkel: Är de äldre än 15 år kan dra dubbelt så mycket som en ny i A-klass.\n
+TVÄTTEN\n
+22 Vädra kläder i stället för tvätta. (Förlänger dessutom livet på kläderna.)\n
+23 Fyll tvättmaskinen. Cirkel: En halvfull maskin drar nästan lika mycket som en full.\n
+24 Tvätta i 40 grader i stället för 60. Cirkel: Spara närapå hälften av den energi som går åt genom att sänka från 60 till 40.\n
+25 Centrifugera ordentligt, minst 1000 varv per minut.\n
+26 Lufttorka helst.\n
+27 Tumla hellre än torka i tvättskåp.\n
+LAMPOR\n
+28 Sätt lamporna på timer om du ofta glömmer att släcka eller vill ha tänt när du kommer hem.\n
+29 Dra ur kontakten till halogenlampans transformator när du släcker lampan.\n
+30 Använd dimmer.\n
+31 Montera lampa med inbyggd rörelsesensor utanför garaget.\n
+32 Tänd ljus i stället för lampor och du får hög mysfaktor på köpet.\n
+BADRUMMET\n
+33 Byt dåliga packningar. Cirkel: Varmvatten som droppar kan kosta många hundra om året.\n
+34 Byt till snålspolande duschmunsstycke och kranar.\n
+35 Stäng av handdukstorken när badlakanet har torkat.\n
+36 Duscha i stället för bada och allra helst: duscha snabbt. Cirkel: En tiominutersdusch om dagen kan kosta upp till 2 000 kr per år!\n
+SIST MEN INTE MINST\n
+37 Använd timer på motorvärmaren. 90 minuter räcker vid 15 minuter.\n
+38 Stäng av standby. Tänk på att tv:n och laddaren till tandborste och mobil drar el även om de inte används.\n
+39 Köp sladdosa (grenuttag) med avstängningsknapp.\n
+40 Flytta möblerna en bit från elementen.\n
+41 Vädra snabbt i stället för en ha fönstret på glänt.\n" 
+          />
+
+
+
+ </LinearLayout>
+
+
+
+
+     
+</RelativeLayout>
+</ScrollView>
