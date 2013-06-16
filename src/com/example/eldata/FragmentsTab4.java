@@ -144,7 +144,7 @@ OnClickListener,OnKeyListener{
 	
 		   if(texthighbill.getText().length() >= 1){
 			   tooglehighbill.setChecked(true);
-			   editor.putBoolean("highbilletoogle", true);
+			   editor.putBoolean("highbilltoogle", true);
 		}
 		else{
 			tooglehighbill.setChecked(false);

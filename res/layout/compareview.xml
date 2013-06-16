@@ -9,171 +9,228 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#F0F0F0">
-
- <LinearLayout
-     android:id="@+id/linearLayout1"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_alignParentLeft="true"
-     android:orientation="vertical" 
-     android:layout_marginTop="5dp"
-     android:background="@drawable/roundbutton" >
-
-     <TextView
-         android:id="@+id/buttonCamera"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-		 android:layout_weight="1"
-         android:onClick="buttonCamera2"
-         android:text="Medelutnyttjande" />
-
-
-     <TextView
-         android:id="@+id/textmedeluse"
-         android:inputType="number"
-         android:layout_weight="1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-          android:hint="Error" 
-          android:textSize="20sp"
+   
+    <LinearLayout
+       android:id="@+id/linearLayout11"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentRight="true"
+       android:layout_alignParentTop="true"
+       android:gravity="center"
+       android:layout_marginTop="5dp"
+       android:orientation="horizontal"
+       android:background="@drawable/roundbutton" >
+           <TextView
+                   android:id="@+id/texttitle"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Statistic"
+                   android:inputType="number"
+                   android:textSize="20sp"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginBottom="5dp"
+                 
  />
+           </LinearLayout>
+           
+       
+    
+   <LinearLayout
+       android:id="@+id/linearLayout5"
+       android:layout_below="@+id/linearLayout11"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentRight="true"
+    
+       android:gravity="center"
+       android:orientation="horizontal" >
 
-     <TextView
-         android:id="@+id/TextView02"
-         android:layout_weight="1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:onClick="buttonCamera2"
-         android:text="Maxutnyttjande" />
+       <LinearLayout
+           android:id="@+id/linearLayout1"
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent"
+           android:layout_marginTop="5dp"
+           android:layout_weight="1"
+           android:background="@drawable/roundbutton"
+           android:gravity="center"
+           android:orientation="vertical" >
 
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginBottom="5dp"
+               android:layout_marginTop="5dp"
+               android:layout_weight="1" >
 
-     <TextView
-         android:id="@+id/textmaxused"
-         android:inputType="number"
-         android:layout_weight="1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-          android:textSize="20sp"
-         android:hint="Error"  />
-     
-      <TextView
-         android:id="@+id/TextView02"
-         android:layout_weight="1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:onClick="buttonCamera2"
-         android:text="Minst utnyttjande" />
+               <TextView
+                   android:id="@+id/buttonCamera"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:onClick="buttonCamera2"
+                   android:text="Medelutnyttjande"
+                   android:textSize="18sp" />
 
+               <TextView
+                   android:id="@+id/textmedeluse"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:hint="Error"
+                   android:inputType="number"
+                   android:textSize="20sp"
+                   android:layout_marginRight="5dp"  />
+           </LinearLayout>
 
-     <TextView
-         android:id="@+id/textminuse"
-         android:inputType="number"
-         android:layout_weight="1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-          android:textSize="20sp"
-         android:hint="Error"  />
-     
-        <TextView
-         android:id="@+id/TextView03"
-         android:layout_weight="1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:onClick="buttonCamera2"
-         android:text="Energianvändande igår" />
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginBottom="5dp"
+               android:layout_marginTop="5dp"
+               android:layout_weight="1" >
 
+               <TextView
+                   android:id="@+id/TextView02"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:onClick="buttonCamera2"
+                   android:text="Maxutnyttjande"
+                   android:textSize="18sp" />
 
-     <TextView
-         android:id="@+id/textyesterday"
-         android:inputType="number"
-         android:layout_weight="1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-          android:textSize="20sp"
-         android:hint="Error"  />
- </LinearLayout>
- <LinearLayout
-     android:id="@+id/linearLayout2"
+               <TextView
+                   android:id="@+id/textmaxused"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:hint="Error"
+                   android:inputType="number"
+                   android:textSize="20sp"
+                   android:layout_marginRight="5dp"  />
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginBottom="5dp"
+               android:layout_marginTop="5dp"
+               android:layout_weight="1" >
+
+               <TextView
+                   android:id="@+id/TextView02"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:onClick="buttonCamera2"
+                   android:text="Minst utnyttjande"
+                   android:textSize="18sp" />
+
+               <TextView
+                   android:id="@+id/textminuse"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:hint="Error"
+                   android:inputType="number"
+                   android:textSize="20sp"
+                   android:layout_marginRight="5dp"  />
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginBottom="5dp"
+               android:layout_marginTop="5dp"
+               android:layout_weight="1" >
+
+               <TextView
+                   android:id="@+id/TextView03"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:onClick="buttonCamera2"
+                   android:text="Ideer?"
+                   android:textSize="18sp" />
+
+               <TextView
+                   android:id="@+id/textyesterday"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:hint="Error"
+                   android:inputType="number"
+                   android:textSize="20sp"
+                   android:layout_marginRight="5dp" />
+           </LinearLayout>
+       </LinearLayout>
+
+       <LinearLayout
+           android:id="@+id/linearLayout2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:gravity="right|top"
+           android:orientation="vertical"
+           	android:layout_marginTop="5dp" >
+
+           <Button
+               android:id="@+id/buttonAllTime"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:background="@drawable/roundbuttonpurple"
+               android:text="Alltime"
+               android:textSize="12sp" />
+
+           <Button
+               android:id="@+id/buttonYear"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:background="@drawable/roundbuttonpurple"
+               android:text="Last year"
+               android:textSize="12sp" />
+
+           <Button
+               android:id="@+id/buttonMonth"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:background="@drawable/roundbuttonpurple"
+               android:text="Last Month"
+               android:textSize="12sp" />
+
+           <Button
+               android:id="@+id/buttonWeek"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:background="@drawable/roundbuttonpurple"
+               android:onClick="onClick"
+               android:text="Last week"
+               android:textSize="12sp" />
+
+           <Button
+               android:id="@+id/buttonYesterday"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:background="@drawable/roundbuttonpurple"
+               android:onClick="onClick"
+               android:text="Yesterday"
+               android:textSize="12sp" />
+       </LinearLayout>
+   </LinearLayout>
+   
+   <LinearLayout
+     android:id="@+id/linearLayout10"
+        android:layout_below="@+id/linearLayout5"
      android:layout_width="fill_parent"
      android:layout_height="wrap_content"
+     android:layout_alignParentLeft="true"
+	android:layout_marginTop="5dp"
+     android:background="@drawable/roundbutton"
      android:gravity="center"
-     android:layout_alignParentLeft="true"
-     android:layout_marginTop="5dp"
-     android:layout_below="@+id/linearLayout1"
-   
-      >
-     
-   <Button
-     android:id="@+id/buttonAllTime"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:text="Alltime" 
-     android:textSize="12sp"
-     android:background="@drawable/roundbottom"
-     android:onClick="onClick"
-     android:layout_marginRight="2dp"/>
-
- <Button
-     android:id="@+id/buttonYear"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_alignParentRight="true"
-     android:layout_below="@+id/linearLayout1"
-     android:background="@drawable/roundbottom"
-     android:text="Last year" 
-     android:textSize="12sp"
-     android:onClick="onClick"
-     android:layout_marginRight="2dp"/>
-
- <Button
-     android:id="@+id/buttonMonth"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_alignBaseline="@+id/button1"
-     android:layout_alignBottom="@+id/button1"
-     android:layout_toLeftOf="@+id/button1"
-     android:text="Last month" 
-     android:textSize="12sp"
-     android:onClick="onClick"
-     android:background="@drawable/roundbottom"
-     android:layout_marginRight="2dp"
-     />
-
- <Button
-     android:id="@+id/buttonWeek"
-   
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_below="@+id/linearLayout1"
-     android:layout_toLeftOf="@+id/button2"
-     android:background="@drawable/roundbottom"
-     android:text="Last week"
-     android:textSize="12sp" 
-     android:onClick="onClick"
-     android:layout_marginRight="2dp"
-     />
-
- <Button
-     android:id="@+id/buttonYesterday"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_alignBaseline="@+id/button3"
-     android:layout_alignBottom="@+id/button3"
-     android:layout_alignParentLeft="true"
-     android:background="@drawable/roundbottom"
-     android:textSize="12sp"
-     android:text="Yesterday" 
-     android:onClick="onClick"
-     android:layout_marginRight="2dp"/>
-  </LinearLayout>   
-  
+      android:orientation="vertical"  >
+    </LinearLayout>
   <LinearLayout
      android:id="@+id/linearLayout3"
      android:layout_width="fill_parent"
      android:layout_height="wrap_content"
      android:gravity="center"
-      android:layout_below="@+id/linearLayout2"
+      android:layout_below="@+id/linearLayout10"
      android:layout_alignParentLeft="true"
      android:orientation="vertical" 
      android:layout_marginTop="5dp"
@@ -191,33 +248,16 @@
          android:text="Or set specific dates" />
 
 
- </LinearLayout> 
- 
-
-  <LinearLayout
-        android:id="@+id/linearLayout5"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_alignParentRight="true"
-      android:layout_below="@+id/linearLayout3"
-      android:orientation="vertical" 
-      android:layout_marginTop="8dp"
-      android:layout_marginBottom="8dp"
-      android:background="@drawable/roundbutton" >
- 
-  </LinearLayout>
+ </LinearLayout>
    
-  
  <LinearLayout
      android:id="@+id/linearLayout6"
      android:layout_width="fill_parent"
      android:layout_height="wrap_content"
-     android:gravity="center"
      android:layout_alignParentLeft="true"
-     
-      android:layout_below="@+id/linearLayout5"
-     android:background="@drawable/roundbutton" 
-     >
+     android:layout_below="@+id/linearLayout3"
+     android:background="@drawable/roundbutton"
+     android:gravity="center" >
 
      <TextView
          android:id="@+id/textStartDate"
@@ -252,11 +292,6 @@
 
 
 
-     <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:orientation="vertical" >
-     </LinearLayout>
 
 
 </RelativeLayout>

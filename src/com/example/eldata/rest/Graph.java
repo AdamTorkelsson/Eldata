@@ -107,8 +107,11 @@ public class Graph extends View{
 				tabellheight2 = variablecost;
 				turn = 3;
 			}
+			break;
 		case 3:
 			Log.d("AdamTorkelsson", "AdamPaint2");
+			drawText(canvas,pBlue);
+			
 			drawCostFast(canvas,pBlue);
 			drawCostVariable(canvas,pBlue);}
 		
@@ -120,6 +123,22 @@ public class Graph extends View{
 		invalidate();
 
 	}
+		private void drawText(Canvas canvas, Paint pBlue) {
+			double m = Math.max(variablecost, fastcost);
+			double c = canvas.getHeight() - 70;
+			double fixedheight =c/m;
+			pBlue.setColor(Color.BLACK);
+			pBlue.setTextSize(50);
+			int fixedwidth = canvas.getWidth()/9;
+			canvas.drawText("" + fastcost + "kr", fixedwidth*5, (float) (canvas.getHeight() - fixedheight*fastcost), pBlue);
+			pBlue.setTextSize(20);
+			canvas.drawText("Fast", fixedwidth*5, (float) (canvas.getHeight() - fixedheight*fastcost-50), pBlue);
+			pBlue.setTextSize(50);
+			canvas.drawText("" + variablecost + "kr", fixedwidth*2, (float) (canvas.getHeight() - fixedheight*variablecost), pBlue);
+			pBlue.setTextSize(20);
+			canvas.drawText("Rörlig", fixedwidth*2, (float) (canvas.getHeight() - fixedheight*variablecost-50), pBlue);
+			
+		}
 		int tabellheight1 = 0;
 		int tabellheight2 = 0;
 		int turn = 1;
@@ -128,29 +147,30 @@ public class Graph extends View{
 		
 		
 		private void drawCostFast(Canvas canvas, Paint pBlue) {
-			pBlue.setColor(Color.GRAY);
+			pBlue.setColor(Color.parseColor("#127990"));
+			
 			double m = Math.max(variablecost, fastcost);
-			double c = canvas.getHeight();
+			double c = canvas.getHeight() -70;
 			double fixedheight =c/m;
-			int fixedwidth = canvas.getWidth()/5;
+			int fixedwidth = canvas.getWidth()/9;
 			Log.d("Adam", "AdamPaint6" + fixedheight);
 			Log.d("Adam", "AdamPaint7" + canvas.getHeight());
 			Log.d("Adam", "AdamPaint8" + Math.max(variablecost, fastcost));
 			Rect r = new Rect();
-			r.set(fixedwidth, (int) (canvas.getHeight()-fixedheight*tabellheight1), fixedwidth*2, canvas.getHeight());
+			r.set(fixedwidth*5, (int) (canvas.getHeight()-fixedheight*tabellheight1), fixedwidth*7, canvas.getHeight());
 			canvas.drawRect(r, pBlue);
 		}
 
 		
 
 	private void drawCostVariable(Canvas canvas, Paint pBlue) {
-		pBlue.setColor(Color.GREEN);
+		pBlue.setColor(Color.parseColor("#72336b"));
 		double m = Math.max(variablecost, fastcost);
-		double c = canvas.getHeight();
+		double c = canvas.getHeight() - 70;
 		double fixedheight =c/m;
-		int fixedwidth = canvas.getWidth()/5;
+		int fixedwidth = canvas.getWidth()/9;
 		Rect r = new Rect();
-		r.set(fixedwidth*3, (int) (canvas.getHeight()-fixedheight*tabellheight2), fixedwidth*4, canvas.getHeight());
+		r.set(fixedwidth*2, (int) (canvas.getHeight()-fixedheight*tabellheight2), fixedwidth*4, canvas.getHeight());
 		canvas.drawRect(r, pBlue);
 		
 	}

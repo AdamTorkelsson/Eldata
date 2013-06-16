@@ -3,7 +3,31 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#F0F0F0">
-    
+     <LinearLayout
+       android:id="@+id/linearLayout11"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentLeft="true"
+       android:layout_alignParentRight="true"
+       android:layout_alignParentTop="true"
+       android:gravity="center"
+       android:layout_marginTop="5dp"
+       android:orientation="horizontal"
+       android:background="@drawable/roundbutton" >
+           <TextView
+                   android:id="@+id/texttitle"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Jämförelse"
+                   android:inputType="number"
+                   android:textSize="20sp"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginBottom="5dp"
+                 
+ />
+           </LinearLayout>
+           
+     
    <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
@@ -11,15 +35,10 @@
           android:layout_marginTop="5dp"
         android:orientation="vertical"
          android:background="@drawable/roundbutton" 
+          android:layout_below="@+id/linearLayout11"
          >
 
-        <com.example.eldata.rest.Graph
-            android:id="@+id/graph1"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-           />
+      
 
     </LinearLayout>
 

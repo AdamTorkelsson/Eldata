@@ -110,10 +110,10 @@ public class FragmentsTab1 extends Fragment implements ActionBar.TabListener ,On
     
     
     
-
+    Date minDate;
 
 private void setDatePickerListener() throws ParseException {
-	Date minDate = new SimpleDateFormat("yyyy-MM-dd").parse("2008-12-01");
+	minDate = new SimpleDateFormat("yyyy-MM-dd").parse("2008-12-01");
     Date maxDate = new Date();
     RangeSeekBar<Long> seekBar = new RangeSeekBar<Long>(minDate.getTime(), maxDate.getTime(), getActivity());
     seekBar.setOnRangeSeekBarChangeListener(new OnRangeSeekBarChangeListener<Long>() {
@@ -128,10 +128,10 @@ private void setDatePickerListener() throws ParseException {
                 	
                 	startcalendar.setTime(startvalue);
        
-                	textStartDate.setText(startcalendar.get(Calendar.YEAR) + "-" + startcalendar.get(Calendar.MONTH)+ "-" + startcalendar.get(Calendar.DAY_OF_MONTH) );
+                	textStartDate.setText(startcalendar.get(Calendar.YEAR) + "-" + (startcalendar.get(Calendar.MONTH) + 1) +  "-" + startcalendar.get(Calendar.DAY_OF_MONTH) );
                 	endcalendar.setTime(endvalue);
                 	TextView textEndDate = (TextView) getActivity().findViewById(R.id.textEndDate);
-                	textEndDate.setText(endcalendar.get(Calendar.YEAR) + "-" + endcalendar.get(Calendar.MONTH)+ "-" + endcalendar.get(Calendar.DAY_OF_MONTH));
+                	textEndDate.setText(endcalendar.get(Calendar.YEAR) + "-" + (endcalendar.get(Calendar.MONTH) + 1)+ "-" + endcalendar.get(Calendar.DAY_OF_MONTH));
                 	
                 	setStastics(startvalue,endvalue);
                
@@ -143,7 +143,7 @@ private void setDatePickerListener() throws ParseException {
     });
 
     // add RangeSeekBar to pre-defined layout
-    ViewGroup layout = (ViewGroup) getActivity().findViewById(R.id.linearLayout5);
+    ViewGroup layout = (ViewGroup) getActivity().findViewById(R.id.linearLayout10);
 
     layout.addView(seekBar);
 	}
@@ -164,28 +164,63 @@ private void setStastics(Date startvalue, Date endvalue) {
 	
 }
 
+public void setStartAndEndDate(Date startdate,Date enddate){
+	startcalendar.setTime(startdate);
+	endcalendar.setTime(enddate);
+	textStartDate.setText(startcalendar.get(Calendar.YEAR) + "-" + 
+					(startcalendar.get(Calendar.MONTH) + 1) + "-" + 
+					startcalendar.get(Calendar.DAY_OF_MONTH) );
+	textEndDate.setText(endcalendar.get(Calendar.YEAR) + "-" + 
+					(endcalendar.get(Calendar.MONTH ) + 1) + "-" + 
+					endcalendar.get(Calendar.DAY_OF_MONTH));
+}
+
 public void onClick(View v) {
+	long ett = 3600 * 24;
+	long två = 31*1000;
+	long tre = 365 * 1000;
 	
+	 Calendar startcalendar = Calendar.getInstance();
+	 long currentTime = startcalendar.getTime().getTime();
+	 
 	  switch(v.getId()){
 	  
 	  case R.id.buttonAllTime:
 		  stastistics.setThisAllTime();
+		  setStartAndEndDate(minDate,
+	  				Calendar.getInstance().getTime());
 		  break;
 	  
-	  case R.id.buttonYear: /** Start a new Activity MyCards.java */
+	  case R.id.buttonYear:
 	      stastistics.setThisYear();
+	 
+		  long minus = ett * tre;
+		  long date = currentTime - minus;
+	      setStartAndEndDate(new Date(date),
+	  				Calendar.getInstance().getTime());
 	       break;
 	  
-	  case R.id.buttonMonth: /** Start a new Activity MyCards.java */
+	  case R.id.buttonMonth:
 		  stastistics.setThisMonth();
+
+		  long minus1 = ett * två;
+		 long date1 = currentTime - minus1;
+
+		  setStartAndEndDate(new Date(date1),
+				  				Calendar.getInstance().getTime());
 	       break;
 
-	  case R.id.buttonWeek: /** AlerDialog when click on Exit */
+	  case R.id.buttonWeek: 
 		  stastistics.setThisWeek();
+		  setStartAndEndDate(new Date(currentTime - (60 * 60 * 24 * 7* 1000)),
+	  				Calendar.getInstance().getTime());
+	
 	       break;
 	       
-	  case R.id.buttonYesterday: /** AlerDialog when click on Exit */
+	  case R.id.buttonYesterday: 
 		  stastistics.setThisYesterday();
+		  setStartAndEndDate(new Date(currentTime - (60 * 60 * 24*1000)),
+	  				Calendar.getInstance().getTime());
 	       break;
 	  case R.id.textStartDate:
 		    startdate = new DatePickerFragment(this);
@@ -224,7 +259,7 @@ public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3){
 	if(isStartDate){
 		if(temp.before(endcalendar)){
 			startcalendar = temp;
-			textStartDate.setText(startcalendar.get(Calendar.YEAR) + "-" + startcalendar.get(Calendar.MONTH)+ "-" + startcalendar.get(Calendar.DAY_OF_MONTH) );
+			textStartDate.setText(startcalendar.get(Calendar.YEAR) + "-" + (startcalendar.get(Calendar.MONTH)  + 1)+   "-" + startcalendar.get(Calendar.DAY_OF_MONTH) );
 			setStastics(startcalendar.getTime(),
 					endcalendar.getTime());}
 		else{
@@ -234,7 +269,7 @@ public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3){
 		if(startcalendar.before(temp)){
 			endcalendar = temp;
 
-			textEndDate.setText(endcalendar.get(Calendar.YEAR) + "-" + endcalendar.get(Calendar.MONTH)+ "-" + endcalendar.get(Calendar.DAY_OF_MONTH) );
+			textEndDate.setText(endcalendar.get(Calendar.YEAR) + "-" + (endcalendar.get(Calendar.MONTH) + 1) + "-" + endcalendar.get(Calendar.DAY_OF_MONTH) );
 			setStastics(startcalendar.getTime(),
 					endcalendar.getTime());}
 		else{
@@ -256,9 +291,7 @@ private void setTextViews(float medel,float max , float min , float yesterday){
 		TextView textminuse = (TextView) getActivity().findViewById(R.id.textminuse);
 		textminuse.setText(String.format("%.2f", min) + " kwh" );
 		
-		TextView textyesterdayuse = (TextView) getActivity().findViewById(R.id.textyesterday);
-		textyesterdayuse.setText(yesterday + " kwh" );
-		
+
 		
 		
 	}

@@ -136,16 +136,11 @@
      android:layout_marginTop="5dp"
      android:background="@drawable/roundbutton" >
 
- 
-
      <TextView
          android:id="@+id/textmedeluse"
-         android:inputType="number"
-         android:layout_weight="1"
-         android:layout_width="fill_parent"
+         android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:textSize="16dp"
-          android:hint="
+         android:hint="
 6 Fyll diskmaskin.\n
 7 Skrapa tallrikarna rena i stället för att skölja.\n
 8 Anslut maskinen till kallvatten.\n
@@ -162,9 +157,9 @@
 19 Damma av baksidan av kyl och frys.\n
 20 Frosta av frysen. Perfekt när det är kallt ute!\n
 21 Byt ut gammal kyl och frys. Cirkel: Är de äldre än 15 år kan dra dubbelt så mycket som en ny i A-klass.\n
-        "  />
-
-
+        "
+         android:inputType="number"
+         android:textSize="16dp" />
 
  </LinearLayout>
  
@@ -262,13 +257,7 @@ BADRUMMET\n
 34 Byt till snålspolande duschmunsstycke och kranar.\n
 35 Stäng av handdukstorken när badlakanet har torkat.\n
 36 Duscha i stället för bada och allra helst: duscha snabbt. Cirkel: En tiominutersdusch om dagen kan kosta upp till 2 000 kr per år!\n
-SIST MEN INTE MINST\n
-37 Använd timer på motorvärmaren. 90 minuter räcker vid 15 minuter.\n
-38 Stäng av standby. Tänk på att tv:n och laddaren till tandborste och mobil drar el även om de inte används.\n
-39 Köp sladdosa (grenuttag) med avstängningsknapp.\n
-40 Flytta möblerna en bit från elementen.\n
-41 Vädra snabbt i stället för en ha fönstret på glänt.\n" 
-          />
+ "         />
 
 
 

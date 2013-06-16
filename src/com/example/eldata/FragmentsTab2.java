@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.example.eldata.rest.Database;
 import com.example.eldata.rest.DatabasePrice;
 import com.example.eldata.rest.DatabaseStatistics;
+import com.example.eldata.rest.Graph;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,13 +48,17 @@ public class FragmentsTab2 extends Fragment implements ActionBar.TabListener,OnT
     	database = new Database();
  		ds = new DatabaseStatistics();
         getActivity().setContentView(R.layout.comparevariableaview);
-        View view = getActivity().findViewById(R.id.relativelayout1);
-		   view.setOnTouchListener(this);
-        databasearray = database.getAll();
+        View view = getActivity().findViewById(R.id.linearLayout1);
+		   view.
+      
+		databasearray = database.getAll();
      	pricesarray = prices.getAll();
      
      	setTextViews(); 
-
+     	
+     	Graph graph = new Graph(getActivity());
+     	View graphview = getActivity().findViewById(R.id.relativelayout1);
+     	graphview.set
     }
  
 	

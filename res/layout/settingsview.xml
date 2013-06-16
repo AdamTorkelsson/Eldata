@@ -76,7 +76,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:hint="Fyll i här"
-         android:inputType="number" />
+         android:inputType="numberDecimal" />
 
  </LinearLayout>
      
@@ -101,7 +101,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:hint="Fyll i här"
-         android:inputType="number" />
+         android:inputType="numberDecimal" />
 
  </LinearLayout>
     
@@ -159,7 +159,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:ems="3"
-         android:inputType="number" />
+         android:inputType="numberDecimal" />
 
      <ToggleButton
          android:id="@+id/booleanHighBill"
@@ -191,7 +191,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:ems="3"
-         android:inputType="number" />
+         android:inputType="numberDecimal" />
 
      <ToggleButton
          android:id="@+id/booleanHighUse"
@@ -219,12 +219,14 @@
          android:text="Högt elpris" 
          android:textSize="14dp" />
 
+
+
      <EditText
          android:id="@+id/textHighPrice"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:ems="3"
-         android:inputType="number" />
+         android:inputType="numberDecimal" />
 
      <ToggleButton
          android:id="@+id/booleanHighPrice"
