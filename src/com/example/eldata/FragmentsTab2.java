@@ -63,6 +63,7 @@ public class FragmentsTab2 extends Fragment implements ActionBar.TabListener,OnT
         // Attach fragment2.xml layout
         ft.setCustomAnimations(FragmentTransaction.TRANSIT_FRAGMENT_FADE, FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.add(android.R.id.content, mFragment);
+   
         ft.attach(mFragment);
         
     }
@@ -74,7 +75,7 @@ public class FragmentsTab2 extends Fragment implements ActionBar.TabListener,OnT
     }
  
     public void onTabReselected(Tab tab, FragmentTransaction ft) {
-    	 ft.setCustomAnimations(FragmentTransaction.TRANSIT_FRAGMENT_FADE, FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+    	
     	setTextViews();
  
     }

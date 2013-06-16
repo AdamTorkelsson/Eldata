@@ -15,6 +15,8 @@ import com.example.eldata.rest.DatabaseStatistics;
 
 
 
+
+
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -63,7 +65,6 @@ public class FragmentsTab1 extends Fragment implements ActionBar.TabListener ,On
     	//Sets the animation when opening this activity
         startcalendar  = Calendar.getInstance();
     	endcalendar  = Calendar.getInstance();
-     
         
         // Get the view from fragment1.xml
         getActivity().setContentView(R.layout.compareview);
@@ -270,7 +271,12 @@ private void setTextViews(float medel,float max , float min , float yesterday){
         mFragment = new FragmentsTab1();
         // Attach fragment1.xml layout
         ft.add(android.R.id.content, mFragment);
+       
+        ft.setCustomAnimations(R.anim.map_in,R.anim.other_in);
         ft.attach(mFragment);
+       
+      
+     
     }
  
     public void onTabUnselected(Tab tab, FragmentTransaction ft) {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -37,25 +38,39 @@ public class Graph extends View{
 	boolean first = true;
 	int variablecost;
 	int fastcost;
-
+	DatabaseStatistics ds;
+    private static final String PREFS_NAME = "UserInfo";
+    
 	public Graph(Context context) {
 		super(context);
-		variablecost = 1000;
-		fastcost = 500;
+		//WATCH AS IT IS CHANGED TO INT
+		SharedPreferences settings = context.getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
+		Log.d("fastpris", "fastpris" + settings.getString("FastPris", "error"));
+		ds = new DatabaseStatistics();
+		variablecost = (int) ds.getCost(Float.parseFloat(settings.getString("Add", "Error")));
+		fastcost = (int) ds.getCost(Float.parseFloat(settings.getString("FastPris", "Error")));
 	}
 	
 
 	public Graph(Context context, AttributeSet attrs) {
 		super( context, attrs );
-		variablecost = 1000;
-		fastcost = 500;
+	//WATCH AS IT IS CHANGED TO INT
+		SharedPreferences settings = context.getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
+		Log.d("fastpris", "fastpris" + settings.getString("FastPris", "error"));
+		ds = new DatabaseStatistics();
+		variablecost = (int) ds.getCost(Float.parseFloat(settings.getString("Add", "Error")));
+		fastcost = (int) ds.getCost(Float.parseFloat(settings.getString("FastPris", "Error")));
 	}
  
 	public Graph(Context context, AttributeSet attrs, int defStyle) {
  
 		super( context, attrs, defStyle );
-		variablecost = 1000;
-		fastcost = 500;
+		//WATCH AS IT IS CHANGED TO INT
+		SharedPreferences settings = context.getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
+		Log.d("fastpris", "fastpris" + settings.getString("FastPris", "error"));
+		ds = new DatabaseStatistics();
+		variablecost = (int) ds.getCost(Float.parseFloat(settings.getString("Add", "Error")));
+		fastcost = (int) ds.getCost(Float.parseFloat(settings.getString("FastPris", "Error")));
 	}
 
 
@@ -77,7 +92,7 @@ public class Graph extends View{
 		switch (turn){
 		case 1:
 			
-			tabellheight1 += 10;
+			tabellheight1 += fastcost/80;
 			drawCostFast(canvas,pBlue);
 			if(tabellheight1 >= fastcost){
 				tabellheight1 = fastcost;
@@ -85,7 +100,7 @@ public class Graph extends View{
 			}
 			break;
 		case 2:
-			tabellheight2 += 10;
+			tabellheight2 += variablecost/80;
 			drawCostFast(canvas,pBlue);
 			drawCostVariable(canvas,pBlue);
 			if(tabellheight2 >= variablecost){

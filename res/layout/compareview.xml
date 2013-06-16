@@ -2,13 +2,13 @@
      android:id="@+id/relativelayout1"
      android:layout_width="fill_parent"
      android:layout_height="fill_parent" 
-     android:background="#A8A8A8">
+     android:background="#F0F0F0">
      
 <RelativeLayout 
     
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#A8A8A8" >
+    android:background="#F0F0F0">
 
  <LinearLayout
      android:id="@+id/linearLayout1"

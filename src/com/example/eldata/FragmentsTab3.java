@@ -11,7 +11,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ActionBar;
  
-public class FragmentsTab3 extends Fragment implements ActionBar.TabListener,OnTouchListener {
+public class FragmentsTab3 extends Fragment implements ActionBar.TabListener {
  
     private Fragment mFragment;
  
@@ -21,8 +21,8 @@ public class FragmentsTab3 extends Fragment implements ActionBar.TabListener,OnT
         setRetainInstance(true);
         // Get the view from fragment3.xml
         getActivity().setContentView(R.layout.energysave);
-        View view = getActivity().findViewById(R.id.relativelayout1);
-		   view.setOnTouchListener(this);
+     //   View view = getActivity().findViewById(R.id.relativelayout1);
+		//   view.setOnTouchListener(this);
 		
 		   
     }
@@ -49,7 +49,7 @@ public class FragmentsTab3 extends Fragment implements ActionBar.TabListener,OnT
 	int startY = 0;
 	int endX = 0;
 	int endY = 0;
-
+/*
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 	
@@ -87,7 +87,7 @@ public class FragmentsTab3 extends Fragment implements ActionBar.TabListener,OnT
         } 
 		return true;
 	}
-
+*/
 	
 
 

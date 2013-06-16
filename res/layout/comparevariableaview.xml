@@ -2,12 +2,13 @@
   android:id="@+id/relativelayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#3B8686" >
+    android:background="#F0F0F0">
     
    <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
         android:orientation="vertical"
          android:background="@drawable/roundbutton" 
          >
@@ -15,7 +16,7 @@
         <com.example.eldata.rest.Graph
             android:id="@+id/graph1"
             android:layout_width="wrap_content"
-            android:layout_height="230dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
            />
