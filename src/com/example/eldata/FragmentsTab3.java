@@ -18,6 +18,7 @@ public class FragmentsTab3 extends Fragment implements ActionBar.TabListener,OnT
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
         // Get the view from fragment3.xml
         getActivity().setContentView(R.layout.energysave);
         View view = getActivity().findViewById(R.id.relativelayout1);

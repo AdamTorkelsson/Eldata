@@ -36,24 +36,22 @@ public final class R {
         public static final int seek_thumb_pressed=0x7f020006;
     }
     public static final class id {
-        public static final int EditText01=0x7f090025;
-        public static final int EditText02=0x7f090027;
         public static final int TextView02=0x7f090004;
         public static final int TextView03=0x7f09000e;
         public static final int action_settings=0x7f09002b;
+        public static final int booleanHighBill=0x7f090023;
+        public static final int booleanHighPrice=0x7f090029;
+        public static final int booleanHighUse=0x7f090026;
         public static final int btnBack=0x7f09001e;
         public static final int button1=0x7f090014;
         public static final int button2=0x7f090016;
         public static final int button3=0x7f090018;
-        public static final int buttonAdd=0x7f090029;
         public static final int buttonAllTime=0x7f090011;
         public static final int buttonCamera=0x7f090002;
-        public static final int buttonCancel=0x7f090028;
         public static final int buttonMonth=0x7f090013;
         public static final int buttonWeek=0x7f090015;
         public static final int buttonYear=0x7f090012;
         public static final int buttonYesterday=0x7f090017;
-        public static final int editText1=0x7f090022;
         public static final int graph1=0x7f090008;
         public static final int linearLayout1=0x7f090007;
         public static final int linearLayout2=0x7f090010;
@@ -63,13 +61,16 @@ public final class R {
         public static final int linearLayout6=0x7f09001b;
         public static final int linearLayout7=0x7f09001f;
         public static final int linearLayout8=0x7f090024;
-        public static final int linearLayout9=0x7f090026;
+        public static final int linearLayout9=0x7f090027;
         public static final int markerTitle=0x7f090000;
         public static final int realtabcontent=0x7f09002a;
         public static final int relativelayout1=0x7f090006;
         public static final int textDifferencePris=0x7f09000a;
         public static final int textEndDate=0x7f09001d;
         public static final int textFastPris=0x7f090005;
+        public static final int textHighBill=0x7f090022;
+        public static final int textHighPrice=0x7f090028;
+        public static final int textHighUse=0x7f090025;
         public static final int textPålägg=0x7f090003;
         public static final int textStartDate=0x7f09001c;
         public static final int textVariablePris=0x7f090009;
@@ -79,7 +80,6 @@ public final class R {
         public static final int textmedeluse=0x7f09000b;
         public static final int textminuse=0x7f09000d;
         public static final int textyesterday=0x7f09000f;
-        public static final int toggleButton2=0x7f090023;
     }
     public static final class layout {
         public static final int billview=0x7f030000;

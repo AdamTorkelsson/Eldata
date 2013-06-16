@@ -155,17 +155,17 @@
               android:textSize="14dp" />
 
      <EditText
-         android:id="@+id/editText1"
+         android:id="@+id/textHighBill"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:ems="3"
          android:inputType="number" />
 
      <ToggleButton
-         android:id="@+id/toggleButton2"
+         android:id="@+id/booleanHighBill"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:text="ToggleButton" />
+          />
 
  </LinearLayout>
           <LinearLayout
@@ -187,14 +187,14 @@
          android:textSize="14dp" />
 
      <EditText
-         android:id="@+id/EditText01"
+         android:id="@+id/textHighUse"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:ems="3"
          android:inputType="number" />
 
      <ToggleButton
-         android:id="@+id/toggleButton2"
+         android:id="@+id/booleanHighUse"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:text="ToggleButton" />
@@ -220,44 +220,21 @@
          android:textSize="14dp" />
 
      <EditText
-         android:id="@+id/EditText02"
+         android:id="@+id/textHighPrice"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:ems="3"
          android:inputType="number" />
 
      <ToggleButton
-         android:id="@+id/toggleButton2"
+         android:id="@+id/booleanHighPrice"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:text="ToggleButton" />
+          />
 
  </LinearLayout>         
           
       
   </LinearLayout>
-    <LinearLayout
-     android:id="@+id/linearLayout6"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="10dp"
-     android:layout_alignParentLeft="true"
-     android:layout_below="@+id/linearLayout5"
-     >
 
-        <Button
-            android:id="@+id/buttonCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            
-            android:text="Cancel" />
-
-		 <Button
-   	 		 android:id="@+id/buttonAdd"
-    		 android:layout_width="wrap_content"
-     		android:layout_height="wrap_content"
-     		android:text="Finish" />
-
-      </LinearLayout>
 </RelativeLayout>

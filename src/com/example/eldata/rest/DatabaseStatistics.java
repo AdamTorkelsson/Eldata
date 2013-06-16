@@ -75,7 +75,7 @@ public class DatabaseStatistics {
 	}
 	
 	float variablecost;
-	public float getVariableCost(float add){
+	public float getCost(float add){
 		variablecost =0;
 		Log.d("Hej", "SetTextViews6");
 		//Add the cost to add here 
@@ -129,6 +129,8 @@ public class DatabaseStatistics {
 		setStastic(daysBetween);
 		
 	}
+
+	
 
 	
 }

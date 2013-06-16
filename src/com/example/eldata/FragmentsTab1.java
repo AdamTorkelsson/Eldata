@@ -59,7 +59,7 @@ public class FragmentsTab1 extends Fragment implements ActionBar.TabListener ,On
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+        setRetainInstance(true);
     	//Sets the animation when opening this activity
         startcalendar  = Calendar.getInstance();
     	endcalendar  = Calendar.getInstance();

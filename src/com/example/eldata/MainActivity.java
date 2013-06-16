@@ -74,9 +74,7 @@ public class MainActivity extends Activity {
         tab4.setText("Settings");
         actionBar.addTab(tab4);
         
-        
-        
-       standardDialog(R.string.SetValues, "Klar");
+      // standardDialog(R.string.SetValues, "Klar");
        
        
     }
@@ -85,6 +83,7 @@ public void selecttabs(int i){
 	switch (i){
 	case 1:
 		tab1.select();
+
 		break;
 	case 2:
 		tab2.select();

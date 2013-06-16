@@ -39,7 +39,9 @@ public class FragmentsTab2 extends Fragment implements ActionBar.TabListener,OnT
   
 	@Override
     public void onCreate(Bundle savedInstanceState) {
+		
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
         // Get the view from fragment2.xml
     	database = new Database();
  		ds = new DatabaseStatistics();
@@ -50,8 +52,7 @@ public class FragmentsTab2 extends Fragment implements ActionBar.TabListener,OnT
      	pricesarray = prices.getAll();
      
      	setTextViews(); 
-     	
-     	
+
     }
  
 	
@@ -60,43 +61,45 @@ public class FragmentsTab2 extends Fragment implements ActionBar.TabListener,OnT
         // TODO Auto-generated method stub
         mFragment = new FragmentsTab2();
         // Attach fragment2.xml layout
+        ft.setCustomAnimations(FragmentTransaction.TRANSIT_FRAGMENT_FADE, FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.add(android.R.id.content, mFragment);
         ft.attach(mFragment);
         
     }
+    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+        // TODO Auto-generated method stub
+        // Remove fragment2.xml layout
+    	 
+    	ft.remove(mFragment);
+    }
+ 
+    public void onTabReselected(Tab tab, FragmentTransaction ft) {
+    	 ft.setCustomAnimations(FragmentTransaction.TRANSIT_FRAGMENT_FADE, FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+    	setTextViews();
+ 
+    }
+    
 
 	private void setTextViews(){
-		Log.d("Hej", "SetTextViews1");
+
 		SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
-		Log.d("Hej", "SetTextViews2" + settings.getString("Add", "Error"));
-		float variablecost = ds.getVariableCost(Float.parseFloat(settings.getString("Add", "Error")));
-		Log.d("Hej", "SetTextViews3");
-		float fastcost = Float.parseFloat(settings.getString("FastPris", "Error"));
-		Log.d("Hej", "SetTextViews4");
+	
+		float variablecost = ds.getCost(Float.parseFloat(settings.getString("Add", "Error")));
+		float fastcost = ds.getCost(Float.parseFloat(settings.getString("FastPris", "Error")));
 		float saved = fastcost -variablecost;
 		
 		TextView textFastPris= (TextView) getActivity().findViewById(R.id.textFastPris);
-		textFastPris.setText(" "  + fastcost + " Kronor");
-		
 		TextView textVariablePris= (TextView) getActivity().findViewById(R.id.textVariablePris);
-		textVariablePris.setText("" + variablecost + " Kronor");
-		
 		TextView textDifferencePris = (TextView) getActivity().findViewById(R.id.textDifferencePris);
+		
+		textVariablePris.setText("" + variablecost + " Kronor");
+		textFastPris.setText(" "  + fastcost + " Kronor");
 		textDifferencePris.setText("" + saved + " Kronor");
 
 	}
     
     
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-        // TODO Auto-generated method stub
-        // Remove fragment2.xml layout
-        ft.remove(mFragment);
-    }
- 
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
-        // TODO Auto-generated method stub
- 
-    }
+
     
 	int startX = 0;
 	int startY = 0;
