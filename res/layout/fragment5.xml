@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    android:orientation="vertical" >
+
+      <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+     
+        android:layout_marginTop="5dp"
+        
+        android:gravity="left"
+        android:orientation="horizontal" >
+        
+    <LinearLayout
+        android:id="@+id/linearLayout11"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/roundbutton"
+        android:gravity="center|center_horizontal"
+        android:orientation="vertical" >
+
+                <TextView
+            android:id="@+id/textView1"
+			android:layout_width="wrap_content"
+
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+                     android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="Nuvarande"
+            android:textSize="18sp"/>
+        
+           </LinearLayout>
+
+           <LinearLayout
+               android:id="@+id/linearLayout11"
+               android:layout_width="0px"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="5dp"
+               android:layout_weight="1"
+               android:background="@drawable/roundbutton"
+               android:gravity="center_horizontal|center_vertical"
+               android:orientation="vertical" >
+
+                <TextView
+            android:id="@+id/textView1"
+			android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Förra"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="18sp"/>
+        
+           </LinearLayout>
+           
+         </LinearLayout>  
+       <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+         android:layout_height="0px"
+      android:layout_weight="2"
+        android:layout_marginTop="5dp"
+        
+        android:gravity="left"
+        android:orientation="horizontal" >
+    
+    <LinearLayout
+        android:id="@+id/linearLayout11"
+        android:layout_width="0px"
+         android:layout_height="fill_parent"
+      android:layout_weight="3"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/roundbutton"
+        android:gravity="left"
+        android:orientation="vertical" >
+  	
+  	<LinearLayout
+  	    android:id="@+id/linearLayout111"
+  	    android:layout_width="fill_parent"
+  	    android:layout_height="0px"
+  	    android:layout_marginTop="5dp"
+  	    android:layout_weight="1"
+  	    android:gravity="center_vertical"
+  	    android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView1"
+			android:layout_width="0dip"
+
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Räkning"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:hint="Error" 
+            android:layout_marginRight="5dp"/>
+            
+          </LinearLayout>  
+          
+  	  	<LinearLayout
+        android:id="@+id/linearLayout112"
+        android:layout_width="fill_parent"
+         android:layout_height="0px"
+         android:gravity="center_vertical"
+      android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        
+
+        android:orientation="horizontal" >
+
+             <TextView
+                 android:id="@+id/textView1"
+                 android:layout_width="0dip"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_vertical"
+                 android:layout_weight="1"
+                 android:gravity="left"
+                 android:text="Dagar kvar"
+                android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:hint="Error" 
+            android:layout_marginRight="5dp"/>
+          </LinearLayout>  
+          
+  	  	  	<LinearLayout
+        android:id="@+id/linearLayout113"
+        android:layout_width="fill_parent"
+         android:layout_height="0px"
+      android:layout_weight="1"
+      android:gravity="center_vertical"
+        android:layout_marginTop="5dp"
+       
+        android:orientation="horizontal" >
+                <TextView
+            android:id="@+id/textView1"
+			android:layout_width="0dip"
+
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Uppskattad slutsumma"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:hint="Error" 
+            android:layout_marginRight="5dp"/>
+          </LinearLayout>  
+          
+  	  	  	  	<LinearLayout
+        android:id="@+id/linearLayout114"
+        android:layout_width="fill_parent"
+        android:gravity="center_vertical"
+         android:layout_height="0px"
+      android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        
+ 
+        android:orientation="horizontal" >
+               <TextView
+            android:id="@+id/textView1"
+			android:layout_width="0dip"
+
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Över/Under snittet"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:hint="Error" 
+            android:layout_marginRight="5dp"/>
+          </LinearLayout>  
+          
+  	  	  	  	
+  	  	  	  	
+  	  	  	  	
+  	  	  	  	
+  	  	  	  	
+    </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/linearLayout12"
+          android:layout_width="0px"
+          android:layout_height="fill_parent"
+          android:layout_marginTop="5dp"
+          android:layout_weight="1"
+          android:background="@drawable/roundbutton"
+          android:gravity="center_vertical|center_horizontal"
+          android:orientation="vertical" >
+       	
+  	<LinearLayout
+  	    android:id="@+id/linearLayout111"
+  	    android:layout_width="fill_parent"
+  	    android:layout_height="0px"
+  	    android:layout_marginTop="5dp"
+  	    android:layout_weight="1"
+  	    android:gravity="center_vertical|center_horizontal"
+  	    android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:hint="Error" 
+            android:layout_marginRight="5dp"/>
+            
+          </LinearLayout>  
+          
+  	  	<LinearLayout
+  	  	    android:id="@+id/linearLayout112"
+  	  	    android:layout_width="fill_parent"
+  	  	    android:layout_height="0px"
+  	  	    android:layout_marginTop="5dp"
+  	  	    android:layout_weight="1"
+  	  	    android:gravity="center_vertical|center_horizontal"
+  	  	    android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:hint="Error" 
+            android:layout_marginRight="5dp"/>
+          </LinearLayout>  
+          
+  	  	  	<LinearLayout
+  	  	  	    android:id="@+id/linearLayout113"
+  	  	  	    android:layout_width="fill_parent"
+  	  	  	    android:layout_height="0px"
+  	  	  	    android:layout_marginTop="5dp"
+  	  	  	    android:layout_weight="1"
+  	  	  	    android:gravity="center_vertical|center_horizontal"
+  	  	  	    android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:hint="Error" 
+            android:layout_marginRight="5dp"/>
+          </LinearLayout>  
+          
+  	  	  	  	<LinearLayout
+  	  	  	  	    android:id="@+id/linearLayout114"
+  	  	  	  	    android:layout_width="fill_parent"
+  	  	  	  	    android:layout_height="0px"
+  	  	  	  	    android:layout_marginTop="5dp"
+  	  	  	  	    android:layout_weight="1"
+  	  	  	  	    android:gravity="center_vertical|center_horizontal"
+  	  	  	  	    
+  	  	  	  	    android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:hint="Error" 
+            android:layout_marginRight="5dp"/>
+          </LinearLayout>  
+    </LinearLayout>
+    
+      
+    
+ </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1.00"
+        android:background="@drawable/roundbutton"
+        android:gravity="left"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="De 10 senaste dagar"
+            android:layout_gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+</LinearLayout>

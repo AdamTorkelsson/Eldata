@@ -2,10 +2,12 @@ package com.example.eldata;
  
 import android.app.ActionBar;
 import android.app.AlertDialog;
+import android.app.Fragment;
 import android.app.ActionBar.Tab;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -25,13 +27,14 @@ public class MainActivity extends Activity {
     Tab tab2;
     Tab tab3;
     Tab tab4;
+    Tab tab5;
     Context context;
-    FragmentsTab1 ftab1;
+    FragmentsTab5 ftab1;
  
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       context = this;
+      
         
         // Create the actionbar
     
@@ -47,7 +50,7 @@ public class MainActivity extends Activity {
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
        
 
-        ftab1 = new FragmentsTab1();
+        ftab1 = new FragmentsTab5();
         
         // Create first Tab
         tab1 = actionBar.newTab().setTabListener(ftab1);
@@ -68,17 +71,20 @@ public class MainActivity extends Activity {
         tab3.setText("Tips");
         actionBar.addTab(tab3);
  
-        // Create Third Tab
+        // Create Fourth Tab
         tab4 = actionBar.newTab().setTabListener(new FragmentsTab4());
         // Set Tab Title
         tab4.setText("Settings");
         actionBar.addTab(tab4);
         
+
       // standardDialog(R.string.SetValues, "Klar");
        
        
     }
     
+
+
 public void selecttabs(int i){
 	switch (i){
 	case 1:

@@ -41,6 +41,7 @@ public class Graph extends View{
 	DatabaseStatistics ds;
     private static final String PREFS_NAME = "UserInfo";
     
+    
 	public Graph(Context context) {
 		super(context);
 		//WATCH AS IT IS CHANGED TO INT
@@ -130,13 +131,16 @@ public class Graph extends View{
 			pBlue.setColor(Color.BLACK);
 			pBlue.setTextSize(50);
 			int fixedwidth = canvas.getWidth()/9;
+			
 			canvas.drawText("" + fastcost + "kr", fixedwidth*5, (float) (canvas.getHeight() - fixedheight*fastcost), pBlue);
 			pBlue.setTextSize(20);
+			
 			canvas.drawText("Fast", fixedwidth*5, (float) (canvas.getHeight() - fixedheight*fastcost-50), pBlue);
 			pBlue.setTextSize(50);
 			canvas.drawText("" + variablecost + "kr", fixedwidth*2, (float) (canvas.getHeight() - fixedheight*variablecost), pBlue);
 			pBlue.setTextSize(20);
 			canvas.drawText("Rörlig", fixedwidth*2, (float) (canvas.getHeight() - fixedheight*variablecost-50), pBlue);
+		
 			
 		}
 		int tabellheight1 = 0;

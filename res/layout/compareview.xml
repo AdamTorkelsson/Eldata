@@ -1,35 +1,29 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-     android:id="@+id/relativelayout1"
-     android:layout_width="fill_parent"
-     android:layout_height="fill_parent" 
-     android:background="#F0F0F0">
+
      
-<RelativeLayout 
-    
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout9"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#F0F0F0">
+    android:orientation="vertical"
+    android:background="#F0F0F0" >
    
     <LinearLayout
        android:id="@+id/linearLayout11"
-       android:layout_width="wrap_content"
+       android:layout_width="fill_parent"
        android:layout_height="wrap_content"
-       android:layout_alignParentLeft="true"
-       android:layout_alignParentRight="true"
-       android:layout_alignParentTop="true"
        android:gravity="center"
        android:layout_marginTop="5dp"
        android:orientation="horizontal"
-       android:background="@drawable/roundbutton" >
+     
+       android:background="@drawable/roundbuttonpurple" >
            <TextView
-                   android:id="@+id/texttitle"
+                   android:id="@+id/switch1"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="Statistic"
-                   android:inputType="number"
+                   android:text="Switch"
                    android:textSize="20sp"
-                   android:layout_marginTop="5dp"
-                   android:layout_marginBottom="5dp"
+      
                  
  />
            </LinearLayout>
@@ -38,134 +32,28 @@
     
    <LinearLayout
        android:id="@+id/linearLayout5"
-       android:layout_below="@+id/linearLayout11"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignParentLeft="true"
-       android:layout_alignParentRight="true"
-    
+       android:layout_width="fill_parent"
+         android:layout_height="0px"
+       android:layout_weight="10"
        android:gravity="center"
        android:orientation="horizontal" >
-
-       <LinearLayout
-           android:id="@+id/linearLayout1"
-           android:layout_width="wrap_content"
+           
+		<LinearLayout
+           android:id="@+id/linearLayout7"
+           android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:layout_marginTop="5dp"
            android:layout_weight="1"
            android:background="@drawable/roundbutton"
            android:gravity="center"
            android:orientation="vertical" >
-
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginBottom="5dp"
-               android:layout_marginTop="5dp"
-               android:layout_weight="1" >
-
-               <TextView
-                   android:id="@+id/buttonCamera"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_weight="1"
-                   android:onClick="buttonCamera2"
-                   android:text="Medelutnyttjande"
-                   android:textSize="18sp" />
-
-               <TextView
-                   android:id="@+id/textmedeluse"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:hint="Error"
-                   android:inputType="number"
-                   android:textSize="20sp"
-                   android:layout_marginRight="5dp"  />
-           </LinearLayout>
-
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginBottom="5dp"
-               android:layout_marginTop="5dp"
-               android:layout_weight="1" >
-
-               <TextView
-                   android:id="@+id/TextView02"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_weight="1"
-                   android:onClick="buttonCamera2"
-                   android:text="Maxutnyttjande"
-                   android:textSize="18sp" />
-
-               <TextView
-                   android:id="@+id/textmaxused"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:hint="Error"
-                   android:inputType="number"
-                   android:textSize="20sp"
-                   android:layout_marginRight="5dp"  />
-           </LinearLayout>
-
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginBottom="5dp"
-               android:layout_marginTop="5dp"
-               android:layout_weight="1" >
-
-               <TextView
-                   android:id="@+id/TextView02"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_weight="1"
-                   android:onClick="buttonCamera2"
-                   android:text="Minst utnyttjande"
-                   android:textSize="18sp" />
-
-               <TextView
-                   android:id="@+id/textminuse"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:hint="Error"
-                   android:inputType="number"
-                   android:textSize="20sp"
-                   android:layout_marginRight="5dp"  />
-           </LinearLayout>
-
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginBottom="5dp"
-               android:layout_marginTop="5dp"
-               android:layout_weight="1" >
-
-               <TextView
-                   android:id="@+id/TextView03"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_weight="1"
-                   android:onClick="buttonCamera2"
-                   android:text="Ideer?"
-                   android:textSize="18sp" />
-
-               <TextView
-                   android:id="@+id/textyesterday"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:hint="Error"
-                   android:inputType="number"
-                   android:textSize="20sp"
-                   android:layout_marginRight="5dp" />
-           </LinearLayout>
-       </LinearLayout>
+       
+      </LinearLayout>
 
        <LinearLayout
            android:id="@+id/linearLayout2"
            android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
+           android:layout_height="match_parent"
            android:gravity="right|top"
            android:orientation="vertical"
            	android:layout_marginTop="5dp" >
@@ -173,89 +61,75 @@
            <Button
                android:id="@+id/buttonAllTime"
                android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
+               android:layout_height="match_parent"
                android:background="@drawable/roundbuttonpurple"
+               android:layout_weight="1"
                android:text="Alltime"
-               android:textSize="12sp" />
+               android:textSize="12sp"
+       />
 
            <Button
                android:id="@+id/buttonYear"
                android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:layout_height="match_parent"
                android:background="@drawable/roundbuttonpurple"
                android:text="Last year"
-               android:textSize="12sp" />
+               android:textSize="12sp"
+             />
 
            <Button
                android:id="@+id/buttonMonth"
                android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:layout_height="match_parent"
                android:background="@drawable/roundbuttonpurple"
                android:text="Last Month"
-               android:textSize="12sp" />
+               android:textSize="12sp"
+         />
 
            <Button
                android:id="@+id/buttonWeek"
                android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:layout_height="match_parent"
                android:background="@drawable/roundbuttonpurple"
                android:onClick="onClick"
                android:text="Last week"
-               android:textSize="12sp" />
+               android:textSize="12sp"
+             />
 
            <Button
                android:id="@+id/buttonYesterday"
                android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:layout_height="match_parent"
                android:background="@drawable/roundbuttonpurple"
                android:onClick="onClick"
                android:text="Yesterday"
-               android:textSize="12sp" />
+               android:textSize="12sp"
+    />
        </LinearLayout>
    </LinearLayout>
    
    <LinearLayout
      android:id="@+id/linearLayout10"
-        android:layout_below="@+id/linearLayout5"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:layout_alignParentLeft="true"
+
+     android:layout_width="match_parent"
+      android:layout_height="30dp"
 	android:layout_marginTop="5dp"
      android:background="@drawable/roundbutton"
      android:gravity="center"
+    
       android:orientation="vertical"  >
     </LinearLayout>
-  <LinearLayout
-     android:id="@+id/linearLayout3"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-      android:layout_below="@+id/linearLayout10"
-     android:layout_alignParentLeft="true"
-     android:orientation="vertical" 
-     android:layout_marginTop="5dp"
-     android:textSize="16sp"
-     android:background="@drawable/roundbutton" >
-
-     <TextView
-         android:id="@+id/buttonCamera"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_marginTop="5dp"
-         android:layout_marginBottom="5dp"
-		 android:layout_weight="1"
-         android:onClick="buttonCamera2"
-         android:text="Or set specific dates" />
-
-
- </LinearLayout>
+  
    
  <LinearLayout
      android:id="@+id/linearLayout6"
      android:layout_width="fill_parent"
      android:layout_height="wrap_content"
-     android:layout_alignParentLeft="true"
-     android:layout_below="@+id/linearLayout3"
+
      android:background="@drawable/roundbutton"
      android:gravity="center" >
 
@@ -278,7 +152,7 @@
          
          android:layout_weight="1"
          android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
+         android:layout_height="match_parent"
          android:text="EndDate"
           android:textSize="16sp"
           android:gravity="center"
@@ -289,10 +163,104 @@
 
    
  </LinearLayout>
+<ScrollView 
+     android:layout_width="match_parent"
+       android:layout_height="0px"
+       android:layout_weight="5">
+ <LinearLayout
+     android:id="@+id/linearLayout1"
+     android:layout_width="match_parent"
+ 	android:layout_height="fill_parent"
+   
+     android:layout_marginTop="5dp"
+ 		android:layout_marginBottom="5dp"
+
+     android:background="@drawable/roundbutton"
+     android:gravity="center"
+     android:orientation="vertical" >
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="0px"
+               android:layout_marginBottom="5dp"
+               android:layout_marginTop="5dp"
+               android:layout_weight="1" >
+
+               <TextView
+                   android:id="@+id/buttonCamera"
+                   android:layout_width="0dip"
+                   android:layout_height="wrap_content"
+                   android:onClick="buttonCamera2"
+                   android:layout_weight="1"
+                   android:text="Medelutnyttjande"
+                   android:textSize="18sp" />
+
+               <TextView
+                   android:id="@+id/textmedeluse"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:hint="Error"
+                   android:inputType="number"
+                   android:textSize="20sp"
+                   android:layout_marginRight="5dp"  />
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="0px"
+               android:layout_marginBottom="5dp"
+               android:layout_marginTop="5dp"
+               android:layout_weight="1" >
+
+               <TextView
+                   android:id="@+id/TextView02"
+                   android:layout_width="0dip"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:onClick="buttonCamera2"
+                   android:text="Maxutnyttjande"
+                   android:textSize="18sp" />
+
+               <TextView
+                   android:id="@+id/textmaxused"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:hint="Error"
+                   android:inputType="number"
+                   android:textSize="20sp"
+                   android:layout_marginRight="5dp"  />
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               android:layout_marginBottom="5dp"
+               android:layout_marginTop="5dp"
+               android:layout_weight="1" >
+
+               <TextView
+                   android:id="@+id/TextView02"
+                   android:layout_width="0dip"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:onClick="buttonCamera2"
+                   android:text="Minst utnyttjande"
+                   android:textSize="18sp" />
+
+               <TextView
+                   android:id="@+id/textminuse"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:hint="Error"
+                   android:inputType="number"
+                   android:textSize="20sp"
+                   android:layout_marginRight="5dp"  />
+           </LinearLayout>
 
 
+       </LinearLayout>
 
-
-
-</RelativeLayout>
 </ScrollView>
+
+
+</LinearLayout>

@@ -8,7 +8,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-public class DatabaseStatistics {
+public class DatabaseCost {
 	Database database;
 	float max = 0;
 	float min = 100000;
@@ -16,9 +16,10 @@ public class DatabaseStatistics {
 	float medel = 0;
 	ArrayList<Float> databasearray = new ArrayList<Float>();
 	Calendar c; 
+	float variablecost;
 	float allMax = 0;
 	
-	public DatabaseStatistics(){
+	public DatabaseCost(){
 		database = new Database();
 		databasearray = database.getAll();
 		c = Calendar.getInstance(); 
@@ -35,7 +36,6 @@ public class DatabaseStatistics {
 		this.fast = fast;
 		
 	}
-	
 	float fastcost;
 	public void setCost(int days){
 		variablecost =0;
@@ -62,35 +62,7 @@ public class DatabaseStatistics {
 		}
 	}
 	
-	private void setStastic(int days){
-		max = 0;
-		min = databasearray.get(0);
-		medel = 0;
-		totalsum = 0;
-		int i = 0;
-		for(float l: databasearray){
-			if(l > max){
-				max = l;
-			}
-			if(l < min){
-				min = l;
-			}
-			totalsum += l;
-			i++;
-			if(days == i){
-				break;
-			}
-		}
-		if(i == days){
-			medel =totalsum/days;
-		}
-		else{
-		medel = totalsum/databasearray.size();}
-		if(max > allMax){
-			allMax = max;
-		}
-		
-	}
+
 	
 	
 	public float getMedel(){
@@ -114,26 +86,10 @@ public class DatabaseStatistics {
 	}
 	
 	public float getAllMax() {
-		
 		return allMax;
 	}
 
-	float variablecost;
-	public float getCost(float add){
-		variablecost =0;
-		Log.d("Hej", "SetTextViews6");
-		//Add the cost to add here 
-		int i = 0;
-		for(float l : databasearray){
-			variablecost += l * add;
-			i++;
-			if(i == 365){
-				break;
-			}
-		}
-		Log.d("Hej", "SetTextViews7");
-		return variablecost;
-	}
+	
 	
 	public float getVariableCost(){
 		return variablecost;
@@ -145,35 +101,39 @@ public class DatabaseStatistics {
 	}
 
 	public void setThisMonth() {
-		setStastic(31);
+		setCost(31);
 		
 	}
 
 	public void setThisYear() {
-		setStastic(365);
+		setCost(365);
 		
 	}
 
 	public void setThisWeek() {
-		setStastic(7);
+		setCost(7);
 		
 	}
 
 	public void setThisYesterday() {
-		setStastic(1);
+		setCost(1);
 		
 	}
 
 	public void setThisAllTime() {
-		setStastic(1000000000);
+		setCost(1000000000);
 		
 	}
 
 	public void setThisSpecificTime(int daysBetween) {
-		setStastic(daysBetween);
+		setCost(daysBetween);
 		
 	}
 
+
+
+
+	
 
 	
 

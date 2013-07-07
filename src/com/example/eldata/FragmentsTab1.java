@@ -11,6 +11,8 @@ import com.example.eldata.RangeSeekBar.OnRangeSeekBarChangeListener;
 import com.example.eldata.rest.Database;
 import com.example.eldata.rest.DatabasePrice;
 import com.example.eldata.rest.DatabaseStatistics;
+import com.example.eldata.rest.Graph;
+import com.example.eldata.rest.GraphUse;
 
 
 
@@ -29,6 +31,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
@@ -89,7 +92,8 @@ public class FragmentsTab1 extends Fragment implements ActionBar.TabListener ,On
 		    textStartDate.setOnClickListener(this);
 		    textEndDate.setOnClickListener(this);
 		 // create RangeSeekBar as Date range between 1950-12-01 and now
-		    
+		//    Button buttonSwitch = (Button) getActivity().findViewById( R.id.switch1);
+		//    buttonSwitch.setOnClickListener(this);
 		    
 		    try {
 				setDatePickerListener();
@@ -97,16 +101,25 @@ public class FragmentsTab1 extends Fragment implements ActionBar.TabListener ,On
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		   View view = getActivity().findViewById(R.id.relativelayout1);	   
+		   View view = getActivity().findViewById(R.id.linearLayout9);	   
 		   view.setOnTouchListener(this);
+		   stastistics.setThisAllTime();
+			  setStartAndEndDate(minDate,
+		  				Calendar.getInstance().getTime());
+			  
+		  graph = new GraphUse(getActivity());
+		  graph.setTime(stastistics.getMedel(),stastistics.getMax() , stastistics.getMin(),stastistics.getAllMax());
+		   graphview = (LinearLayout) getActivity().findViewById(R.id.linearLayout7);
+		   graphview.addView(graph);
 		   
-		   
-		 
+			TextView textB = (TextView) getActivity().findViewById(R.id.switch1);
+        	textB.setOnClickListener(this);
+        	
     }
   
 
-    
-    
+    LinearLayout graphview;
+    GraphUse graph;
     
     
     
@@ -134,7 +147,9 @@ private void setDatePickerListener() throws ParseException {
                 	textEndDate.setText(endcalendar.get(Calendar.YEAR) + "-" + (endcalendar.get(Calendar.MONTH) + 1)+ "-" + endcalendar.get(Calendar.DAY_OF_MONTH));
                 	
                 	setStastics(startvalue,endvalue);
-               
+                	createNewGraph();
+                	
+                
                 	
             }
 
@@ -175,6 +190,12 @@ public void setStartAndEndDate(Date startdate,Date enddate){
 					endcalendar.get(Calendar.DAY_OF_MONTH));
 }
 
+private void createNewGraph(){
+	// graphview.removeAllViews();
+	  graph.drawNew(stastistics.getMedel(),stastistics.getMax() , stastistics.getMin());
+	//  graph.setTime(stastistics.getMedel(),stastistics.getMax() , stastistics.getMin());
+	 // graphview.addView(graph);
+}
 public void onClick(View v) {
 	long ett = 3600 * 24;
 	long två = 31*1000;
@@ -184,11 +205,17 @@ public void onClick(View v) {
 	 long currentTime = startcalendar.getTime().getTime();
 	 
 	  switch(v.getId()){
-	  
+	  case R.id.switch1:
+		  Tab tab = getActivity().getActionBar().getTabAt(1);
+		  tab.setTabListener(new FragmentsTab2());
+		  tab.select();	
+		  break;
+		  
 	  case R.id.buttonAllTime:
 		  stastistics.setThisAllTime();
 		  setStartAndEndDate(minDate,
 	  				Calendar.getInstance().getTime());
+		  createNewGraph();
 		  break;
 	  
 	  case R.id.buttonYear:
@@ -198,6 +225,7 @@ public void onClick(View v) {
 		  long date = currentTime - minus;
 	      setStartAndEndDate(new Date(date),
 	  				Calendar.getInstance().getTime());
+	      createNewGraph();
 	       break;
 	  
 	  case R.id.buttonMonth:
@@ -208,12 +236,14 @@ public void onClick(View v) {
 
 		  setStartAndEndDate(new Date(date1),
 				  				Calendar.getInstance().getTime());
+		  createNewGraph();
 	       break;
 
 	  case R.id.buttonWeek: 
 		  stastistics.setThisWeek();
 		  setStartAndEndDate(new Date(currentTime - (60 * 60 * 24 * 7* 1000)),
 	  				Calendar.getInstance().getTime());
+		  createNewGraph();
 	
 	       break;
 	       
@@ -221,6 +251,7 @@ public void onClick(View v) {
 		  stastistics.setThisYesterday();
 		  setStartAndEndDate(new Date(currentTime - (60 * 60 * 24*1000)),
 	  				Calendar.getInstance().getTime());
+		  createNewGraph();
 	       break;
 	  case R.id.textStartDate:
 		    startdate = new DatePickerFragment(this);
@@ -246,6 +277,9 @@ public void onClick(View v) {
 	  }
 
 
+
+
+
 @Override
 public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3){
 	Calendar temp = Calendar.getInstance();
@@ -261,7 +295,8 @@ public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3){
 			startcalendar = temp;
 			textStartDate.setText(startcalendar.get(Calendar.YEAR) + "-" + (startcalendar.get(Calendar.MONTH)  + 1)+   "-" + startcalendar.get(Calendar.DAY_OF_MONTH) );
 			setStastics(startcalendar.getTime(),
-					endcalendar.getTime());}
+					endcalendar.getTime());
+			 createNewGraph();}
 		else{
 			//Send error message
 		}}
@@ -271,7 +306,8 @@ public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3){
 
 			textEndDate.setText(endcalendar.get(Calendar.YEAR) + "-" + (endcalendar.get(Calendar.MONTH) + 1) + "-" + endcalendar.get(Calendar.DAY_OF_MONTH) );
 			setStastics(startcalendar.getTime(),
-					endcalendar.getTime());}
+					endcalendar.getTime());
+			 createNewGraph();}
 		else{
 			//Send error message
 		}}}

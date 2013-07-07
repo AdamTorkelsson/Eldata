@@ -1,7 +1,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/relativelayout1"
      android:layout_width="wrap_content"
-     android:layout_height="wrap_content" >
+     android:layout_height="wrap_content" 
+     android:scrollHorizontally="false">
      
 
 
@@ -12,35 +13,6 @@
     android:background="#F0F0F0"
    >
 
- <LinearLayout
-     android:id="@+id/linearLayout1"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_alignParentLeft="true"
-     android:orientation="vertical" 
-     android:layout_marginTop="5dp"
-     android:background="@drawable/roundbutton" >
-
- 
-
-     <TextView
-         android:id="@+id/textmedeluse"
-         android:inputType="number"
-         android:layout_weight="1"
-         android:gravity="center"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:layout_marginTop="5dp"
-         android:layout_marginBottom="5dp"
-         android:textSize="20dp"
-          android:hint="Här får du 39 spartips"
-
-          />
-
-
-
- </LinearLayout>
  
    <LinearLayout
      android:id="@+id/linearLayout2"
@@ -51,7 +23,7 @@
      android:layout_alignParentLeft="true"
      android:orientation="vertical" 
      android:layout_marginTop="5dp"
-     android:background="@drawable/roundbutton" >
+     android:background="@drawable/roundbuttonpurple" >
 
  
 
@@ -60,12 +32,11 @@
          android:inputType="number"
          android:layout_weight="1"
          android:gravity="center"
-          android:layout_marginTop="5dp"
-           android:layout_marginBottom="5dp"
+
          android:layout_width="fill_parent"
          android:layout_height="wrap_content"
          android:textSize="20dp"
-          android:hint="UPPVÄRMNING"
+          android:text="UPPVÄRMNING"
  />
 
  </LinearLayout>
@@ -82,16 +53,21 @@
      android:layout_marginTop="5dp"
      android:background="@drawable/roundbutton" >
 
- 
-
      <TextView
          android:id="@+id/textmedeluse"
-         android:inputType="number"
-         android:layout_weight="1"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
+
+
          android:textSize="16dp"
-          android:hint="
+
+		
+		android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:ellipsize="none"
+android:singleLine="false"
+		
+		
+		
+          android:text="
 3 Sänk värmen när du åker bort.\n
 4 Stäng dörrar till rum som inte används till vardags.\n
 5 Hitta tjuvdragen. Täta fönster och dörrar.\n"
@@ -107,19 +83,22 @@
      android:layout_alignParentLeft="true"
      android:orientation="vertical" 
      android:layout_marginTop="5dp"
-     android:background="@drawable/roundbutton" >
+     android:background="@drawable/roundbuttonpurple" >
 
  
 
      <TextView
          android:id="@+id/textmedeluse"
-         android:inputType="number"
-         android:layout_weight="1"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
+
          android:textSize="20dp"
          android:gravity="center"
-          android:hint="KÖKET" />
+          android:text="KÖKET" 
+          
+          		android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:ellipsize="none"
+android:singleLine="false"
+		/>
 
 
 
@@ -138,10 +117,12 @@
 
      <TextView
          android:id="@+id/textmedeluse"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:hint="
-6 Fyll diskmaskin.\n
+        android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:ellipsize="none"
+android:singleLine="false"
+         
+         android:text= "6 Fyll diskmaskin.\n
 7 Skrapa tallrikarna rena i stället för att skölja.\n
 8 Anslut maskinen till kallvatten.\n
 9 Diska på max 55 grader.\n
@@ -158,7 +139,7 @@
 20 Frosta av frysen. Perfekt när det är kallt ute!\n
 21 Byt ut gammal kyl och frys. Cirkel: Är de äldre än 15 år kan dra dubbelt så mycket som en ny i A-klass.\n
         "
-         android:inputType="number"
+
          android:textSize="16dp" />
 
  </LinearLayout>
@@ -172,7 +153,7 @@
      android:layout_alignParentLeft="true"
      android:orientation="vertical" 
      android:layout_marginTop="5dp"
-     android:background="@drawable/roundbutton" >
+     android:background="@drawable/roundbuttonpurple" >
 
  
 
@@ -182,10 +163,37 @@
          android:layout_weight="1"
          android:layout_width="fill_parent"
          android:layout_height="wrap_content"
+         android:gravity="center"
+         android:textSize="20dp"
+          android:text="TVÄTTEN"
+
+          />
+
+
+
+ </LinearLayout>
+ 
+  <LinearLayout
+     android:id="@+id/linearLayout13"
+     android:layout_below="@+id/linearLayout4"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:gravity="center"
+     android:layout_alignParentLeft="true"
+     android:orientation="vertical" 
+     android:layout_marginTop="5dp"
+     android:background="@drawable/roundbutton" >
+
+ 
+
+ <TextView
+         android:id="@+id/textmedeluse"
+        android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:ellipsize="none"
+android:singleLine="false"
          android:textSize="16dp"
-          android:hint="
-TVÄTTEN\n
-22 Vädra kläder i stället för tvätta. (Förlänger dessutom livet på kläderna.)\n
+          android:text="22 Vädra kläder i stället för tvätta. (Förlänger dessutom livet på kläderna.)\n
 23 Fyll tvättmaskinen. Cirkel: En halvfull maskin drar nästan lika mycket som en full.\n
 24 Tvätta i 40 grader i stället för 60. Cirkel: Spara närapå hälften av den energi som går åt genom att sänka från 60 till 40.\n
 25 Centrifugera ordentligt, minst 1000 varv per minut.\n
@@ -198,16 +206,17 @@ TVÄTTEN\n
 
  </LinearLayout>
  
+ 
   <LinearLayout
      android:id="@+id/linearLayout5"
-     android:layout_below="@+id/linearLayout4"
+     android:layout_below="@+id/linearLayout13"
      android:layout_width="fill_parent"
      android:layout_height="wrap_content"
      android:gravity="center"
      android:layout_alignParentLeft="true"
      android:orientation="vertical" 
      android:layout_marginTop="5dp"
-     android:background="@drawable/roundbutton" >
+     android:background="@drawable/roundbuttonpurple" >
 
  
 
@@ -215,24 +224,22 @@ TVÄTTEN\n
          android:id="@+id/textmedeluse"
          android:inputType="number"
          android:layout_weight="1"
+           android:gravity="center"
          android:layout_width="fill_parent"
          android:layout_height="wrap_content"
-         android:textSize="16dp"
-          android:hint="
-LAMPOR\n
-28 Sätt lamporna på timer om du ofta glömmer att släcka eller vill ha tänt när du kommer hem.\n
-29 Dra ur kontakten till halogenlampans transformator när du släcker lampan.\n
-30 Använd dimmer.\n
-31 Montera lampa med inbyggd rörelsesensor utanför garaget.\n
-32 Tänd ljus i stället för lampor och du får hög mysfaktor på köpet.\n"
+         android:textSize="20dp"
+          android:text="LAMPOR"
 
           />
 
 
 
  </LinearLayout>
+ 
+  
+  
    <LinearLayout
-       android:id="@+id/linearLayout6"
+     android:id="@+id/linearLayout14"
      android:layout_below="@+id/linearLayout5"
      android:layout_width="fill_parent"
      android:layout_height="wrap_content"
@@ -244,22 +251,80 @@ LAMPOR\n
 
  
 
+ <TextView
+         android:id="@+id/textmedeluse"
+        android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:ellipsize="none"
+android:singleLine="false"
+         android:textSize="16dp"
+          android:text="
+28 Sätt lamporna på timer om du ofta glömmer att släcka eller vill ha tänt när du kommer hem.\n
+29 Dra ur kontakten till halogenlampans transformator när du släcker lampan.\n
+30 Använd dimmer.\n
+31 Montera lampa med inbyggd rörelsesensor utanför garaget.\n
+32 Tänd ljus i stället för lampor och du får hög mysfaktor på köpet.\n"
+
+          />
+
+
+
+ </LinearLayout>
+  
+  
+  
+  
+  
+ 
+    <LinearLayout
+       android:id="@+id/linearLayout12"
+     android:layout_below="@+id/linearLayout14"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:gravity="center"
+     android:layout_alignParentLeft="true"
+     android:orientation="vertical" 
+     android:layout_marginTop="5dp"
+     android:background="@drawable/roundbuttonpurple" >
+
+ 
+
      <TextView
          android:id="@+id/textmedeluse"
          android:inputType="number"
          android:layout_weight="1"
          android:layout_width="fill_parent"
          android:layout_height="wrap_content"
+         android:textSize="20dp"
+           android:gravity="center"
+          android:text="BADRUMMET"         />
+
+ </LinearLayout>
+ 
+   <LinearLayout
+       android:id="@+id/linearLayout6"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:layout_alignParentLeft="true"
+       android:layout_below="@+id/linearLayout12"
+       android:layout_marginTop="5dp"
+       android:background="@drawable/roundbutton"
+       android:gravity="center"
+       android:orientation="vertical" >
+
+ <TextView
+         android:id="@+id/textmedeluse"
+        android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:ellipsize="none"
+android:singleLine="false"
          android:textSize="16dp"
-          android:hint="
-BADRUMMET\n
+          android:text="
 33 Byt dåliga packningar. Cirkel: Varmvatten som droppar kan kosta många hundra om året.\n
 34 Byt till snålspolande duschmunsstycke och kranar.\n
 35 Stäng av handdukstorken när badlakanet har torkat.\n
 36 Duscha i stället för bada och allra helst: duscha snabbt. Cirkel: En tiominutersdusch om dagen kan kosta upp till 2 000 kr per år!\n
  "         />
-
-
 
  </LinearLayout>
   <LinearLayout
@@ -271,7 +336,7 @@ BADRUMMET\n
      android:layout_alignParentLeft="true"
      android:orientation="vertical" 
      android:layout_marginTop="5dp"
-     android:background="@drawable/roundbutton" >
+     android:background="@drawable/roundbuttonpurple" >
 
  
 
@@ -281,9 +346,37 @@ BADRUMMET\n
          android:layout_weight="1"
          android:layout_width="fill_parent"
          android:layout_height="wrap_content"
+         android:textSize="20dp"
+         android:gravity="center"
+          android:text="SIST MEN INTE MINST"
+
+          />
+
+
+
+ </LinearLayout>
+
+   <LinearLayout
+       android:id="@+id/linearLayout8"
+     android:layout_below="@+id/linearLayout7"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:gravity="center"
+     android:layout_alignParentLeft="true"
+     android:orientation="vertical" 
+     android:layout_marginTop="5dp"
+     android:background="@drawable/roundbutton" >
+
+ 
+
+ <TextView
+         android:id="@+id/textmedeluse"
+        android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:ellipsize="none"
+android:singleLine="false"
          android:textSize="16dp"
-          android:hint="
-SIST MEN INTE MINST\n
+          android:text="
 37 Använd timer på motorvärmaren. 90 minuter räcker vid 15 minuter.\n
 38 Stäng av standby. Tänk på att tv:n och laddaren till tandborste och mobil drar el även om de inte används.\n
 39 Köp sladdosa (grenuttag) med avstängningsknapp.\n
@@ -294,7 +387,6 @@ SIST MEN INTE MINST\n
 
 
  </LinearLayout>
-
 
      
 </RelativeLayout>
