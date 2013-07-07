@@ -219,10 +219,20 @@ public void onClick(View v) {
 	 
 	  switch(v.getId()){
 	  case R.id.switch1:
-		     mFragment = new FragmentsTab1();
+		    
 		        // Attach fragment1.xml layout
+		        ft.remove(mFragment);
+		        mFragment = new FragmentsTab1();
+		        ft.add(fragment, tag)
 		        
+		        mFragment = new FragmentsTab2();
+		        // Attach fragment1.xml layout
+		        ft.add(android.R.id.content, mFragment);
+		       this.ft = ft;
+		        ft.setCustomAnimations(R.anim.map_in,R.anim.other_in);
 		        ft.attach(mFragment);
+		        
+		        
 		  break;
 		  
 	  case R.id.buttonAllTime:
@@ -337,8 +347,6 @@ private void setTextViews(float medel,float max , float min , float yesterday){
 		
 		TextView textminuse = (TextView) getActivity().findViewById(R.id.textminuse);
 		textminuse.setText(String.format("%.2f", min) + " kr" );
-		
-
 		
 		
 	}
