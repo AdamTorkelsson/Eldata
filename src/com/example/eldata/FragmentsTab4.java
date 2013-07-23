@@ -1,5 +1,7 @@
 package com.example.eldata;
  
+import java.util.Calendar;
+
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,10 +12,16 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.view.View.OnTouchListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 import android.app.ActionBar.Tab;
+import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ActionBar;
@@ -22,7 +30,7 @@ import android.content.SharedPreferences;
  
 public class FragmentsTab4 extends Fragment 
 implements ActionBar.TabListener, OnTouchListener,
-OnClickListener,OnKeyListener{
+OnClickListener,OnKeyListener, OnDateSetListener, OnItemSelectedListener{
  
     private static final String PREFS_NAME = "UserInfo";
 	private Fragment mFragment;
@@ -43,7 +51,8 @@ OnClickListener,OnKeyListener{
 	private ToggleButton tooglehighbill;
 	private ToggleButton tooglehighprice;
 	private ToggleButton tooglehighuse;
-	
+	private TextView textDate;
+	private Spinner spinner;
 	private SharedPreferences settings;
 	private SharedPreferences.Editor editor;
 	
@@ -65,22 +74,32 @@ OnClickListener,OnKeyListener{
 		   texthighbill = (EditText) getActivity().findViewById(R.id.textHighBill);
 		   texthighprice = (EditText) getActivity().findViewById(R.id.textHighPrice);
 		   texthighuse = (EditText) getActivity().findViewById(R.id.textHighUse);
-		   tooglehighbill = (ToggleButton) getActivity().findViewById(R.id.booleanHighBill);
-		   tooglehighprice = (ToggleButton) getActivity().findViewById(R.id.booleanHighPrice);
-		   tooglehighuse = (ToggleButton) getActivity().findViewById(R.id.booleanHighUse);
+		   
 		   textfast.setOnKeyListener(this);
 		   textadd.setOnKeyListener(this);
 		   texthighbill.setOnKeyListener(this);
 		   texthighprice.setOnKeyListener(this);
 		   texthighuse.setOnKeyListener(this);
-		
+		   
+		   textDate = (TextView) getActivity().findViewById(R.id.textDate);
+		   textDate.setOnClickListener(this);
+		   
+		   tooglehighbill = (ToggleButton) getActivity().findViewById(R.id.booleanHighBill);
+		   tooglehighprice = (ToggleButton) getActivity().findViewById(R.id.booleanHighPrice);
+		   tooglehighuse = (ToggleButton) getActivity().findViewById(R.id.booleanHighUse); 
 		   tooglehighbill.setOnClickListener(this);
 		   tooglehighprice.setOnClickListener(this);
 		   tooglehighuse.setOnClickListener(this);
 		   
+		   spinner = (Spinner) getActivity().findViewById(R.id.spinner1);
+		   spinner.setOnItemSelectedListener(this);
+		
+		  
 		   settings = getActivity().getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
 		   editor = settings.edit();
 		   
+		   spinner.setSelection(settings.getInt("PeriodNumber", 0));
+		   textDate.setText("" + settings.getInt("billDateYear", 0) +"-" +  (settings.getInt("billDateMonth", 0)+1) +"-" +  settings.getInt("billDateDay", 0));
 		   textfast.setText(settings.getString("FastPris", ""));
 		   textadd.setText(settings.getString("Add", ""));
 		   texthighbill.setText(settings.getString("highbill", ""));
@@ -91,15 +110,18 @@ OnClickListener,OnKeyListener{
 		  tooglehighprice.setChecked(settings.getBoolean("highpricetoogle",false));
 		  tooglehighuse.setChecked(settings.getBoolean("highusetoogle",false));
 			
-		  
-		  
+		 
     }
- 
+    
+ DatePickerFragment date;
 	@Override
 	public void onClick(View arg0) {
 	
 		switch(arg0.getId()){
-
+		case R.id.textDate:
+			date = new DatePickerFragment(this);
+		    date.show(getFragmentManager(), "Date");
+		    break;
 		case R.id.booleanHighBill:
 			editor.putBoolean("highbilltoogle", tooglehighbill.isChecked());
 			break;
@@ -247,6 +269,66 @@ OnClickListener,OnKeyListener{
 	int startY = 0;
 	int endX = 0;
 	int endY = 0;
+
+	@Override
+	public void onDateSet(DatePicker view, int year, int monthOfYear,int dayOfMonth) {
+		
+		editor.putInt("billDateYear", year);
+		editor.putInt("billDateMonth", monthOfYear);
+		editor.putInt("billDateDay", dayOfMonth);
+		editor.commit();
+		Log.d("ÅRMÅNADDAG", "ÅRMÅNADDAG" + year + monthOfYear + dayOfMonth);
+		Log.d("ÅRMÅNADDAG", "ÅRMÅNADDAG" 
+		+ settings.getInt("billDateMonth", 0));
+		
+		textDate.setText("" + year +"-" +  (monthOfYear + 1) +"-" +  dayOfMonth);
+		
+		
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	@Override
+	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
+			long arg3) {
+		
+		String s = (String) arg0.getItemAtPosition(arg2);
+			Log.d("FARBROR", "Månad" + s);
+			
+		editor.putString("Period", s);
+		editor.putInt("PeriodNumber", arg2);
+		editor.commit();
+		
+		
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 
 
 

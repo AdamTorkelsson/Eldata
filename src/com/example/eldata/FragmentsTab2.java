@@ -35,6 +35,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
@@ -98,8 +99,8 @@ public class FragmentsTab2 extends Fragment implements ActionBar.TabListener ,On
 		    Button buttonWeek = (Button) getActivity().findViewById(R.id.buttonWeek);
 		    Button buttonYesterday = (Button) getActivity().findViewById(R.id.buttonYesterday);
 		    Button buttonYear = (Button) getActivity().findViewById(R.id.buttonYear);
-		    TextView buttonSwitch = (TextView) getActivity().findViewById( R.id.switch1);
-			 buttonSwitch.setOnClickListener(this);
+		    Spinner buttonSpinner= (Spinner) getActivity().findViewById( R.id.switch1);
+			
 		    buttonAllTime.setOnClickListener(this);
 		    buttonMonth.setOnClickListener(this);
 		    buttonWeek.setOnClickListener(this);
@@ -223,7 +224,7 @@ public void onClick(View v) {
 		        // Attach fragment1.xml layout
 		        ft.remove(mFragment);
 		        mFragment = new FragmentsTab1();
-		        ft.add(fragment, tag)
+		        
 		        
 		        mFragment = new FragmentsTab2();
 		        // Attach fragment1.xml layout

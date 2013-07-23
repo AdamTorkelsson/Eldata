@@ -92,7 +92,9 @@ public class DatabaseStatistics {
 		
 	}
 	
-	
+	public float getTotalSum(){
+		return totalsum;
+	}
 	public float getMedel(){
 		return medel;
 	}

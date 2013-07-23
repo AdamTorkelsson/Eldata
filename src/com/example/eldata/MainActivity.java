@@ -19,6 +19,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
  
 public class MainActivity extends Activity {
     protected static final String PREFS_NAME = "UserInfo";
@@ -48,15 +49,14 @@ public class MainActivity extends Activity {
         actionBar.setDisplayShowCustomEnabled(true);
         // Create Actionbar Tabs
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-       
-
+        actionBar.setCustomView(R.layout.tablayout);
         ftab1 = new FragmentsTab5();
         
         // Create first Tab
         tab1 = actionBar.newTab().setTabListener(ftab1);
         // Create your own custom icon
         tab1.setText("Home");
-      
+        
         actionBar.addTab(tab1);
  
         // Create Second Tab

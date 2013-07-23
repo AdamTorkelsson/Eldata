@@ -5,63 +5,7 @@
     android:background="#F0F0F0"
     android:orientation="vertical" >
 
-      <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-     
-        android:layout_marginTop="5dp"
-        
-        android:gravity="left"
-        android:orientation="horizontal" >
-        
-    <LinearLayout
-        android:id="@+id/linearLayout11"
-        android:layout_width="0px"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_weight="1"
-        android:background="@drawable/roundbutton"
-        android:gravity="center|center_horizontal"
-        android:orientation="vertical" >
-
-                <TextView
-            android:id="@+id/textView1"
-			android:layout_width="wrap_content"
-
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-                     android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="Nuvarande"
-            android:textSize="18sp"/>
-        
-           </LinearLayout>
-
-           <LinearLayout
-               android:id="@+id/linearLayout11"
-               android:layout_width="0px"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="5dp"
-               android:layout_weight="1"
-               android:background="@drawable/roundbutton"
-               android:gravity="center_horizontal|center_vertical"
-               android:orientation="vertical" >
-
-                <TextView
-            android:id="@+id/textView1"
-			android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="Förra"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:textSize="18sp"/>
-        
-           </LinearLayout>
-           
-         </LinearLayout>  
+  
        <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
@@ -81,7 +25,44 @@
         android:background="@drawable/roundbutton"
         android:gravity="left"
         android:orientation="vertical" >
-  	
+  	  	<LinearLayout
+  	    android:id="@+id/linearLayout111"
+  	    android:layout_width="fill_parent"
+  	    android:layout_height="0px"
+  	    android:layout_marginTop="5dp"
+  	    android:layout_weight="1"
+  	    android:gravity="center_vertical"
+  	    android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView1"
+			android:layout_width="0dip"
+
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Used"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/textUse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:hint="Error" 
+            android:layout_marginRight="5dp"/>
+        
+                <TextView
+            android:id="@+id/textUse2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:hint="Error" 
+            
+            android:layout_marginRight="5dp"/>
+            
+          </LinearLayout>  
+          
   	<LinearLayout
   	    android:id="@+id/linearLayout111"
   	    android:layout_width="fill_parent"
@@ -102,7 +83,15 @@
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textBill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:hint="Error" 
+            android:layout_marginRight="5dp"/>
+        
+        <TextView
+            android:id="@+id/textBill2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="right"
@@ -111,6 +100,9 @@
             
           </LinearLayout>  
           
+  	
+  
+  	
   	  	<LinearLayout
         android:id="@+id/linearLayout112"
         android:layout_width="fill_parent"
@@ -133,7 +125,7 @@
                 android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textDayLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="right"
@@ -161,12 +153,13 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textUppskattadSlutsumma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="right"
             android:hint="Error" 
             android:layout_marginRight="5dp"/>
+        
           </LinearLayout>  
           
   	  	  	  	<LinearLayout
@@ -190,104 +183,49 @@
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textSnitt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="right"
             android:hint="Error" 
             android:layout_marginRight="5dp"/>
+        
+        
           </LinearLayout>  
           
-  	  	  	  	
-  	  	  	  	
-  	  	  	  	
-  	  	  	  	
-  	  	  	  	
-    </LinearLayout>
-
-      <LinearLayout
-          android:id="@+id/linearLayout12"
-          android:layout_width="0px"
-          android:layout_height="fill_parent"
-          android:layout_marginTop="5dp"
-          android:layout_weight="1"
-          android:background="@drawable/roundbutton"
-          android:gravity="center_vertical|center_horizontal"
-          android:orientation="vertical" >
-       	
-  	<LinearLayout
+  	  	  	<LinearLayout
   	    android:id="@+id/linearLayout111"
   	    android:layout_width="fill_parent"
   	    android:layout_height="0px"
   	    android:layout_marginTop="5dp"
   	    android:layout_weight="1"
-  	    android:gravity="center_vertical|center_horizontal"
+  	    android:gravity="center_vertical"
   	    android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="wrap_content"
+			android:layout_width="0dip"
+
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:hint="Error" 
-            android:layout_marginRight="5dp"/>
-            
-          </LinearLayout>  
-          
-  	  	<LinearLayout
-  	  	    android:id="@+id/linearLayout112"
-  	  	    android:layout_width="fill_parent"
-  	  	    android:layout_height="0px"
-  	  	    android:layout_marginTop="5dp"
-  	  	    android:layout_weight="1"
-  	  	    android:gravity="center_vertical|center_horizontal"
-  	  	    android:orientation="horizontal" >
+            android:gravity="left"
+            android:text="Nuvarande elpris"
+            android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textCurrentElpris"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="right"
             android:hint="Error" 
             android:layout_marginRight="5dp"/>
-          </LinearLayout>  
-          
-  	  	  	<LinearLayout
-  	  	  	    android:id="@+id/linearLayout113"
-  	  	  	    android:layout_width="fill_parent"
-  	  	  	    android:layout_height="0px"
-  	  	  	    android:layout_marginTop="5dp"
-  	  	  	    android:layout_weight="1"
-  	  	  	    android:gravity="center_vertical|center_horizontal"
-  	  	  	    android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:hint="Error" 
-            android:layout_marginRight="5dp"/>
-          </LinearLayout>  
-          
-  	  	  	  	<LinearLayout
-  	  	  	  	    android:id="@+id/linearLayout114"
-  	  	  	  	    android:layout_width="fill_parent"
-  	  	  	  	    android:layout_height="0px"
-  	  	  	  	    android:layout_marginTop="5dp"
-  	  	  	  	    android:layout_weight="1"
-  	  	  	  	    android:gravity="center_vertical|center_horizontal"
-  	  	  	  	    
-  	  	  	  	    android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:hint="Error" 
-            android:layout_marginRight="5dp"/>
-          </LinearLayout>  
+ 
+          </LinearLayout>
+          	  	
+  	  	  	  	
+  	  	  	  	
+  	  	  	  	
+  	  	  	  	
     </LinearLayout>
     
       

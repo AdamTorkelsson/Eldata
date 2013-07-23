@@ -26,12 +26,10 @@ public class MainFragment2 extends Fragment implements ActionBar.TabListener ,On
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         // Get the view from fragment3.xml
-        getActivity().setContentView(R.layout.fragmenthandler);
-     //   View view = getActivity().findViewById(R.id.relativelayout1);
-		//   view.setOnTouchListener(this);
+   
+     LinearLayout view = (LinearLayout) getActivity().findViewById(R.id.linearLayout5);
+
         
-        TextView buttonSwitch = (TextView) getActivity().findViewById( R.id.switch1);
-		 buttonSwitch.setOnClickListener(this);
         
 		   
     }
