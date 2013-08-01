@@ -4,15 +4,21 @@ import java.util.Calendar;
 
 import com.example.eldata.rest.DatabaseCost;
 import com.example.eldata.rest.DatabaseStatistics;
+import com.example.eldata.rest.GraphCost;
+import com.example.eldata.rest.GraphTenDays;
+import com.example.eldata.rest.GraphView;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.annotation.SuppressLint;
 import android.app.ActionBar.Tab;
@@ -26,10 +32,27 @@ import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
  
 @SuppressLint("CutPasteId")
-public class FragmentsTab5 extends Fragment implements ActionBar.TabListener, OnDateSetListener {
+public class FragmentsStart extends Fragment implements ActionBar.TabListener, OnDateSetListener, OnClickListener {
  
     private Fragment mFragment;
     private static final String PREFS_NAME = "UserInfo";
+    private ImageButton imageButton1;
+    private ImageButton imageButton2;
+    private ImageButton imageButton3;
+    private ImageButton imageButton4;
+    private ImageButton imageButton5;
+    private  ImageButton imageButton6;
+    private String used = "";
+    private String used2 = "";
+    private String bill = "";
+    private String bill2 = "";
+    private String dayleft = "";
+    private String uppskattadslutsumma = "";
+    private String snitt = "";
+    private String elpris = "";
+    private Popuphelp pophelp;
+    
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,21 +61,71 @@ public class FragmentsTab5 extends Fragment implements ActionBar.TabListener, On
         getActivity().setContentView(R.layout.fragment5);
         //   View view = getActivity().findViewById(R.id.relativelayout1);
 		//   view.setOnTouchListener(this);	   
-        
+        pophelp = new Popuphelp(getActivity());
         createText();
+        imageButton1 = (ImageButton) getActivity().findViewById(R.id.imageButton1);
+        imageButton2 = (ImageButton) getActivity().findViewById(R.id.imageButton2);
+        imageButton3 = (ImageButton) getActivity().findViewById(R.id.imageButton3);
+        imageButton4 = (ImageButton) getActivity().findViewById(R.id.imageButton4);
+        imageButton5 = (ImageButton) getActivity().findViewById(R.id.imageButton5);
+        imageButton6 = (ImageButton) getActivity().findViewById(R.id.imageButton6);
+   
+        imageButton1.setOnClickListener(this);
+        imageButton2.setOnClickListener(this);
+        imageButton3.setOnClickListener(this);
+        imageButton4.setOnClickListener(this);
+        imageButton5.setOnClickListener(this);
+        imageButton6.setOnClickListener(this);
         
+        LinearLayout graphview;
         
+        View view = getActivity().findViewById(R.id.linearLayout9);	   
+      
+        DatabaseStatistics stastistics = new DatabaseStatistics();
+		   stastistics.setThisAllTime();
+			
+			  
+		   GraphTenDays  graph = new GraphTenDays(getActivity());
+		  graph.setTime(stastistics.getMedel(),stastistics.getMax() , stastistics.getMin(),stastistics.getAllMax());
+		   graphview = (LinearLayout) getActivity().findViewById(R.id.linearLayout2);
+		   graphview.addView(graph);
         
     }
-    String used = "";
-    String used2 = "";
-    String bill = "";
-    String bill2 = "";
-    String dayleft = "";
-    String uppskattadslutsumma = "";
-    String snitt = "";
-    String elpris = "";
     
+    
+    
+	@Override
+	public void onClick(View arg0) {
+		switch(arg0.getId()){
+		  case R.id.imageButton1:
+			  pophelp.newPopup(R.string.imageButton1);
+			  break;
+		  case R.id.imageButton2:
+			  pophelp.newPopup(R.string.imageButton2);
+			  break;
+		  case R.id.imageButton3:
+			  pophelp.newPopup(R.string.imageButton3);
+			  break;
+		  case R.id.imageButton4:
+			  pophelp.newPopup(R.string.imageButton4);
+			  break;
+		  case R.id.imageButton5:
+			  pophelp.newPopup(R.string.imageButton5);
+			  break;
+		  case R.id.imageButton6:
+			  pophelp.newPopup(R.string.imageButton6);
+			  break;}
+		  
+	  
+			  
+
+
+		
+	}
+	
+	
+	
+
     private void createText() {
     	//FIXA
     	TextView textUse = (TextView) getActivity().findViewById(R.id.textUse);
@@ -63,11 +136,10 @@ public class FragmentsTab5 extends Fragment implements ActionBar.TabListener, On
         TextView textUppskattadSlutsumma = (TextView) getActivity().findViewById(R.id.textUppskattadSlutsumma);
         TextView textSnitt = (TextView) getActivity().findViewById(R.id.textSnitt);
         TextView textElpris = (TextView) getActivity().findViewById(R.id.textCurrentElpris);
-        
-        
-        
+       
+   
     	int daysSinceLastBill = getDaysSinceLastBill();
-    	int daysToNextBill = daysSinceLastBill - 21;
+
     	
     	DatabaseStatistics databaseStat = new DatabaseStatistics() ;
     	databaseStat.setThisSpecificTime(daysSinceLastBill);
@@ -81,7 +153,7 @@ public class FragmentsTab5 extends Fragment implements ActionBar.TabListener, On
     	
     	used = String.format("%.2f", databaseStat.getTotalSum()) + "kwh";
     	bill = String.format("%.2f", databaseCost.getMin()) + "kr";
-    	dayleft = daysToNextBill + "";
+    	dayleft = getDaysSinceLastBill() + " dagar";
     	uppskattadslutsumma = "inte fixad";
     	snitt = "inte fixad";
     	elpris = "inte fixad";
@@ -116,34 +188,79 @@ public class FragmentsTab5 extends Fragment implements ActionBar.TabListener, On
           textUppskattadSlutsumma.setText(uppskattadslutsumma);
           textSnitt.setText(snitt);
           textElpris.setText(elpris);
+       
 	}
 
     //Implement Joda time and fix this.
+
+
 	private int getDaysSinceLastBill() {
 		SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = settings.edit();
 
-		Calendar bill = Calendar.getInstance();
-		bill.set(
-				settings.getInt("billDateYear", 0),
-				settings.getInt("billDateMonth", 0),
-				settings.getInt("billDateDay", 0));
+		Calendar now = Calendar.getInstance();
+		Calendar lastbill = Calendar.getInstance();
+		int day = settings.getInt("billDateDay", 0);
+		int year = settings.getInt("billDateYear", 0);
+		int month = settings.getInt("billDateMonth", 0);
+
+		while(true){
+			int period = settings.getInt("PeriodNumber", 0);
+			
+			if(period == 0){
+				month = month + 1;
+				
+				if(month > 11){
+					month = month - 12;
+					year = year + 1;
+				}
+				lastbill.set(year,
+						month,
+						day);
+			
+				}
+			if(period == 1){	
+				month = month+3;
+				if(month > 11){
+					month = month - 12;
+					year = year + 1;
+				}
+				lastbill.set(year,
+						month,
+						day);
+			
+				}
+			if(period == 2){
+				year = year + 1;
+						lastbill.set(year,
+						month,
+						day);
+			
+			}
+			
+			
+			if(lastbill.before(now)){
+				editor.putInt("billDateYear", year);
+				editor.putInt("billDateMonth", month);
+				editor.putInt("billDateDay", day);
+				editor.commit();}
+			else{
+				break;}
+			}
+				lastbill.set(
+					settings.getInt("billDateYear", 0),
+					settings.getInt("billDateMonth", 0),
+					settings.getInt("billDateDay", 0));
+				int f = (int) ((now.getTime().getTime()
+						-lastbill.getTime().getTime())/(1000*60*60*24));
 		
 		
-		int type = settings.getInt("PeriodNumber", 0);
-	
-		bill.set(
-				settings.getInt("billDateYear", 0),
-				settings.getInt("billDateMonth", 0),
-				settings.getInt("billDateDay", 0));
-		int f = (int) ((Calendar.getInstance().getTime().getTime()-bill.getTime().getTime())/(1000*60*60*24));
-		
-		
-	return f;
+				return f;
 	}
 
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
-        mFragment = new FragmentsTab5();
+        mFragment = new FragmentsStart();
         // Attach fragment3.xml layout
         ft.add(android.R.id.content, mFragment);
         ft.attach(mFragment);
@@ -208,7 +325,8 @@ public class FragmentsTab5 extends Fragment implements ActionBar.TabListener, On
 		// TODO Auto-generated method stub
 		
 	}
-	
+
+
 
 
 }

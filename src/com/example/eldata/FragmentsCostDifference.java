@@ -47,7 +47,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-public class FragmentsTab2 extends Fragment implements ActionBar.TabListener ,OnClickListener, OnDateSetListener,OnTouchListener  {
+public class FragmentsCostDifference extends Fragment implements ActionBar.TabListener ,OnClickListener, OnDateSetListener,OnTouchListener  {
  
 	@Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -74,6 +74,10 @@ public class FragmentsTab2 extends Fragment implements ActionBar.TabListener ,On
 	DatePickerFragment startdate;
 	DatePickerFragment enddate;
     private static final String PREFS_NAME = "UserInfo";
+    LinearLayout graphview;
+    GraphCost graph;
+    Date minDate;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,12 +138,6 @@ public class FragmentsTab2 extends Fragment implements ActionBar.TabListener ,On
     }
   
 
-    LinearLayout graphview;
-    GraphCost graph;
-    
-    
-    
-    Date minDate;
 
 private void setDatePickerListener() throws ParseException {
 	minDate = new SimpleDateFormat("yyyy-MM-dd").parse("2008-12-01");
@@ -223,10 +221,10 @@ public void onClick(View v) {
 		    
 		        // Attach fragment1.xml layout
 		        ft.remove(mFragment);
-		        mFragment = new FragmentsTab1();
+		        mFragment = new FragmentsHighestUse();
 		        
 		        
-		        mFragment = new FragmentsTab2();
+		        mFragment = new FragmentsCostDifference();
 		        // Attach fragment1.xml layout
 		        ft.add(android.R.id.content, mFragment);
 		       this.ft = ft;
@@ -357,7 +355,7 @@ private void setTextViews(float medel,float max , float min , float yesterday){
     FragmentTransaction ft;
     public void onTabSelected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
-        mFragment = new FragmentsTab2();
+        mFragment = new FragmentsCostDifference();
         // Attach fragment1.xml layout
         ft.add(android.R.id.content, mFragment);
        this.ft = ft;

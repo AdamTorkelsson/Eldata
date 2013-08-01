@@ -11,7 +11,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ActionBar;
  
-public class FragmentsTab3 extends Fragment implements ActionBar.TabListener {
+public class FragmentsSaveEnergy extends Fragment implements ActionBar.TabListener {
  
     private Fragment mFragment;
  
@@ -29,7 +29,7 @@ public class FragmentsTab3 extends Fragment implements ActionBar.TabListener {
  
     public void onTabSelected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
-        mFragment = new FragmentsTab3();
+        mFragment = new FragmentsSaveEnergy();
         // Attach fragment3.xml layout
         ft.add(android.R.id.content, mFragment);
         ft.attach(mFragment);

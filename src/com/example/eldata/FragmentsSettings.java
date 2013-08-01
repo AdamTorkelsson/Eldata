@@ -28,7 +28,7 @@ import android.app.ActionBar;
 import android.content.Context;
 import android.content.SharedPreferences;
  
-public class FragmentsTab4 extends Fragment 
+public class FragmentsSettings extends Fragment 
 implements ActionBar.TabListener, OnTouchListener,
 OnClickListener,OnKeyListener, OnDateSetListener, OnItemSelectedListener{
  
@@ -94,7 +94,7 @@ OnClickListener,OnKeyListener, OnDateSetListener, OnItemSelectedListener{
 		   spinner = (Spinner) getActivity().findViewById(R.id.spinner1);
 		   spinner.setOnItemSelectedListener(this);
 		
-		  
+		 
 		   settings = getActivity().getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
 		   editor = settings.edit();
 		   
@@ -117,7 +117,7 @@ OnClickListener,OnKeyListener, OnDateSetListener, OnItemSelectedListener{
 	@Override
 	public void onClick(View arg0) {
 	
-		switch(arg0.getId()){
+	switch(arg0.getId()){
 		case R.id.textDate:
 			date = new DatePickerFragment(this);
 		    date.show(getFragmentManager(), "Date");
@@ -130,7 +130,7 @@ OnClickListener,OnKeyListener, OnDateSetListener, OnItemSelectedListener{
 			break;
 		case R.id.booleanHighUse:
 			editor.putBoolean("highusetoogle", tooglehighuse.isChecked());
-		
+
 			break;}
 		editor.commit();
 			}
@@ -248,7 +248,7 @@ OnClickListener,OnKeyListener, OnDateSetListener, OnItemSelectedListener{
 
     public void onTabSelected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
-        mFragment = new FragmentsTab4();
+        mFragment = new FragmentsSettings();
         // Attach fragment3.xml layout
         ft.add(android.R.id.content, mFragment);
         ft.attach(mFragment);

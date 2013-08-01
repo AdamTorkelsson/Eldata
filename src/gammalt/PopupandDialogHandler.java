@@ -1,6 +1,10 @@
-package com.example.eldata;
+package gammalt;
 
 
+
+import com.example.eldata.R;
+import com.example.eldata.R.id;
+import com.example.eldata.R.layout;
 
 import android.app.Activity;
 import android.app.AlertDialog;

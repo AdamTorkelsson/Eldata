@@ -9,6 +9,8 @@
     android:background="#F0F0F0" >
    
     <LinearLayout
+        android:layout_marginLeft="2dp"
+	android:layout_marginRight="2dp"
        android:id="@+id/linearLayout11"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
@@ -39,7 +41,9 @@
            android:id="@+id/linearLayout7"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
-           android:layout_marginTop="5dp"
+           android:layout_marginTop="3dp"
+            android:layout_marginBottom="2dp"
+           android:layout_marginLeft="2dp"
            android:layout_weight="1"
            android:background="@drawable/roundbutton"
            android:gravity="center"
@@ -53,7 +57,10 @@
            android:layout_height="match_parent"
            android:gravity="right|top"
            android:orientation="vertical"
-           	android:layout_marginTop="5dp" >
+           	android:layout_marginTop="3dp"
+           		android:layout_marginBottom="2dp"
+           	android:layout_marginLeft="3dp"
+           		android:layout_marginRight="3dp" >
 
            <Button
                android:id="@+id/buttonAllTime"
@@ -115,6 +122,8 @@
      android:layout_width="match_parent"
       android:layout_height="30dp"
 	android:layout_marginTop="5dp"
+	android:layout_marginLeft="2dp"
+	android:layout_marginRight="2dp"
      android:background="@drawable/roundbutton"
      android:gravity="center"
     
@@ -126,7 +135,8 @@
      android:id="@+id/linearLayout6"
      android:layout_width="fill_parent"
      android:layout_height="wrap_content"
-
+	android:layout_marginLeft="2dp"
+	android:layout_marginRight="2dp"
      android:background="@drawable/roundbutton"
      android:gravity="center" >
 
@@ -171,7 +181,8 @@
    
      android:layout_marginTop="5dp"
  		android:layout_marginBottom="5dp"
-
+	android:layout_marginLeft="2dp"
+	android:layout_marginRight="2dp"
      android:background="@drawable/roundbutton"
      android:gravity="center"
      android:orientation="vertical" >

@@ -1,7 +1,11 @@
-package com.example.eldata;
+package gammalt;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import com.example.eldata.R;
+import com.example.eldata.R.layout;
+import com.example.eldata.R.menu;
 
 import android.os.Bundle;
 import android.app.Activity;

@@ -42,24 +42,24 @@ import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
  
-public class FragmentsTab1 extends Fragment implements ActionBar.TabListener ,OnClickListener, OnDateSetListener,OnTouchListener  {
+public class FragmentsHighestUse extends Fragment implements ActionBar.TabListener ,OnClickListener, OnDateSetListener,OnTouchListener  {
  
     private Fragment mFragment;
-	Database database;
-	DatabasePrice prices = new DatabasePrice();
-	ArrayList<Float> thismonth = new ArrayList<Float>();
-	ArrayList<Float> thismonthprice = new ArrayList<Float>();
-	DatabaseStatistics stastistics;
-	int totalbill;
-    TextView textStartDate;
-	TextView textEndDate;
-	DatePickerFragment newDateFragment;
-	Boolean typeOfDate;
-	Calendar startcalendar  = Calendar.getInstance();
-	Calendar endcalendar  = Calendar.getInstance();
-	boolean isStartDate;
-	DatePickerFragment startdate;
-	DatePickerFragment enddate;
+	private Database database;
+	private DatabasePrice prices = new DatabasePrice();
+	private ArrayList<Float> thismonth = new ArrayList<Float>();
+	private ArrayList<Float> thismonthprice = new ArrayList<Float>();
+	private DatabaseStatistics stastistics;
+	private int totalbill;
+	private TextView textStartDate;
+	private TextView textEndDate;
+	private DatePickerFragment newDateFragment;
+	private Boolean typeOfDate;
+	private Calendar startcalendar  = Calendar.getInstance();
+	private Calendar endcalendar  = Calendar.getInstance();
+	private boolean isStartDate;
+	private DatePickerFragment startdate;
+	private DatePickerFragment enddate;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,6 +103,7 @@ public class FragmentsTab1 extends Fragment implements ActionBar.TabListener ,On
 			}
 		   View view = getActivity().findViewById(R.id.linearLayout9);	   
 		   view.setOnTouchListener(this);
+		   
 		   stastistics.setThisAllTime();
 			  setStartAndEndDate(minDate,
 		  				Calendar.getInstance().getTime());
@@ -112,8 +113,8 @@ public class FragmentsTab1 extends Fragment implements ActionBar.TabListener ,On
 		   graphview = (LinearLayout) getActivity().findViewById(R.id.linearLayout7);
 		   graphview.addView(graph);
 		   
-			TextView textB = (TextView) getActivity().findViewById(R.id.switch1);
-        	textB.setOnClickListener(this);
+		/*	TextView textB = (TextView) getActivity().findViewById(R.id.switch1);
+        	textB.setOnClickListener(this);*/
         	
     }
   
@@ -207,7 +208,7 @@ public void onClick(View v) {
 	  switch(v.getId()){
 	  case R.id.switch1:
 		  Tab tab = getActivity().getActionBar().getTabAt(1);
-		  tab.setTabListener(new FragmentsTab2());
+		  tab.setTabListener(new FragmentsCostDifference());
 		  tab.select();	
 		  break;
 		  
@@ -337,7 +338,7 @@ private void setTextViews(float medel,float max , float min , float yesterday){
     
     public void onTabSelected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
-        mFragment = new FragmentsTab1();
+        mFragment = new FragmentsHighestUse();
         // Attach fragment1.xml layout
         ft.add(android.R.id.content, mFragment);
        

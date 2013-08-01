@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
     Tab tab4;
     Tab tab5;
     Context context;
-    FragmentsTab5 ftab1;
+    FragmentsStart ftab1;
  
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,33 +46,33 @@ public class MainActivity extends Activity {
  
         // Hide Actionbar Title
         actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowCustomEnabled(false);
         // Create Actionbar Tabs
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         actionBar.setCustomView(R.layout.tablayout);
-        ftab1 = new FragmentsTab5();
+        ftab1 = new FragmentsStart();
         
         // Create first Tab
         tab1 = actionBar.newTab().setTabListener(ftab1);
         // Create your own custom icon
         tab1.setText("Home");
-        
+ 
         actionBar.addTab(tab1);
  
         // Create Second Tab
-        tab2 = actionBar.newTab().setTabListener(new FragmentsTab2());
+        tab2 = actionBar.newTab().setTabListener(new FragmentsCostDifference());
         // Set Tab Title
         tab2.setText("Compare");
         actionBar.addTab(tab2);
         
         // Create Third Tab
-        tab3 = actionBar.newTab().setTabListener(new FragmentsTab3());
+        tab3 = actionBar.newTab().setTabListener(new FragmentsSaveEnergy());
         // Set Tab Title
         tab3.setText("Tips");
         actionBar.addTab(tab3);
  
         // Create Fourth Tab
-        tab4 = actionBar.newTab().setTabListener(new FragmentsTab4());
+        tab4 = actionBar.newTab().setTabListener(new FragmentsSettings());
         // Set Tab Title
         tab4.setText("Settings");
         actionBar.addTab(tab4);

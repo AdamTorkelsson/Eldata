@@ -1,7 +1,10 @@
-package com.example.eldata;
+package gammalt;
  
 import java.util.ArrayList;
 
+import com.example.eldata.R;
+import com.example.eldata.R.id;
+import com.example.eldata.R.layout;
 import com.example.eldata.rest.Database;
 import com.example.eldata.rest.DatabasePrice;
 import com.example.eldata.rest.DatabaseStatistics;

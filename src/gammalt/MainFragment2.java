@@ -1,6 +1,10 @@
-package com.example.eldata;
+package gammalt;
  
 import java.util.Calendar;
+
+import com.example.eldata.FragmentsCostDifference;
+import com.example.eldata.R;
+import com.example.eldata.R.id;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -36,7 +40,7 @@ public class MainFragment2 extends Fragment implements ActionBar.TabListener ,On
  
     public void onTabSelected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
-        mFragment = new FragmentsTab2();
+        mFragment = new FragmentsCostDifference();
         // Attach fragment3.xml layout
         ft.add(android.R.id.content, mFragment);
         ft.attach(mFragment);
