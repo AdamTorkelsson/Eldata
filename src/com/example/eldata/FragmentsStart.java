@@ -42,6 +42,7 @@ public class FragmentsStart extends Fragment implements ActionBar.TabListener, O
     private ImageButton imageButton4;
     private ImageButton imageButton5;
     private  ImageButton imageButton6;
+    private ImageButton imageButton7;
     private String used = "";
     private String used2 = "";
     private String bill = "";
@@ -58,7 +59,7 @@ public class FragmentsStart extends Fragment implements ActionBar.TabListener, O
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         // Get the view from fragment3.xml
-        getActivity().setContentView(R.layout.fragment5);
+        getActivity().setContentView(R.layout.fragmentstart);
         //   View view = getActivity().findViewById(R.id.relativelayout1);
 		//   view.setOnTouchListener(this);	   
         pophelp = new Popuphelp(getActivity());
@@ -69,6 +70,7 @@ public class FragmentsStart extends Fragment implements ActionBar.TabListener, O
         imageButton4 = (ImageButton) getActivity().findViewById(R.id.imageButton4);
         imageButton5 = (ImageButton) getActivity().findViewById(R.id.imageButton5);
         imageButton6 = (ImageButton) getActivity().findViewById(R.id.imageButton6);
+        imageButton7 = (ImageButton) getActivity().findViewById(R.id.imageButton7);
    
         imageButton1.setOnClickListener(this);
         imageButton2.setOnClickListener(this);
@@ -76,6 +78,7 @@ public class FragmentsStart extends Fragment implements ActionBar.TabListener, O
         imageButton4.setOnClickListener(this);
         imageButton5.setOnClickListener(this);
         imageButton6.setOnClickListener(this);
+        imageButton7.setOnClickListener(this);
         
         LinearLayout graphview;
         
@@ -114,6 +117,9 @@ public class FragmentsStart extends Fragment implements ActionBar.TabListener, O
 			  break;
 		  case R.id.imageButton6:
 			  pophelp.newPopup(R.string.imageButton6);
+			  break;
+		  case R.id.imageButton7:
+			  pophelp.newPopup(R.string.imageButton7);
 			  break;}
 		  
 	  

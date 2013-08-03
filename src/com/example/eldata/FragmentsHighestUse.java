@@ -325,8 +325,8 @@ private void setTextViews(float medel,float max , float min , float yesterday){
 		TextView textmaxused = (TextView) getActivity().findViewById(R.id.textmaxused);
 		textmaxused.setText( String.format("%.2f", max) + " kwh" );
 		
-		TextView textminuse = (TextView) getActivity().findViewById(R.id.textminuse);
-		textminuse.setText(String.format("%.2f", min) + " kwh" );
+		//TextView textminuse = (TextView) getActivity().findViewById(R.id.textminuse);
+		//textminuse.setText(String.format("%.2f", min) + " kwh" );
 		
 
 		

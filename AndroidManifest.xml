@@ -10,34 +10,44 @@
 
     <application
         android:allowBackup="true"
+        android:debuggable="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" android:debuggable="false">
+        android:theme="@style/AppTheme" >
         <activity
             android:name="gammalt.GraphActivity"
             android:label="@string/app_name" >
-          
         </activity>
-        <activity android:name="StartActivity">
-               
+        <activity android:name="com.example.eldata.StartActivity" >
         </activity>
-        <activity android:name="NonVariableActivity"></activity>
-        <activity android:name="VariableCostActivity"></activity>
-        <activity android:name="BillActivity"></activity>
-        <activity android:name="CompareActivity"></activity>
-          <activity android:name="CompareVariableActivity"></activity>
-            <activity android:name="AndroidTabLayoutActivity">
-            </activity>
-       
-            <activity android:name="MainActivity">
-                 <intent-filter>
+        <activity android:name="com.example.eldata.NonVariableActivity" >
+        </activity>
+        <activity android:name="com.example.eldata.VariableCostActivity" >
+        </activity>
+        <activity android:name="com.example.eldata.BillActivity" >
+        </activity>
+        <activity android:name="com.example.eldata.CompareActivity" >
+        </activity>
+        <activity android:name="com.example.eldata.CompareVariableActivity" >
+        </activity>
+        <activity android:name="com.example.eldata.AndroidTabLayoutActivity" >
+        </activity>
+        <activity android:name="com.example.eldata.MainActivity" >
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-              
-            </activity>
-       
+        </activity>
+        <activity
+            android:name="com.example.eldata.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
+        <activity
+            android:name="com.example.eldata.Activity_InsertInfo"
+            android:label="@string/title_activity_activity__insert_info" >
+        </activity>
     </application>
 
 </manifest>

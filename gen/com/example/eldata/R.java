@@ -16,6 +16,8 @@ public final class R {
     }
     public static final class array {
         public static final int betalningsperiod=0x7f070000;
+        public static final int fast_rorlig=0x7f070002;
+        public static final int fast_rorlig_settings=0x7f070003;
         public static final int statistics=0x7f070001;
     }
     public static final class attr {
@@ -32,107 +34,130 @@ public final class R {
     }
     public static final class drawable {
         public static final int arrow=0x7f020000;
-        public static final int btnleft=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int roundbottom=0x7f020003;
-        public static final int roundbutton=0x7f020004;
-        public static final int roundbuttonpurple=0x7f020005;
-        public static final int seek_thumb_normal=0x7f020006;
-        public static final int seek_thumb_pressed=0x7f020007;
+        public static final int bacground=0x7f020001;
+        public static final int btnleft=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int images=0x7f020004;
+        public static final int lila_ring=0x7f020005;
+        public static final int roundbottom=0x7f020006;
+        public static final int roundbutton=0x7f020007;
+        public static final int roundbuttonpurple=0x7f020008;
+        public static final int seek_thumb_normal=0x7f020009;
+        public static final int seek_thumb_pressed=0x7f02000a;
     }
     public static final class id {
-        public static final int NoIdea=0x7f0a0046;
-        public static final int Prices=0x7f0a0044;
-        public static final int TextView02=0x7f0a0004;
-        public static final int Watt=0x7f0a0045;
-        public static final int action_settings=0x7f0a0043;
-        public static final int booleanHighBill=0x7f0a003d;
-        public static final int booleanHighPrice=0x7f0a0041;
-        public static final int booleanHighUse=0x7f0a003f;
-        public static final int btnBack=0x7f0a0037;
-        public static final int buttonAllTime=0x7f0a0011;
-        public static final int buttonCamera=0x7f0a0002;
-        public static final int buttonMonth=0x7f0a0013;
-        public static final int buttonWeek=0x7f0a0014;
-        public static final int buttonYear=0x7f0a0012;
-        public static final int buttonYesterday=0x7f0a0015;
-        public static final int graph1=0x7f0a0036;
-        public static final int imageButton1=0x7f0a0026;
-        public static final int imageButton2=0x7f0a0029;
-        public static final int imageButton3=0x7f0a002c;
-        public static final int imageButton4=0x7f0a002f;
-        public static final int imageButton5=0x7f0a0032;
-        public static final int imageButton6=0x7f0a0034;
-        public static final int linearLayout1=0x7f0a0009;
-        public static final int linearLayout10=0x7f0a0016;
-        public static final int linearLayout11=0x7f0a0007;
-        public static final int linearLayout111=0x7f0a0022;
-        public static final int linearLayout112=0x7f0a002a;
-        public static final int linearLayout113=0x7f0a002d;
-        public static final int linearLayout114=0x7f0a0030;
-        public static final int linearLayout12=0x7f0a0020;
-        public static final int linearLayout13=0x7f0a001e;
-        public static final int linearLayout14=0x7f0a001f;
-        public static final int linearLayout2=0x7f0a0010;
-        public static final int linearLayout3=0x7f0a001d;
-        public static final int linearLayout4=0x7f0a0001;
-        public static final int linearLayout5=0x7f0a000e;
-        public static final int linearLayout6=0x7f0a0017;
-        public static final int linearLayout7=0x7f0a000f;
-        public static final int linearLayout8=0x7f0a0021;
-        public static final int linearLayout9=0x7f0a000c;
-        public static final int markerTitle=0x7f0a0000;
-        public static final int relativelayout1=0x7f0a0006;
-        public static final int spinner=0x7f0a000d;
-        public static final int spinner1=0x7f0a0039;
-        public static final int switch1=0x7f0a0035;
-        public static final int textBill=0x7f0a0027;
-        public static final int textBill2=0x7f0a0028;
-        public static final int textCurrentElpris=0x7f0a0033;
-        public static final int textDate=0x7f0a0038;
-        public static final int textDayLeft=0x7f0a002b;
-        public static final int textDifferencePris=0x7f0a000b;
-        public static final int textEndDate=0x7f0a0019;
-        public static final int textFastPris=0x7f0a0005;
-        public static final int textHighBill=0x7f0a003c;
-        public static final int textHighPrice=0x7f0a0040;
-        public static final int textHighUse=0x7f0a003e;
-        public static final int textPålägg=0x7f0a0003;
-        public static final int textSnitt=0x7f0a0031;
-        public static final int textStartDate=0x7f0a0018;
-        public static final int textUppskattadSlutsumma=0x7f0a002e;
-        public static final int textUse=0x7f0a0024;
-        public static final int textUse2=0x7f0a0025;
-        public static final int textVariablePris=0x7f0a000a;
-        public static final int textView1=0x7f0a0023;
-        public static final int textadd=0x7f0a003b;
-        public static final int textfast=0x7f0a003a;
-        public static final int textmaxused=0x7f0a001b;
-        public static final int textmedeluse=0x7f0a001a;
-        public static final int textminuse=0x7f0a001c;
-        public static final int texttitle=0x7f0a0008;
-        public static final int tutorialdialog=0x7f0a0042;
+        public static final int NoIdea=0x7f0a0050;
+        public static final int Prices=0x7f0a004e;
+        public static final int TextView02=0x7f0a0008;
+        public static final int Watt=0x7f0a004f;
+        public static final int action_forgot_password=0x7f0a004d;
+        public static final int action_settings=0x7f0a004c;
+        public static final int booleanHighBill=0x7f0a0046;
+        public static final int booleanHighPrice=0x7f0a004a;
+        public static final int booleanHighUse=0x7f0a0048;
+        public static final int btnBack=0x7f0a0044;
+        public static final int buttonAllTime=0x7f0a0021;
+        public static final int buttonCamera=0x7f0a0003;
+        public static final int buttonMonth=0x7f0a0023;
+        public static final int buttonWeek=0x7f0a0024;
+        public static final int buttonYear=0x7f0a0022;
+        public static final int buttonYesterday=0x7f0a0025;
+        public static final int button_dummy=0x7f0a0018;
+        public static final int email=0x7f0a0014;
+        public static final int graph1=0x7f0a0043;
+        public static final int imageButton1=0x7f0a0007;
+        public static final int imageButton2=0x7f0a000a;
+        public static final int imageButton3=0x7f0a000c;
+        public static final int imageButton4=0x7f0a000e;
+        public static final int imageButton5=0x7f0a003f;
+        public static final int imageButton6=0x7f0a0041;
+        public static final int imageButton7=0x7f0a0042;
+        public static final int linearLayout0=0x7f0a0032;
+        public static final int linearLayout1=0x7f0a0002;
+        public static final int linearLayout10=0x7f0a0026;
+        public static final int linearLayout11=0x7f0a0019;
+        public static final int linearLayout111=0x7f0a0034;
+        public static final int linearLayout112=0x7f0a0039;
+        public static final int linearLayout113=0x7f0a003b;
+        public static final int linearLayout114=0x7f0a003d;
+        public static final int linearLayout12=0x7f0a002f;
+        public static final int linearLayout13=0x7f0a002d;
+        public static final int linearLayout14=0x7f0a002e;
+        public static final int linearLayout2=0x7f0a0004;
+        public static final int linearLayout3=0x7f0a002c;
+        public static final int linearLayout4=0x7f0a0010;
+        public static final int linearLayout5=0x7f0a0020;
+        public static final int linearLayout6=0x7f0a000f;
+        public static final int linearLayout7=0x7f0a0005;
+        public static final int linearLayout8=0x7f0a0030;
+        public static final int linearLayout9=0x7f0a001e;
+        public static final int login=0x7f0a0016;
+        public static final int login_form=0x7f0a0013;
+        public static final int login_status=0x7f0a0011;
+        public static final int login_status_message=0x7f0a0012;
+        public static final int password=0x7f0a0015;
+        public static final int relativelayout1=0x7f0a0001;
+        public static final int scrollView1=0x7f0a0000;
+        public static final int sign_in_button=0x7f0a0017;
+        public static final int spinner=0x7f0a001f;
+        public static final int spinner1=0x7f0a0009;
+        public static final int spinner2=0x7f0a0029;
+        public static final int switch1=0x7f0a0031;
+        public static final int textBill=0x7f0a0037;
+        public static final int textBill2=0x7f0a0038;
+        public static final int textCurrentElpris=0x7f0a0040;
+        public static final int textDate=0x7f0a0006;
+        public static final int textDayLeft=0x7f0a003a;
+        public static final int textDifferencePris=0x7f0a001d;
+        public static final int textEndDate=0x7f0a0028;
+        public static final int textFastPris=0x7f0a001b;
+        public static final int textHighBill=0x7f0a0045;
+        public static final int textHighPrice=0x7f0a0049;
+        public static final int textHighUse=0x7f0a0047;
+        public static final int textSnitt=0x7f0a003e;
+        public static final int textStartDate=0x7f0a0027;
+        public static final int textUppskattadSlutsumma=0x7f0a003c;
+        public static final int textUse=0x7f0a0035;
+        public static final int textUse2=0x7f0a0036;
+        public static final int textVariablePris=0x7f0a001c;
+        public static final int textView1=0x7f0a0033;
+        public static final int textadd=0x7f0a000d;
+        public static final int textfast=0x7f0a000b;
+        public static final int textmaxused=0x7f0a002a;
+        public static final int textmedeluse=0x7f0a002b;
+        public static final int texttitle=0x7f0a001a;
+        public static final int tutorialdialog=0x7f0a004b;
     }
     public static final class layout {
-        public static final int billview=0x7f030000;
-        public static final int comparevariableaview=0x7f030001;
-        public static final int compareview=0x7f030002;
-        public static final int energysave=0x7f030003;
-        public static final int fragment5=0x7f030004;
+        public static final int activity__insert_info=0x7f030000;
+        public static final int activity_login=0x7f030001;
+        public static final int comparevariableaview=0x7f030002;
+        public static final int compareview=0x7f030003;
+        public static final int energysave=0x7f030004;
         public static final int fragmenthandler=0x7f030005;
-        public static final int graphlayout=0x7f030006;
-        public static final int settingsview=0x7f030007;
-        public static final int tablayout=0x7f030008;
-        public static final int testingview=0x7f030009;
-        public static final int tutorialdialogview=0x7f03000a;
+        public static final int fragmentstart=0x7f030006;
+        public static final int graphlayout=0x7f030007;
+        public static final int settingsview=0x7f030008;
+        public static final int tablayout=0x7f030009;
+        public static final int testingview=0x7f03000a;
+        public static final int tutorialdialogview=0x7f03000b;
     }
     public static final class menu {
-        public static final int main=0x7f090000;
+        public static final int activity__insert_info=0x7f090000;
+        public static final int login=0x7f090001;
+        public static final int main=0x7f090002;
     }
     public static final class string {
         public static final int SetValues=0x7f060003;
+        public static final int action_forgot_password=0x7f060011;
         public static final int action_settings=0x7f060001;
+        public static final int action_sign_in_register=0x7f06000f;
+        public static final int action_sign_in_short=0x7f060010;
         public static final int app_name=0x7f060000;
+        public static final int error_field_required=0x7f060016;
+        public static final int error_incorrect_password=0x7f060015;
+        public static final int error_invalid_email=0x7f060013;
+        public static final int error_invalid_password=0x7f060014;
         public static final int hello_world=0x7f060002;
         public static final int imageButton1=0x7f060004;
         public static final int imageButton2=0x7f060005;
@@ -140,16 +165,26 @@ public final class R {
         public static final int imageButton4=0x7f060007;
         public static final int imageButton5=0x7f060008;
         public static final int imageButton6=0x7f060009;
+        public static final int imageButton7=0x7f06000a;
+        public static final int login_progress_signing_in=0x7f060012;
+        /**  Strings related to login 
+         */
+        public static final int prompt_email=0x7f06000d;
+        public static final int prompt_password=0x7f06000e;
+        public static final int title_activity_activity__insert_info=0x7f06000b;
+        public static final int title_activity_login=0x7f06000c;
     }
     public static final class style {
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
         
 
         Base application theme for API 11+. This theme completely replaces
@@ -168,5 +203,6 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f080001;
+        public static final int LoginFormContainer=0x7f080002;
     }
 }

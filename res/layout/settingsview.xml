@@ -1,331 +1,310 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   android:id="@+id/relativelayout1"
+    android:id="@+id/relativelayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#F0F0F0" >
+   android:background="@drawable/bacground" >
+
     <LinearLayout
-     android:id="@+id/linearLayout1"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="5dp"
-
-     android:orientation="vertical" 
-     android:background="@drawable/roundbuttonpurple" >
-    
-     <TextView
-
-              android:id="@+id/buttonCamera"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:onClick="buttonCamera2"
-              	android:layout_weight="1"
-              android:text="Elinformation"
-              android:textSize="20dp" />
-     
-     
- </LinearLayout>
- 
- <LinearLayout
-     android:id="@+id/linearLayout2"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="5dp"
-     android:layout_alignParentLeft="true"
-     android:orientation="vertical" 
-     android:layout_below="@+id/linearLayout1"
-     android:background="@drawable/roundbutton" >
-
-  <LinearLayout
-     android:id="@+id/linearLayout7"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="10dp"
- >
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/roundbuttonpurple"
+        android:gravity="center"
+        android:orientation="vertical" >
 
         <TextView
-         android:id="@+id/buttonCamera"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-			android:layout_weight="1"
-         android:onClick="buttonCamera2"
-         android:text="Datum för räkning"
-         android:textSize="18dp" />
-        
-         <TextView
-         android:id="@+id/textDate"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-		 android:layout_weight="1"
-         android:text="Date"
-          android:textSize="16sp"
-		android:gravity="center"
-		  android:layout_marginBottom="5dp"
-     android:layout_marginTop="5dp"
-  />
+            android:id="@+id/buttonCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="buttonCamera2"
+            android:text="Ditt Elavtal"
+            android:textSize="20dp" />
+    </LinearLayout>
 
- </LinearLayout>
-     
- <LinearLayout
-     android:id="@+id/linearLayout7"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="5dp"
- >
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/roundbutton"
+        android:gravity="center"
+        android:orientation="vertical" >
 
-     <TextView
-         android:id="@+id/TextView02"
-         android:layout_weight="1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:onClick="buttonCamera2"
-         android:text="Betalningsperiod"
-         android:textSize="18dp" />
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            
+            android:layout_marginTop="10dp"
+            android:gravity="center" >
 
-     <Spinner
-         android:id="@+id/spinner1"
-         android:layout_width="124dp"
-         android:entries="@array/betalningsperiod"
-         android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/buttonCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="buttonCamera2"
+                android:text="Datum för räkning"
+                android:textSize="16sp" />
 
- </LinearLayout>
-    
- </LinearLayout>
- 
-    
- <LinearLayout
-     android:id="@+id/linearLayout3"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="5dp"
- 	android:layout_below="@+id/linearLayout2"
-     android:orientation="vertical" 
-     android:background="@drawable/roundbuttonpurple" >
-    
-     <TextView
+            <TextView
+                android:id="@+id/textDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="Date"
+                android:textSize="16sp" />
 
-              android:id="@+id/buttonCamera"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:onClick="buttonCamera2"
-              	android:layout_weight="1"
-              android:text="Elinformation"
-              android:textSize="20dp" />
-     
-     
- </LinearLayout>
- 
- <LinearLayout
-     android:id="@+id/linearLayout4"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="5dp"
-     android:layout_alignParentLeft="true"
-     android:orientation="vertical" 
-     android:layout_below="@+id/linearLayout3"
-     android:background="@drawable/roundbutton" >
+            <ImageButton
+                android:id="@+id/imageButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|right"
+                android:layout_marginRight="5dp"
+                android:background="#FCFCFC"
+                android:src="@android:drawable/ic_menu_info_details" />
+        </LinearLayout>
 
-  <LinearLayout
-     android:id="@+id/linearLayout7"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="10dp"
- >
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/TextView02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="buttonCamera2"
+                android:text="Betalningsperiod"
+                android:textSize="16sp"
+                 />
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/betalningsperiod" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|right"
+                android:layout_marginRight="5dp"
+                android:background="#FCFCFC"
+                android:src="@android:drawable/ic_menu_info_details" />
+        </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center" >
+
+                <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                 
+                    android:entries="@array/fast_rorlig"
+                    android:gravity="right" />
+
+                <EditText
+                    android:id="@+id/textfast"
+                    android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                    android:text="kwh"
+                    android:inputType="numberDecimal" >
+
+                    <requestFocus />
+                </EditText>
+                 <TextView
+                    android:id="@+id/textfast"
+                    android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                    android:text="Öre"
+                    android:textSize="16sp"
+                   
+                     />
+
+              
+
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|right"
+                android:layout_marginRight="5dp"
+                android:background="#FCFCFC"
+                android:src="@android:drawable/ic_menu_info_details"  />
+            </LinearLayout>
+
+   
+        </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/roundbuttonpurple"
+        android:gravity="center"
+        android:orientation="vertical" >
 
         <TextView
-         android:id="@+id/buttonCamera"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-			android:layout_weight="1"
-         android:onClick="buttonCamera2"
-         android:text="Din fasta kostnad"
-         android:textSize="18dp" />
+            android:id="@+id/buttonCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="buttonCamera2"
+            android:text="Notifikationer"
+            android:textSize="20dp" />
+    </LinearLayout>
 
-     <EditText
-         android:id="@+id/textfast"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:hint="Fyll i här"
-         android:inputType="numberDecimal" />
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout6"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/roundbutton"
+        android:gravity="center"
+        android:orientation="vertical" >
 
- </LinearLayout>
-     
- <LinearLayout
-     android:id="@+id/linearLayout7"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="5dp"
- >
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center" >
 
-     <TextView
-         android:id="@+id/TextView02"
-         android:layout_weight="1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:onClick="buttonCamera2"
-         android:text="Det rörliga prispålägget"
-         android:textSize="18dp" />
+            <TextView
+                android:id="@+id/buttonCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="buttonCamera2"
+                android:text="Hög elräkning"
+                android:textSize="18dp" />
 
-     <EditText
-         android:id="@+id/textadd"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:hint="Fyll i här"
-         android:inputType="numberDecimal" />
+            <EditText
+                android:id="@+id/textHighBill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="numberDecimal" />
 
- </LinearLayout>
-    
- </LinearLayout>
-      
+            <ToggleButton
+                android:id="@+id/booleanHighBill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-    
- <LinearLayout
-     android:id="@+id/linearLayout6"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="5dp"
-     android:layout_below="@+id/linearLayout4"
-     android:orientation="vertical" 
-     android:background="@drawable/roundbuttonpurple" >
-    
-     <TextView
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|right"
+                android:layout_marginRight="5dp"
+                android:background="#FCFCFC"
+                android:src="@android:drawable/ic_menu_info_details" />
+        </LinearLayout>
 
-              android:id="@+id/buttonCamera"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:onClick="buttonCamera2"
-              	android:layout_weight="1"
-              android:text="Notifikationer"
-              android:textSize="20dp" />
-     
-     
- </LinearLayout>
- 
- 
-  <LinearLayout
-     android:id="@+id/linearLayout5"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="5dp"
-     android:layout_alignParentLeft="true"
-     android:layout_below="@+id/linearLayout6"
-     android:orientation="vertical" 
-     android:background="@drawable/roundbutton" >
+        <LinearLayout
+            android:id="@+id/linearLayout8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center" >
 
-    
-      <LinearLayout
-     android:id="@+id/linearLayout7"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="10dp"
- >
+            <TextView
+                android:id="@+id/buttonCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="buttonCamera2"
+                android:text="Hög användning"
+                android:textSize="18dp" />
 
-          <TextView
-              android:id="@+id/buttonCamera"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:onClick="buttonCamera2"
-              	android:layout_weight="1"
-              	
-              android:text="Hög elräkning"
-              android:textSize="18dp" />
+            <EditText
+                android:id="@+id/textHighUse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="numberDecimal" />
 
-     <EditText
-         android:id="@+id/textHighBill"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:ems="3"
-  
-         android:inputType="numberDecimal" />
+            <ToggleButton
+                android:id="@+id/booleanHighUse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton" />
+        </LinearLayout>
 
-     <ToggleButton
-         android:id="@+id/booleanHighBill"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-          />
+        <LinearLayout
+            android:id="@+id/linearLayout9"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center" >
 
- </LinearLayout>
-          <LinearLayout
-     android:id="@+id/linearLayout8"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="10dp"
-     android:layout_alignParentLeft="true"
- >
+            <TextView
+                android:id="@+id/buttonCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="buttonCamera2"
+                android:text="Högt elpris"
+                android:textSize="18dp" />
 
-     <TextView
-         android:id="@+id/buttonCamera"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-			android:layout_weight="1"
-         android:onClick="buttonCamera2"
-         android:text="Hög användning" 
-         android:textSize="18dp" />
+            <EditText
+                android:id="@+id/textHighPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="numberDecimal" />
 
-     <EditText
-         android:id="@+id/textHighUse"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:ems="3"
-     
-         android:inputType="numberDecimal" />
-
-     <ToggleButton
-         android:id="@+id/booleanHighUse"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="ToggleButton" />
-
- </LinearLayout>
- 
-           <LinearLayout
-     android:id="@+id/linearLayout9"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_marginTop="10dp"
-     android:layout_alignParentLeft="true"
- >
-
-     <TextView
-         android:id="@+id/buttonCamera"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-			android:layout_weight="1"
-         android:onClick="buttonCamera2"
-         android:text="Högt elpris" 
-         android:textSize="18dp" />
-
-
-
-     <EditText
-         android:id="@+id/textHighPrice"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:ems="3"
-  
-         android:inputType="numberDecimal" />
-
-     <ToggleButton
-         android:id="@+id/booleanHighPrice"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-          />
-
- </LinearLayout>         
-          
-      
-  </LinearLayout>
+            <ToggleButton
+                android:id="@+id/booleanHighPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

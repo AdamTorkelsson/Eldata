@@ -93,12 +93,12 @@ public class FragmentsCostDifference extends Fragment implements ActionBar.TabLi
 		database = new Database();
 		stastistics = new DatabaseCost();
 		SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
-		stastistics.setAddFast(Float.parseFloat(settings.getString("Add", "Error")),
-				Float.parseFloat(settings.getString("FastPris", "Error")));
+		stastistics.setAddFast(3/*Float.parseFloat(settings.getString("Add", "0"))*/,
+				Float.parseFloat(settings.getString("FastPris", "0")));
 		thismonth 		= database.getLastMonth();
 		//thismonthprice  = prices.getLastMonth();
 		setTextViews(0,0, 0,0);
-		  Button buttonAllTime = (Button) getActivity().findViewById(R.id.buttonAllTime);
+		  	Button buttonAllTime = (Button) getActivity().findViewById(R.id.buttonAllTime);
 		    Button buttonMonth = (Button) getActivity().findViewById(R.id.buttonMonth);
 		    Button buttonWeek = (Button) getActivity().findViewById(R.id.buttonWeek);
 		    Button buttonYesterday = (Button) getActivity().findViewById(R.id.buttonYesterday);
@@ -337,15 +337,15 @@ public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3){
 
 
 private void setTextViews(float medel,float max , float min , float yesterday){
-		
+		/*
 		TextView textmedeluse= (TextView) getActivity().findViewById(R.id.textmedeluse);
 		textmedeluse.setText( String.format("%.2f", medel) + " kr");
 		
 		TextView textmaxused = (TextView) getActivity().findViewById(R.id.textmaxused);
 		textmaxused.setText( String.format("%.2f", max) + " kr" );
 		
-		TextView textminuse = (TextView) getActivity().findViewById(R.id.textminuse);
-		textminuse.setText(String.format("%.2f", min) + " kr" );
+		//TextView textminuse = (TextView) getActivity().findViewById(R.id.textminuse);
+		//textminuse.setText(String.format("%.2f", min) + " kr" );*/
 		
 		
 	}

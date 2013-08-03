@@ -31,7 +31,7 @@ import android.widget.ImageView;
  */
 public class RangeSeekBar<T extends Number> extends ImageView {
         private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        private final Bitmap thumbImage = BitmapFactory.decodeResource(getResources(), R.drawable.seek_thumb_normal);
+        private final Bitmap thumbImage = BitmapFactory.decodeResource(getResources(), R.drawable.lila_ring);
         private final Bitmap thumbPressedImage = BitmapFactory.decodeResource(getResources(), R.drawable.seek_thumb_pressed);
         private final float thumbWidth = thumbImage.getWidth();
         private final float thumbHalfWidth = 0.5f * thumbWidth;
@@ -50,7 +50,7 @@ public class RangeSeekBar<T extends Number> extends ImageView {
         /**
          * Default color of a {@link RangeSeekBar}, #FF33B5E5. This is also known as "Ice Cream Sandwich" blue.
          */
-        public static final int DEFAULT_COLOR = Color.argb(0xFF, 0x33, 0xB5, 0xE5);
+        public static final int DEFAULT_COLOR = Color.argb(0xFF, 144, 51, 107);//Color.argb(0xFF, 0x33, 0xB5, 0xE5);
 
         /**
          * An invalid pointer id.

@@ -70,13 +70,13 @@ OnClickListener,OnKeyListener, OnDateSetListener, OnItemSelectedListener{
 		   thingshavechanged = false;
 		  
 		   textfast= (EditText) getActivity().findViewById(R.id.textfast);
-		   textadd = (EditText) getActivity().findViewById(R.id.textadd);
+		 //  textadd = (EditText) getActivity().findViewById(R.id.textadd);
 		   texthighbill = (EditText) getActivity().findViewById(R.id.textHighBill);
 		   texthighprice = (EditText) getActivity().findViewById(R.id.textHighPrice);
 		   texthighuse = (EditText) getActivity().findViewById(R.id.textHighUse);
 		   
 		   textfast.setOnKeyListener(this);
-		   textadd.setOnKeyListener(this);
+		  // textadd.setOnKeyListener(this);
 		   texthighbill.setOnKeyListener(this);
 		   texthighprice.setOnKeyListener(this);
 		   texthighuse.setOnKeyListener(this);
@@ -101,7 +101,7 @@ OnClickListener,OnKeyListener, OnDateSetListener, OnItemSelectedListener{
 		   spinner.setSelection(settings.getInt("PeriodNumber", 0));
 		   textDate.setText("" + settings.getInt("billDateYear", 0) +"-" +  (settings.getInt("billDateMonth", 0)+1) +"-" +  settings.getInt("billDateDay", 0));
 		   textfast.setText(settings.getString("FastPris", ""));
-		   textadd.setText(settings.getString("Add", ""));
+		   //textadd.setText(settings.getString("Add", ""));
 		   texthighbill.setText(settings.getString("highbill", ""));
 		   texthighprice.setText(settings.getString("highprice", ""));
 		   texthighuse.setText(settings.getString("highuse", ""));

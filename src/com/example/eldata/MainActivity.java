@@ -105,68 +105,7 @@ public void selecttabs(int i){
 	}
 }
     
-    public void standardDialog(int stringValue, String positiveButton){
-		//Gets the layout to be set in the dialog
-		LayoutInflater li = LayoutInflater.from(this);
-		View tutorialView= li.inflate(R.layout.billview, null);
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-		
-		final EditText numberAdd = (EditText) tutorialView.findViewById(R.id.textPålägg);
-		final EditText numberFast = (EditText) tutorialView.findViewById(R.id.textFastPris);
-		
 
-		//Sets the view of the dialog
-		alertDialogBuilder.setView(tutorialView);
-		//Sets the name of the buttons of the dialog
-		alertDialogBuilder
-		.setCancelable(true)
-		.setPositiveButton(positiveButton,
-				new DialogInterface.OnClickListener() {		
-			public void onClick(DialogInterface dialog,int id) {
-				//If createloop is set true, which it only should be when called from tutorialDialog, starts the next tutorialDialog
-				Log.d("geh", "heh1");
-				
-				String temp1 = numberAdd.getText().toString();
-				Log.d("geh", "heh0");
-				String temp2 = numberFast.getText().toString();
-				Log.d("geh", "heh2");
-			
-				
-				SharedPreferences settings = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
-				
-				SharedPreferences.Editor editor = settings.edit();
-				editor.putString("Add", temp1);
-				editor.putString("FastPris", temp2);
-				editor.commit();
-
-				dialog.cancel();
-			}
-
-		})
-		//Sets the negative button to cancel
-		.setNegativeButton("Cancel",
-				new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog,int id) {
-				
-				dialog.cancel();
-
-			}
-		});
-
-		//Creates the alertDialog and sets it cancelable
-		AlertDialog alertDialog = alertDialogBuilder.create();
-		alertDialog.setCancelable(true);
-
-
-		//Displays the alertDialog
-		alertDialog.show();
-		//Sets the background of the buttons
-		Button bn = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-		bn.setBackgroundColor(Color.parseColor("#FFFFFF"));
-		Button bp = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
-		bp.setBackgroundColor(Color.parseColor("#FFFFFF"));
-
-	}
 
 	private void setDates() {
 		// TODO Auto-generated method stub

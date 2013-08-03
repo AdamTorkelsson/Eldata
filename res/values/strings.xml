@@ -17,26 +17,36 @@
         						månad,kvartal eller år annorlunda</string>
     <string name="imageButton4">Uppskattad slutkostnad för nuvarande räkning.
         						Uträknad med hjälp av tidigare månaders 
-        						använding samt denna månadens användning. 
-        						</string>
-    <string name="imageButton5">Nuvarande elanvänding jämförelsevis med andra månaders elanvändning.
-        						 
-        						 </string>
+        						använding samt denna månadens användning. </string>
+    <string name="imageButton5">Nuvarande elanvänding jämförelsevis med andra månaders elanvändning.</string>
     <string name="imageButton6">Kostnaden för elektricitet just nu, 
         						nordpols kostnad plus din tilläggskostnad</string>
-    
+    <string name="imageButton7">De tio senaste tillgängliga mätvärdena. 
+       							För att se alla mätvärden ladda ner 
+       								PlayBack ifrån Google Play</string>
 
-       <string-array name="betalningsperiod">
+    <string-array name="betalningsperiod">
         <item>Månad</item>
-         <item>Kvartal</item>
+        <item>Kvartal</item>
         <item>Årlig</item>
     </string-array>
-    
-        <string-array name="statistics">
+    <string-array name="statistics">
         <item>Jämför kostnader</item>
-         <item>Användningsstatistik</item>
+        <item>Användningsstatistik</item>
         <item>Mätvärden</item>
     </string-array>
-       
-       
+       <string-array name="fast_rorlig"
+           >
+        <item>Fast kostnad på </item>
+        <item>Rörligt prispålägg på</item>
+    </string-array>
+   
+    
+       <string-array name="fast_rorlig_settings">
+        <item>En fast kwh kostnad </item>
+        <item>Ett rörligt prispålägg</item>
+    </string-array>
+
+    <string name="title_activity_activity__insert_info">Activity_InsertInfo</string>
+
 </resources>
