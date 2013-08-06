@@ -272,12 +272,15 @@ public void onClick(View v) {
 	  case R.id.buttonCompare:
 		  Editable ed = input.getText();
 		  if(ed.length() > 0){
+			  Log.d("", "barthasitter" + ed.toString());
 			  editor.putString("Add",ed.toString());
 			  float f = 0;
 			  Log.d("", "ADAAAAAAM");
-			 
+			
+			  databaseCost.clean();
 			  databaseCost.setAddFast(Float.parseFloat(settings.getString("Add", f + "")),
 						Float.parseFloat(settings.getString("FastPris", f + "")));
+			  Log.d("", "barthasitter2" + settings.getString("Add", f + ""));
 		  }
 		  
 		  

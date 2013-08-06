@@ -309,6 +309,11 @@ public void drawNew( float tabell1, float tabell2, float max , String type){
 			tabell3string= "Skillnad";
 		}
 	}
+	else if(tabellheight1 != tabellheight1){
+		tabell1 = tabellheight1;
+		tabell2 = tabellheight2;
+		tabell3 = tabellheight3;
+	}
 
 
 	if(("" + tabell2).length() > ("" + tabell1).length())

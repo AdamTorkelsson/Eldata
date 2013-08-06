@@ -156,7 +156,7 @@ public class Graph extends View{
 			double c = canvas.getHeight() -70;
 			double fixedheight =c/m;
 			int fixedwidth = canvas.getWidth()/9;
-		;
+		
 			Rect r = new Rect();
 			r.set(fixedwidth*5, (int) (canvas.getHeight()-fixedheight*tabellheight1), fixedwidth*7, canvas.getHeight());
 			canvas.drawRect(r, pBlue);

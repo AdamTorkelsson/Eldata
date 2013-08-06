@@ -9,7 +9,7 @@ import android.util.Log;
 public class DatabaseCost {
 	Database database;
 	float variablereturn = 0;
-	float fastreturn = 100000;
+	float fastreturn = 0;
 	float totalsum = 0;
 	float medel = 0;
 	ArrayList<Float> databasearray = new ArrayList<Float>();
@@ -125,6 +125,18 @@ public class DatabaseCost {
 
 	public void setThisSpecificTime(int daysBetween) {
 		setCost(daysBetween);
+		
+	}
+
+
+
+
+
+	public void clean() {
+		variablereturn = 0;
+		fastreturn = 0;
+		allMax = 0;
+		// TODO Auto-generated method stub
 		
 	}
 
