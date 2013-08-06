@@ -9,7 +9,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Paint.Align;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -157,9 +156,7 @@ public class Graph extends View{
 			double c = canvas.getHeight() -70;
 			double fixedheight =c/m;
 			int fixedwidth = canvas.getWidth()/9;
-			Log.d("Adam", "AdamPaint6" + fixedheight);
-			Log.d("Adam", "AdamPaint7" + canvas.getHeight());
-			Log.d("Adam", "AdamPaint8" + Math.max(variablecost, fastcost));
+		;
 			Rect r = new Rect();
 			r.set(fixedwidth*5, (int) (canvas.getHeight()-fixedheight*tabellheight1), fixedwidth*7, canvas.getHeight());
 			canvas.drawRect(r, pBlue);

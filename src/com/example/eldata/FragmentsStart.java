@@ -4,19 +4,11 @@ import java.util.Calendar;
 
 import com.example.eldata.rest.DatabaseCost;
 import com.example.eldata.rest.DatabaseStatistics;
-import com.example.eldata.rest.GraphCost;
 import com.example.eldata.rest.GraphTenDays;
-import com.example.eldata.rest.GraphView;
-
 import android.os.Bundle;
-import android.util.Log;
-import android.view.GestureDetector.OnGestureListener;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,7 +20,6 @@ import android.app.FragmentTransaction;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
  
 @SuppressLint("CutPasteId")
@@ -264,6 +255,7 @@ public class FragmentsStart extends Fragment implements ActionBar.TabListener, O
 				return f;
 	}
 
+	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
         mFragment = new FragmentsStart();
@@ -272,13 +264,15 @@ public class FragmentsStart extends Fragment implements ActionBar.TabListener, O
         ft.attach(mFragment);
     }
  
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
         // Remove fragment3.xml layout
         ft.remove(mFragment);
     }
  
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
  
     }

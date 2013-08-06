@@ -11,7 +11,6 @@ import com.example.eldata.RangeSeekBar.OnRangeSeekBarChangeListener;
 import com.example.eldata.rest.Database;
 import com.example.eldata.rest.DatabasePrice;
 import com.example.eldata.rest.DatabaseStatistics;
-import com.example.eldata.rest.Graph;
 import com.example.eldata.rest.GraphUse;
 
 
@@ -20,29 +19,26 @@ import com.example.eldata.rest.GraphUse;
 
 
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.app.ActionBar.Tab;
-import android.app.Activity;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ActionBar;
-import android.content.Context;
-import android.content.Intent;
  
-public class FragmentsHighestUse extends Fragment implements ActionBar.TabListener ,OnClickListener, OnDateSetListener,OnTouchListener  {
+public class FragmentsHighestUse extends Fragment implements ActionBar.TabListener ,OnClickListener, OnDateSetListener,OnTouchListener, OnItemSelectedListener  {
  
     private Fragment mFragment;
 	private Database database;
@@ -70,7 +66,7 @@ public class FragmentsHighestUse extends Fragment implements ActionBar.TabListen
     	endcalendar  = Calendar.getInstance();
         
         // Get the view from fragment1.xml
-        getActivity().setContentView(R.layout.compareview);
+        getActivity().setContentView(R.layout.fragment_statistic);
         
 		database = new Database();
 		stastistics = new DatabaseStatistics();
@@ -91,6 +87,8 @@ public class FragmentsHighestUse extends Fragment implements ActionBar.TabListen
 		    textEndDate= (TextView) getActivity().findViewById(R.id.textEndDate);
 		    textStartDate.setOnClickListener(this);
 		    textEndDate.setOnClickListener(this);
+
+		    
 		 // create RangeSeekBar as Date range between 1950-12-01 and now
 		//    Button buttonSwitch = (Button) getActivity().findViewById( R.id.switch1);
 		//    buttonSwitch.setOnClickListener(this);
@@ -197,6 +195,7 @@ private void createNewGraph(){
 	//  graph.setTime(stastistics.getMedel(),stastistics.getMax() , stastistics.getMin());
 	 // graphview.addView(graph);
 }
+@Override
 public void onClick(View v) {
 	long ett = 3600 * 24;
 	long två = 31*1000;
@@ -206,11 +205,7 @@ public void onClick(View v) {
 	 long currentTime = startcalendar.getTime().getTime();
 	 
 	  switch(v.getId()){
-	  case R.id.switch1:
-		  Tab tab = getActivity().getActionBar().getTabAt(1);
-		  tab.setTabListener(new FragmentsCostDifference());
-		  tab.select();	
-		  break;
+
 		  
 	  case R.id.buttonAllTime:
 		  stastistics.setThisAllTime();
@@ -322,11 +317,11 @@ private void setTextViews(float medel,float max , float min , float yesterday){
 		TextView textmedeluse= (TextView) getActivity().findViewById(R.id.textmedeluse);
 		textmedeluse.setText( String.format("%.2f", medel) + " kwh");
 		
-		TextView textmaxused = (TextView) getActivity().findViewById(R.id.textmaxused);
+	/*	TextView textmaxused = (TextView) getActivity().findViewById(R.id.textmaxused);
 		textmaxused.setText( String.format("%.2f", max) + " kwh" );
 		
 		//TextView textminuse = (TextView) getActivity().findViewById(R.id.textminuse);
-		//textminuse.setText(String.format("%.2f", min) + " kwh" );
+		//textminuse.setText(String.format("%.2f", min) + " kwh" );*/
 		
 
 		
@@ -336,7 +331,8 @@ private void setTextViews(float medel,float max , float min , float yesterday){
 
     
     
-    public void onTabSelected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabSelected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
         mFragment = new FragmentsHighestUse();
         // Attach fragment1.xml layout
@@ -349,13 +345,15 @@ private void setTextViews(float medel,float max , float min , float yesterday){
      
     }
  
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
         // Remove fragment1.xml layout
         ft.remove(mFragment);
     }
  
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
  
     }
@@ -404,6 +402,36 @@ private void setTextViews(float medel,float max , float min , float yesterday){
            return true; 
         } 
 		return true;
+	}
+
+
+
+
+	@Override
+	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
+			long arg3) {
+			switch(arg2){
+				case 0:
+				
+					break;	
+				case 1:
+					
+					break;
+				case 2:
+					
+					break;
+					
+			}
+		
+	}
+
+
+
+
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

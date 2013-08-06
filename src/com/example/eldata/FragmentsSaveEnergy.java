@@ -1,11 +1,6 @@
 package com.example.eldata;
  
 import android.os.Bundle;
-import android.util.Log;
-import android.view.GestureDetector.OnGestureListener;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.View.OnTouchListener;
 import android.app.ActionBar.Tab;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -27,7 +22,8 @@ public class FragmentsSaveEnergy extends Fragment implements ActionBar.TabListen
 		   
     }
  
-    public void onTabSelected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabSelected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
         mFragment = new FragmentsSaveEnergy();
         // Attach fragment3.xml layout
@@ -35,13 +31,15 @@ public class FragmentsSaveEnergy extends Fragment implements ActionBar.TabListen
         ft.attach(mFragment);
     }
  
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
         // Remove fragment3.xml layout
         ft.remove(mFragment);
     }
  
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
  
     }

@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 
 public class DatabaseCost {
 	Database database;
-	float max = 0;
-	float min = 100000;
+	float variablereturn = 0;
+	float fastreturn = 100000;
 	float totalsum = 0;
 	float medel = 0;
 	ArrayList<Float> databasearray = new ArrayList<Float>();
@@ -48,16 +46,18 @@ public class DatabaseCost {
 			fastcost += l * fast;
 			i++;
 			if(i == days){
+				
 				break;
 			}
 		}
 		Log.d("Hej", "SetTextViews7");
-		this.max = variablecost;
+		this.variablereturn = variablecost;
 		
-		this.min = fastcost;
-		this.medel = 3000;
-		if(Math.max(max, Math.max(medel, min)) > allMax){
-			allMax = Math.max(max, Math.max(medel, min));
+		this.fastreturn = fastcost;
+		
+		
+		if( Math.max(variablereturn, fastreturn) > allMax){
+			allMax = Math.max(variablereturn,fastreturn);
 			
 		}
 	}
@@ -65,24 +65,22 @@ public class DatabaseCost {
 
 	
 	
-	public float getMedel(){
-		return medel;
-	}
+	
 	public float getMax(){
-		return max;
+		return variablereturn;
 	}
 	public float getMin(){
-		return min;
+		return fastreturn;
 	}
 	
 	public float getMedelMonth(){
 		return medel;
 	}
 	public float getMaxMonth(){
-		return max;
+		return variablereturn;
 	}
 	public float getMinMonth(){
-		return min;
+		return fastreturn;
 	}
 	
 	public float getAllMax() {

@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 
 public class DatabaseStatistics {

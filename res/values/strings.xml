@@ -31,9 +31,9 @@
         <item>Årlig</item>
     </string-array>
     <string-array name="statistics">
-        <item>Jämför kostnader</item>
-        <item>Användningsstatistik</item>
-        <item>Mätvärden</item>
+        <item>Jämför priser</item>
+        <item>Top och botten värden</item>
+        
     </string-array>
        <string-array name="fast_rorlig"
            >

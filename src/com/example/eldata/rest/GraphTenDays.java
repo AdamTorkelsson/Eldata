@@ -3,9 +3,7 @@ package com.example.eldata.rest;
 import java.util.ArrayList;
 import java.util.Random;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;

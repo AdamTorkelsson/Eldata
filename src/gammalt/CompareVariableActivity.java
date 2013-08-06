@@ -3,8 +3,6 @@ package gammalt;
 import java.util.ArrayList;
 
 import com.example.eldata.R;
-import com.example.eldata.R.id;
-import com.example.eldata.R.layout;
 import com.example.eldata.rest.Database;
 import com.example.eldata.rest.DatabasePrice;
 import com.example.eldata.rest.DatabaseStatistics;
@@ -12,17 +10,11 @@ import com.example.eldata.rest.Graph;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.GestureDetector;
-import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.app.ActionBar.Tab;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -71,7 +63,8 @@ public class CompareVariableActivity extends Fragment implements ActionBar.TabLi
  
 	
 	
-    public void onTabSelected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabSelected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
         mFragment = new CompareVariableActivity();
         // Attach fragment2.xml layout
@@ -81,14 +74,16 @@ public class CompareVariableActivity extends Fragment implements ActionBar.TabLi
         ft.attach(mFragment);
         
     }
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
         // Remove fragment2.xml layout
     	 
     	ft.remove(mFragment);
     }
  
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft) {
     	
     	setTextViews();
  

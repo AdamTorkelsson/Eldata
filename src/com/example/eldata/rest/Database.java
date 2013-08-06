@@ -2,12 +2,7 @@ package com.example.eldata.rest;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
-
-import android.content.Context;
-import android.content.SharedPreferences;
 
 public class Database {
 	private static final String PREFS_NAME = "UserInfo";

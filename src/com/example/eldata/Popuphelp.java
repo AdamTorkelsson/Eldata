@@ -7,9 +7,8 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 
 public class Popuphelp {
@@ -67,13 +66,16 @@ public class Popuphelp {
 			 * @param positiveButton The string to be shown on the positive button
 			 * @param createloop Should be true if handling the tutorialDialog, else false
 			 */
-			private void standardDialog(int stringValue){
+			
+	AlertDialog alertDialog;
+	private void standardDialog(int stringValue){
 				//Gets the layout to be set in the dialog
 				LayoutInflater li = LayoutInflater.from(context);
 				View tutorialView= li.inflate(R.layout.tutorialdialogview, null);
+		
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-
-				//Sets the text inside of the dialog
+						//Sets the text inside of the dialog
+				
 				TextView textview = (TextView) tutorialView.findViewById(R.id.textView1);
 				textview.setText(stringValue);
 
@@ -81,26 +83,30 @@ public class Popuphelp {
 				alertDialogBuilder.setView(tutorialView);
 				//Sets the name of the buttons of the dialog
 				alertDialogBuilder
-				.setCancelable(true)
-				.setPositiveButton("OK",
-						new DialogInterface.OnClickListener() {		
-					public void onClick(DialogInterface dialog,int id) {
-						//If createloop is set true, which it only should be when called from tutorialDialog, starts the next tutorialDialog
-						
-							dialog.cancel();
-					}
-
-				});
+				.setCancelable(true);
 
 				//Creates the alertDialog and sets it cancelable
-				AlertDialog alertDialog = alertDialogBuilder.create();
+				alertDialog = alertDialogBuilder.create();
 				alertDialog.setCancelable(true);
-
+				
 
 				//Displays the alertDialog
 				alertDialog.show();
 				//Sets the background of the buttons
+				
+				Button ok = (Button) tutorialView.findViewById(R.id.button1);
+				ok.setOnClickListener(new OnClickListener(){
 
+					@Override
+					public void onClick(View v) {
+						alertDialog.cancel();
+						
+					}
+					
+					
+				});	
+				
+				
 				Button bp = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
 				bp.setBackgroundColor(Color.parseColor("#F0F0F0"));
 				

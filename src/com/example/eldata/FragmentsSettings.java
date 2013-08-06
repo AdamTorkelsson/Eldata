@@ -1,10 +1,7 @@
 package com.example.eldata;
  
-import java.util.Calendar;
-
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -14,7 +11,6 @@ import android.view.View.OnKeyListener;
 import android.view.View.OnTouchListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -246,7 +242,8 @@ OnClickListener,OnKeyListener, OnDateSetListener, OnItemSelectedListener{
    
     
 
-    public void onTabSelected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabSelected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
         mFragment = new FragmentsSettings();
         // Attach fragment3.xml layout
@@ -254,13 +251,15 @@ OnClickListener,OnKeyListener, OnDateSetListener, OnItemSelectedListener{
         ft.attach(mFragment);
     }
  
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
         // Remove fragment3.xml layout
         ft.remove(mFragment);
     }
  
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
  
     }

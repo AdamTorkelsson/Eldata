@@ -1,8 +1,17 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/linear"
+     android:layout_below="@+id/linearLayout1"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical" 
+     android:background="@drawable/roundbuttonpurple" >
+
+<ScrollView 
     android:id="@+id/relativelayout1"
      android:layout_width="wrap_content"
      android:layout_height="wrap_content" 
-     android:scrollHorizontally="false">
+     android:scrollHorizontally="false"
+      android:background="@drawable/bacground">
      
 
 
@@ -10,37 +19,20 @@
 
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bacground"
+   
    >
 
- 
-   <LinearLayout
-     android:id="@+id/linearLayout2"
-     android:layout_below="@+id/linearLayout1"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_alignParentLeft="true"
-     android:orientation="vertical" 
-     android:layout_marginTop="5dp"
-     android:background="@drawable/roundbuttonpurple" >
-
- 
-
-     <TextView
-         android:id="@+id/textmedeluse"
-         android:inputType="number"
-         android:layout_weight="1"
-         android:gravity="center"
-
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:textSize="20dp"
-          android:text="UPPVÄRMNING"
- />
-
- </LinearLayout>
- 
+        <TextView
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="RobotoBold"
+            android:gravity="center"
+            android:text="Uppvärmning"
+            android:textSize="22sp" />
 
   <LinearLayout
      android:id="@+id/linearLayout10"
@@ -74,35 +66,18 @@ android:singleLine="false"
           />
 
  </LinearLayout>
-   <LinearLayout
-     android:id="@+id/linearLayout3"
-     android:layout_below="@+id/linearLayout10"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_alignParentLeft="true"
-     android:orientation="vertical" 
-     android:layout_marginTop="5dp"
-     android:background="@drawable/roundbuttonpurple" >
-
- 
-
-     <TextView
-         android:id="@+id/textmedeluse"
-
-         android:textSize="20dp"
-         android:gravity="center"
-          android:text="KÖKET" 
-          
-          		android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:ellipsize="none"
-android:singleLine="false"
-		/>
-
-
-
- </LinearLayout>
+<TextView
+            android:id="@+id/linearLayout3"
+              android:layout_below="@+id/linearLayout10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="RobotoBold"
+            android:gravity="center"
+            android:text="Köket"
+            android:textSize="22sp" />
  
   <LinearLayout
      android:id="@+id/linearLayout11"
@@ -143,35 +118,19 @@ android:singleLine="false"
          android:textSize="16dp" />
 
  </LinearLayout>
- 
-  <LinearLayout
-     android:id="@+id/linearLayout4"
-     android:layout_below="@+id/linearLayout11"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_alignParentLeft="true"
-     android:orientation="vertical" 
-     android:layout_marginTop="5dp"
-     android:background="@drawable/roundbuttonpurple" >
 
- 
-
-     <TextView
-         android:id="@+id/textmedeluse"
-         android:inputType="number"
-         android:layout_weight="1"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:gravity="center"
-         android:textSize="20dp"
-          android:text="TVÄTTEN"
-
-          />
-
-
-
- </LinearLayout>
+  <TextView
+            android:id="@+id/linearLayout4"
+              android:layout_below="@+id/linearLayout11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="RobotoBold"
+            android:gravity="center"
+            android:text="Köket"
+            android:textSize="22sp" />
  
   <LinearLayout
      android:id="@+id/linearLayout13"
@@ -206,37 +165,20 @@ android:singleLine="false"
 
  </LinearLayout>
  
- 
-  <LinearLayout
-     android:id="@+id/linearLayout5"
-     android:layout_below="@+id/linearLayout13"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_alignParentLeft="true"
-     android:orientation="vertical" 
-     android:layout_marginTop="5dp"
-     android:background="@drawable/roundbuttonpurple" >
 
  
-
-     <TextView
-         android:id="@+id/textmedeluse"
-         android:inputType="number"
-         android:layout_weight="1"
-           android:gravity="center"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:textSize="20dp"
-          android:text="LAMPOR"
-
-          />
-
-
-
- </LinearLayout>
- 
-  
+  <TextView
+            android:id="@+id/linearLayout5"
+              android:layout_below="@+id/linearLayout13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="RobotoBold"
+            android:gravity="center"
+            android:text="Lampor"
+            android:textSize="22sp" />
   
    <LinearLayout
      android:id="@+id/linearLayout14"
@@ -276,31 +218,19 @@ android:singleLine="false"
   
   
  
-    <LinearLayout
-       android:id="@+id/linearLayout12"
-     android:layout_below="@+id/linearLayout14"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_alignParentLeft="true"
-     android:orientation="vertical" 
-     android:layout_marginTop="5dp"
-     android:background="@drawable/roundbuttonpurple" >
 
- 
-
-     <TextView
-         android:id="@+id/textmedeluse"
-         android:inputType="number"
-         android:layout_weight="1"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:textSize="20dp"
-           android:gravity="center"
-          android:text="BADRUMMET"         />
-
- </LinearLayout>
- 
+ <TextView
+            android:id="@+id/linearLayout12"
+              android:layout_below="@+id/linearLayout14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="RobotoBold"
+            android:gravity="center"
+            android:text="Badrummet"
+            android:textSize="22sp" />
    <LinearLayout
        android:id="@+id/linearLayout6"
        android:layout_width="fill_parent"
@@ -327,34 +257,19 @@ android:singleLine="false"
  "         />
 
  </LinearLayout>
-  <LinearLayout
-       android:id="@+id/linearLayout7"
-     android:layout_below="@+id/linearLayout6"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:gravity="center"
-     android:layout_alignParentLeft="true"
-     android:orientation="vertical" 
-     android:layout_marginTop="5dp"
-     android:background="@drawable/roundbuttonpurple" >
 
- 
-
-     <TextView
-         android:id="@+id/textmedeluse"
-         android:inputType="number"
-         android:layout_weight="1"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:textSize="20dp"
-         android:gravity="center"
-          android:text="SIST MEN INTE MINST"
-
-          />
-
-
-
- </LinearLayout>
+<TextView
+            android:id="@+id/linearLayout7"
+              android:layout_below="@+id/linearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="RobotoBold"
+            android:gravity="center"
+            android:text="Sist men inte minst"
+            android:textSize="22sp" />
 
    <LinearLayout
        android:id="@+id/linearLayout8"
@@ -391,3 +306,4 @@ android:singleLine="false"
      
 </RelativeLayout>
 </ScrollView>
+</LinearLayout>

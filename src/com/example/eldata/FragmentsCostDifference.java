@@ -7,12 +7,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 
+import com.example.eldata.R.layout;
 import com.example.eldata.RangeSeekBar.OnRangeSeekBarChangeListener;
 import com.example.eldata.rest.Database;
 import com.example.eldata.rest.DatabaseCost;
 import com.example.eldata.rest.DatabasePrice;
-import com.example.eldata.rest.DatabaseStatistics;
-import com.example.eldata.rest.Graph;
 import com.example.eldata.rest.GraphCost;
 
 
@@ -21,33 +20,35 @@ import com.example.eldata.rest.GraphCost;
 
 
 import android.os.Bundle;
-import android.util.DisplayMetrics;
+import android.text.Editable;
 import android.util.Log;
-import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.R.integer;
 import android.app.ActionBar.Tab;
-import android.app.Activity;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ActionBar;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 
-public class FragmentsCostDifference extends Fragment implements ActionBar.TabListener ,OnClickListener, OnDateSetListener,OnTouchListener  {
+public class FragmentsCostDifference extends Fragment implements ActionBar.TabListener ,OnClickListener, OnDateSetListener,OnTouchListener, OnItemSelectedListener  {
  
 	@Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -62,7 +63,8 @@ public class FragmentsCostDifference extends Fragment implements ActionBar.TabLi
 	DatabasePrice prices = new DatabasePrice();
 	ArrayList<Float> thismonth = new ArrayList<Float>();
 	ArrayList<Float> thismonthprice = new ArrayList<Float>();
-	DatabaseCost stastistics;
+	DatabaseCost databaseCost;
+	DatabasePrice databasePrice;
 	int totalbill;
     TextView textStartDate;
 	TextView textEndDate;
@@ -77,7 +79,16 @@ public class FragmentsCostDifference extends Fragment implements ActionBar.TabLi
     LinearLayout graphview;
     GraphCost graph;
     Date minDate;
-
+    Button buttonAllTime;
+    Button buttonMonth;
+    Button buttonWeek; 
+    Button buttonYesterday; 
+    Button buttonYear;
+    EditText textcompare;
+    LinearLayout view2;
+    View myView;
+    LayoutInflater factory;
+    Spinner spinner;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,32 +99,47 @@ public class FragmentsCostDifference extends Fragment implements ActionBar.TabLi
     	endcalendar  = Calendar.getInstance();
         
         // Get the view from fragment1.xml
-        getActivity().setContentView(R.layout.compareview);
+        getActivity().setContentView(R.layout.fragment_statistic);
         
 		database = new Database();
-		stastistics = new DatabaseCost();
+		databaseCost = new DatabaseCost();
+		databasePrice = new DatabasePrice();
 		SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
-		stastistics.setAddFast(3/*Float.parseFloat(settings.getString("Add", "0"))*/,
-				Float.parseFloat(settings.getString("FastPris", "0")));
+		
+		float f = 0;
+		databaseCost.setAddFast(Float.parseFloat(settings.getString("Add", f + "")),
+				Float.parseFloat(settings.getString("FastPris", f + "")));
+		
+	
+		
 		thismonth 		= database.getLastMonth();
 		//thismonthprice  = prices.getLastMonth();
-		setTextViews(0,0, 0,0);
-		  	Button buttonAllTime = (Button) getActivity().findViewById(R.id.buttonAllTime);
-		    Button buttonMonth = (Button) getActivity().findViewById(R.id.buttonMonth);
-		    Button buttonWeek = (Button) getActivity().findViewById(R.id.buttonWeek);
-		    Button buttonYesterday = (Button) getActivity().findViewById(R.id.buttonYesterday);
-		    Button buttonYear = (Button) getActivity().findViewById(R.id.buttonYear);
-		    Spinner buttonSpinner= (Spinner) getActivity().findViewById( R.id.switch1);
-			
+		
+		 
+			textStartDate= (TextView) getActivity().findViewById(R.id.textStartDate);
+		    textEndDate= (TextView) getActivity().findViewById(R.id.textEndDate);
+		    textStartDate.setOnClickListener(this);
+		    textEndDate.setOnClickListener(this);
+		
+			buttonAllTime = (Button) getActivity().findViewById(R.id.buttonAllTime);
+		    buttonMonth = (Button) getActivity().findViewById(R.id.buttonMonth);
+		    buttonWeek = (Button) getActivity().findViewById(R.id.buttonWeek);
+		    buttonYesterday = (Button) getActivity().findViewById(R.id.buttonYesterday);
+		    buttonYear = (Button) getActivity().findViewById(R.id.buttonYear);
+		
+
 		    buttonAllTime.setOnClickListener(this);
 		    buttonMonth.setOnClickListener(this);
 		    buttonWeek.setOnClickListener(this);
 		    buttonYesterday.setOnClickListener(this);
 		    buttonYear.setOnClickListener(this);
-		    textStartDate= (TextView) getActivity().findViewById(R.id.textStartDate);
-		    textEndDate= (TextView) getActivity().findViewById(R.id.textEndDate);
-		    textStartDate.setOnClickListener(this);
-		    textEndDate.setOnClickListener(this);
+
+		
+		
+		    spinner  = (Spinner) getActivity().findViewById(R.id.spinnerStatistic);
+		    spinner.setOnItemSelectedListener(this);
+		    
+		    
 		 // create RangeSeekBar as Date range between 1950-12-01 and now
 		    
 		    
@@ -125,19 +151,30 @@ public class FragmentsCostDifference extends Fragment implements ActionBar.TabLi
 			}
 		   View view = getActivity().findViewById(R.id.linearLayout9);	   
 		   view.setOnTouchListener(this);
-		   stastistics.setThisAllTime();
+		   databaseCost.setThisAllTime();
 			  setStartAndEndDate(minDate,
 		  				Calendar.getInstance().getTime());
 			  
 		  graph = new GraphCost(getActivity());
-		  graph.setTime(stastistics.getMedel(),stastistics.getMax() , stastistics.getMin(),stastistics.getAllMax());
+		  
+		  
+		  graph.setTime(databaseCost.getMax() , databaseCost.getMin(),databaseCost.getAllMax());
 		   graphview = (LinearLayout) getActivity().findViewById(R.id.linearLayout7);
 		   graphview.addView(graph);
-		   
+
+		   //adds the layout for the specific statistic
+		  view2 = (LinearLayout) getActivity().findViewById(R.id.linearLayout1); 
+		  factory = LayoutInflater.from(getActivity());
+		
+		  myView = factory.inflate(R.layout.pricecompare, null);
+		  view2.addView(myView);
+		
+		  
+		  
+		 
 		 
     }
   
-
 
 private void setDatePickerListener() throws ParseException {
 	minDate = new SimpleDateFormat("yyyy-MM-dd").parse("2008-12-01");
@@ -170,7 +207,7 @@ private void setDatePickerListener() throws ParseException {
     });
 
     // add RangeSeekBar to pre-defined layout
-    ViewGroup layout = (ViewGroup) getActivity().findViewById(R.id.linearLayout10);
+    ViewGroup layout = (ViewGroup) getActivity().findViewById(R.id.linearLayout13);
 
     layout.addView(seekBar);
 	}
@@ -186,9 +223,8 @@ private void setStastics(Date startvalue, Date endvalue) {
 	// Find the difference, duh
 	long daysBetween = endDay - startDay;
 	
-	stastistics.setThisSpecificTime((int) daysBetween);
-	 setTextViews(stastistics.getMedel(),stastistics.getMax() , stastistics.getMin(),stastistics.getYesterday());
-	
+	databaseCost.setThisSpecificTime((int) daysBetween);
+	 
 }
 
 public void setStartAndEndDate(Date startdate,Date enddate){
@@ -203,11 +239,16 @@ public void setStartAndEndDate(Date startdate,Date enddate){
 }
 
 private void createNewGraph(){
-	// graphview.removeAllViews();
-	  graph.drawNew(stastistics.getMedel(),stastistics.getMax() , stastistics.getMin());
-	//  graph.setTime(stastistics.getMedel(),stastistics.getMax() , stastistics.getMin());
-	 // graphview.addView(graph);
+	if(spinner.getSelectedItemPosition() == 0){
+		graph.drawNew(databaseCost.getMax() , databaseCost.getMin() , databaseCost.getAllMax(),"priceCompare");
+	}
+	else if(spinner.getSelectedItemPosition() == 1){
+		graph.drawNew( 100,70 , 100, "peaks");
+	}
+	  
+
 }
+@Override
 public void onClick(View v) {
 	long ett = 3600 * 24;
 	long två = 31*1000;
@@ -215,34 +256,49 @@ public void onClick(View v) {
 	
 	 Calendar startcalendar = Calendar.getInstance();
 	 long currentTime = startcalendar.getTime().getTime();
-	 
-	  switch(v.getId()){
-	  case R.id.switch1:
-		    
-		        // Attach fragment1.xml layout
-		        ft.remove(mFragment);
-		        mFragment = new FragmentsHighestUse();
-		        
-		        
-		        mFragment = new FragmentsCostDifference();
-		        // Attach fragment1.xml layout
-		        ft.add(android.R.id.content, mFragment);
-		       this.ft = ft;
-		        ft.setCustomAnimations(R.anim.map_in,R.anim.other_in);
-		        ft.attach(mFragment);
-		        
-		        
-		  break;
+	 SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME,Context.MODE_PRIVATE);
+	 SharedPreferences.Editor editor = settings.edit();
+	  switch(v.getId()){       
+	  case R.id.buttonKlar:
 		  
-	  case R.id.buttonAllTime:
-		  stastistics.setThisAllTime();
+		  
+		  
+		  databaseCost.setThisAllTime();
+			 
 		  setStartAndEndDate(minDate,
 	  				Calendar.getInstance().getTime());
 		  createNewGraph();
 		  break;
+	  case R.id.buttonCompare:
+		  Editable ed = input.getText();
+		  if(ed.length() > 0){
+			  editor.putString("Add",ed.toString());
+			  float f = 0;
+			  Log.d("", "ADAAAAAAM");
+			 
+			  databaseCost.setAddFast(Float.parseFloat(settings.getString("Add", f + "")),
+						Float.parseFloat(settings.getString("FastPris", f + "")));
+		  }
+		  
+		  
+		  
+		  databaseCost.setThisAllTime();
+			 
+		  setStartAndEndDate(minDate,
+	  				Calendar.getInstance().getTime());
+		  createNewGraph();
+		  break;
+	  case R.id.buttonAllTime:
+		  databaseCost.setThisAllTime();
+		 
+		  setStartAndEndDate(minDate,
+	  				Calendar.getInstance().getTime());
+		  createNewGraph();
+		  
+		  break;
 	  
 	  case R.id.buttonYear:
-	      stastistics.setThisYear();
+	      databaseCost.setThisYear();
 	 
 		  long minus = ett * tre;
 		  long date = currentTime - minus;
@@ -252,7 +308,7 @@ public void onClick(View v) {
 	       break;
 	  
 	  case R.id.buttonMonth:
-		  stastistics.setThisMonth();
+		  databaseCost.setThisMonth();
 
 		  long minus1 = ett * två;
 		 long date1 = currentTime - minus1;
@@ -263,7 +319,7 @@ public void onClick(View v) {
 	       break;
 
 	  case R.id.buttonWeek: 
-		  stastistics.setThisWeek();
+		  databaseCost.setThisWeek();
 		  setStartAndEndDate(new Date(currentTime - (60 * 60 * 24 * 7* 1000)),
 	  				Calendar.getInstance().getTime());
 		  createNewGraph();
@@ -271,11 +327,12 @@ public void onClick(View v) {
 	       break;
 	       
 	  case R.id.buttonYesterday: 
-		  stastistics.setThisYesterday();
+		  databaseCost.setThisYesterday();
 		  setStartAndEndDate(new Date(currentTime - (60 * 60 * 24*1000)),
 	  				Calendar.getInstance().getTime());
 		  createNewGraph();
 	       break;
+	       
 	  case R.id.textStartDate:
 		    startdate = new DatePickerFragment(this);
 		    startdate.show(getFragmentManager(), "StartDate");
@@ -295,10 +352,9 @@ public void onClick(View v) {
 		  break;
 	  default:
 		  break;}
-	  setTextViews(stastistics.getMedel(),stastistics.getMax() , stastistics.getMin(),stastistics.getYesterday());
-	 
-	  }
+	
 
+}
 
 @Override
 public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3){
@@ -335,25 +391,10 @@ public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3){
 		}
 	
 
-
-private void setTextViews(float medel,float max , float min , float yesterday){
-		/*
-		TextView textmedeluse= (TextView) getActivity().findViewById(R.id.textmedeluse);
-		textmedeluse.setText( String.format("%.2f", medel) + " kr");
-		
-		TextView textmaxused = (TextView) getActivity().findViewById(R.id.textmaxused);
-		textmaxused.setText( String.format("%.2f", max) + " kr" );
-		
-		//TextView textminuse = (TextView) getActivity().findViewById(R.id.textminuse);
-		//textminuse.setText(String.format("%.2f", min) + " kr" );*/
-		
-		
-	}
-	
-
     
     FragmentTransaction ft;
-    public void onTabSelected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabSelected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
         mFragment = new FragmentsCostDifference();
         // Attach fragment1.xml layout
@@ -366,13 +407,15 @@ private void setTextViews(float medel,float max , float min , float yesterday){
      
     }
  
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
         // Remove fragment1.xml layout
         ft.remove(mFragment);
     }
  
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
+    @Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft) {
         // TODO Auto-generated method stub
  
     }
@@ -420,10 +463,44 @@ private void setTextViews(float medel,float max , float min , float yesterday){
            endY = (int)event.getY(); 
            return true; 
         } 
+		
 		return true;
+	}
+EditText input;
+	@Override
+	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
+			long arg3) {
+			switch(arg2){
+				case 1:
+					view2.removeAllViews();
+					  myView = factory.inflate(R.layout.highuse, null);
+					  view2.addView(myView);
+					 Button b1 = (Button) myView.findViewById(R.id.buttonKlar);
+					  b1.setOnClickListener(this);	
+					 input = (EditText) myView.findViewById(R.id.edittext);
+					  break;
+					  
+				case 0:
+					view2.removeAllViews();
+					  myView = factory.inflate(R.layout.pricecompare, null);
+					  view2.addView(myView);
+					  Button b2 = (Button) myView.findViewById(R.id.buttonCompare);
+					  b2.setOnClickListener(this);	
+					  input = (EditText) myView.findViewById(R.id.edittext);
+					  break;
+	
+			}
+			 
 	}
 
 
+
+
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }

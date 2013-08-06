@@ -3,9 +3,7 @@ package com.example.eldata.rest;
 import java.util.ArrayList;
 import java.util.Random;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -33,16 +31,46 @@ public class GraphCost extends View{
 	int width;
 	int difference = 0;
 	boolean first = true;
-	float medel;
-	float min;
-	float max;
+	float tabell3;
+	float tabell2;
+	float tabell1;
 	DatabaseStatistics ds;
+	
+	String tabellvalue;
+	String tabellvaluesmall;
+	String tabellvaluebig;
+	
+	String tabell1string= "Fast";
+	String tabell2string= "Rörlig";
+	String tabell3string= "Skillnad";
+	
+	float tabellheight1 = 0;
+	float tabellheight2 = 0;
+	float tabellheight3 = 0;
+	
+	int turn = 1;
+
+	float allMax = 0;
+	double fixedheight;
+	double fixedwidth;
+	float sizeValue;
+	float sizePrefix;
+	float sizeTitle;
+	double c = 0;
+	double unknown = 0;
+	float medeldiff = tabell1 / 50;
+	float maxdiff = tabell1 / 50;
+	float mindiff = tabell1 / 50;
+	
+	
+	
     private static final String PREFS_NAME = "UserInfo";
     
 	public GraphCost(Context context) {
 		super(context);
 		//WATCH AS IT IS CHANGED TO INT
 		first = true;
+		type = "priceCompare";
 	}
 	
 
@@ -50,6 +78,7 @@ public class GraphCost extends View{
 		super( context, attrs );
 	//WATCH AS IT IS CHANGED TO INT
 		first = true;
+		type = "priceCompare";
 	}
  
 	public GraphCost(Context context, AttributeSet attrs, int defStyle) {
@@ -57,173 +86,270 @@ public class GraphCost extends View{
 		super( context, attrs, defStyle );
 		//WATCH AS IT IS CHANGED TO INT
 		first = true;
+		type = "priceCompare";
 	}
 
-float allMax = 0;
 
 
 
-	public void setTime(float medel, float max, float min,float allMax) {
-		this.medel =  Math.abs(max - min);
-		this.min = min;
-		this.max = max;
-		this.allMax = max;
-		this.maxTemp = allMax;
+float lasttext;
+
+public void setText(String text){
+	
+}
+
+	public void setTime( float max, float min,float allMax) {
+		isfinished = false;
+		this.tabell3 =  Math.abs(max - min);
+		this.tabell2 = min;
+		this.tabell1 = max;
+	
+		this.allMax = allMax;
+	
 	}
 
-	double fixedheight;
-	double fixedwidth;
-	float sizeSeven;
-	float sizeThree;
-	float sizeSix;
-	double c = 0;
-	double m = 0;
+	
+	
+	
+	
+	
+	private void startUpPriceCompare(Canvas canvas){
+		isfinished = false;
+		tabellvaluesmall = "kr";
+		tabellvaluebig = "tkr";
+		tabellvalue = "kr";
+		
+		
+		this.fixedwidth = canvas.getWidth()/10;
+
+		this.sizeValue = setTextSize(String.format("%.0f",Math.max(tabell1, Math.max(tabell2, tabell3))),fixedwidth,8);
+		this.sizePrefix = setTextSize("kr",fixedwidth,2);
+		this.sizeTitle = setTextSize("Variable",fixedwidth,6);
+		
+		this.first = false;
+		
+		this.c = canvas.getHeight() -sizeValue - sizeTitle - 20;		
+		this.fixedheight =c/unknown;
+		
+	}
+	
+	private void startUpPeaks(Canvas canvas){
+		isfinished = false;
+		tabellvaluesmall = "kwh";
+		tabellvaluebig = "Mwh";
+		tabellvalue = "kwh";
+		
+		
+		this.fixedwidth = canvas.getWidth()/10;
+
+		this.sizeValue = setTextSize(String.format("%.0f",Math.max(tabell1, Math.max(tabell2, tabell3))),fixedwidth,6);
+		this.sizePrefix = setTextSize("Kwh",fixedwidth,3);
+		this.sizeTitle = setTextSize("Variable",fixedwidth,6);
+		
+		this.first = false;
+		
+		this.c = canvas.getHeight() -sizeValue - sizeTitle - 20;		
+		this.fixedheight =c/unknown;
+		
+	}
+	
+	String type;
+	Paint pBlue;
 	@Override
 	protected void onDraw(Canvas canvas) {
-
+		
 		
 		// TODO Auto-generated method stub
 		super.onDraw(canvas);
-
-		Log.d("AdamTorkelsson", "AdamPaint1");
-		Paint pBlue = new Paint();
+		
+		pBlue = new Paint();
 		pBlue.setStrokeWidth(5);
-		this.m = allMax;
 		
-		if(this.first){
-			
-		
-			this.fixedwidth = canvas.getWidth()/10;
+		this.unknown = allMax;
+	
+		if(type == "priceCompare"){
+			if(this.first){
+	
+				startUpPriceCompare(canvas);
 
-			this.sizeSeven = setTextSize(String.format("%.0f",Math.max(max, Math.max(min, medel))),fixedwidth,8);
-			this.sizeThree = setTextSize("kr",fixedwidth,2);
-			this.sizeSix = setTextSize("Variable",fixedwidth,6);
-			this.first = false;
-			
-			this.c = canvas.getHeight() -sizeSeven - sizeSix - 20;
-			
+				
+
+			}
+		onDrawPrice(canvas);}
+		else if(type == "peaks"){
+			if(this.first){
+				startUpPeaks(canvas);
+				
+			}
+			onDrawPrice(canvas);
 		}
-		this.fixedheight =c/m;
+		else if(type == "ten last"){
+			if(this.first){
+			
+			}
+		}
+
 		
-		switch (turn){
-		case 1:
-			
-			tabellheight1 += max/50;
-			drawMax(canvas,pBlue);
-			if(tabellheight1 >= max){
-				tabellheight1 = max;
-				turn = 2;
-			}
-			break;
-		case 3:
-			tabellheight3 += max/50;
-			drawMax(canvas,pBlue);
-			drawMin(canvas,pBlue);
-			drawMedel(canvas,pBlue);
-			if(tabellheight3 >= medel){
-				tabellheight3 = medel;
-				turn = 4;
-			}
-			break;
-			
-		case 2:
-			tabellheight2 += max/50;
-			drawMax(canvas,pBlue);
-			drawMin(canvas,pBlue);
-			
-			if(tabellheight2 >= min){
-				tabellheight2 = min;
-				turn = 3;
-			}
-			break;
-		case 4:
-			
-
-
-			if(tabellheight3 != medel){
-				tabellheight3 += medeldiff/20;
-
-				if(Math.abs(tabellheight3 -medel) < Math.abs((medeldiff*1.5)/20)){
-					tabellheight3 = medel;
-				}
-				}
-			
-			
-			
-			if(tabellheight1 != max){
-				tabellheight1 += maxdiff/20;
-				if(Math.abs(tabellheight1 -max) < Math.abs((maxdiff*1.5)/20)){
-					tabellheight1 = max;
-				}
-			}
-			
-			if(tabellheight2 != min){
-				tabellheight2 += mindiff/20;
-				if(Math.abs(tabellheight2 -min) < 
-						Math.abs((mindiff*1.5)/20)){
-					tabellheight2 = min;
-				}
-			}
-	
-			
-			/*if(maxTemp != allMax && !(maxTemp *fixedheight > canvas.getHeight())){
-				allMax += maxNumberDiff/20;
-				if(maxTemp - allMax < 1){
-					allMax = maxTemp;
-				}
-			}*/
-		
-			
-			drawMax(canvas,pBlue);
-			drawMin(canvas,pBlue);
-			drawMedel(canvas,pBlue);
-			
-			if(tabellheight2 == min &&
-					tabellheight3 == medel &&
-					tabellheight1 == max){
-				drawText(canvas,pBlue);
-				}
-			
-			}
-
-		invalidate();
-
 	}
 	
-	float medeldiff = max / 50;
-	float maxdiff = max / 50;
-	float mindiff = max / 50;
-	float maxTemp;
 	
-public void drawNew(float medel, float max, float min){
-	if(("" + min).length() > ("" + max).length())
-		this.sizeSeven = setTextSize(String.format("%.0f", min),fixedwidth,8);
+	
+private void onDrawPrice(Canvas canvas) {
+
+	switch (turn){
+	case 1:
+		
+		tabellheight1 += tabell1/30;
+		drawTabell(canvas,pBlue,tabellheight1,"#127990",1,3);
+		if(tabellheight1 >= tabell1){
+			tabellheight1 = tabell1;
+			turn = 2;
+		}
+		break;
+		
+	case 2:
+		tabellheight2 += tabell1/30;
+		drawTabell(canvas,pBlue,tabellheight1,"#127990",1,3);
+		drawTabell(canvas,pBlue,tabellheight2,"#72336b",4,6);
+		
+		if(tabellheight2 >= tabell2){
+			tabellheight2 = tabell2;
+			turn = 3;
+		}
+		break;
+	case 3:
+		tabellheight3 += tabell1/30;
+		drawTabell(canvas,pBlue,tabellheight1,"#127990",1,3);
+		drawTabell(canvas,pBlue,tabellheight2,"#72336b",4,6);
+		drawTabell(canvas,pBlue,tabellheight3,"#779438",7,9);
+		if(tabellheight3 >= tabell3){
+			tabellheight3 = tabell3;
+			turn = 4;
+		}
+		break;
+		
+	case 4:
+		
+
+
+		if(tabellheight3 != tabell3){
+			tabellheight3 += medeldiff/20;
+
+			if(Math.abs(tabellheight3 -tabell3) < Math.abs((medeldiff*1.5)/20)){
+				tabellheight3 = tabell3;
+			}
+			}
+		
+		
+		
+		if(tabellheight1 != tabell1){
+			tabellheight1 += maxdiff/20;
+			if(Math.abs(tabellheight1 -tabell1) < Math.abs((maxdiff*1.5)/20)){
+				tabellheight1 = tabell1;
+			}
+		}
+		
+		if(tabellheight2 != tabell2){
+			tabellheight2 += mindiff/20;
+			if(Math.abs(tabellheight2 -tabell2) < 
+					Math.abs((mindiff*1.5)/20)){
+				tabellheight2 = tabell2;
+			}
+		}
+
+		drawTabell(canvas,pBlue,tabellheight1,"#127990",1,3);
+		drawTabell(canvas,pBlue,tabellheight2,"#72336b",4,6);
+		drawTabell(canvas,pBlue,tabellheight3,"#779438",7,9);
+		
+		if(tabellheight2 == tabell2 &&
+				tabellheight3 == tabell3 &&
+				tabellheight1 == tabell1){
+			isfinished = true;
+			Log.d("", "Tjaadam");
+			drawText(canvas,pBlue);
+			}
+		
+		}
+
+	invalidate();
+// TODO Auto-generated method stub
+		
+	}
+boolean isfinished = false;
+int size = 8;
+
+public void drawNew( float tabell1, float tabell2, float max , String type){
+	isfinished = false;
+	if(this.type != type){
+		turn = 1;
+		tabellheight1 = 0;
+		tabellheight2 = 0;
+		tabellheight3 = 0;
+		
+		this.tabell3 = Math.abs(tabell1 - tabell2);
+		this.tabell1 = tabell1;
+		this.tabell2 = tabell2;
+		
+		first = true;
+		this.type = type;
+		
+		this.allMax = max;
+	
+		if(type == "peaks"){
+			size = 7;
+
+			tabell1string= "Max";
+			tabell2string= "Min";
+			tabell3string= "Medel";
+		}
+		else if(type == "priceCompare"){
+			size = 8;
+			tabell1string= "Fast";
+			tabell2string= "Rörlig";
+			tabell3string= "Skillnad";
+		}
+	}
+
+
+	if(("" + tabell2).length() > ("" + tabell1).length())
+		this.sizeValue = setTextSize(String.format("%.0f", tabell2),fixedwidth,size);
 	else{
-		this.sizeSeven = setTextSize(String.format("%.0f", max),fixedwidth,8);
+		this.sizeValue = setTextSize(String.format("%.0f", tabell1),fixedwidth,size);
 	}
-			medeldiff =  Math.abs(max - min) - this.medel;
-			maxdiff =  max - this.max;
-			mindiff = min - this.min;
+	
+			medeldiff =  Math.abs(tabell1 - tabell2) - this.tabell3;
+			maxdiff =  tabell1 - this.tabell1;
+			mindiff = tabell2 - this.tabell2;
 		
-		maxTemp =  Math.max(max, Math.max(medel, min));
-		maxNumberDiff = maxTemp - allMax;
-		
-		
-		this.medel = Math.abs(max - min);
-		this.max = max;
-		this.min = min;
+			this.tabell3 = Math.abs(tabell1 - tabell2);
+			this.tabell1 = tabell1;
+			this.tabell2 = tabell2;
 		
 		
 	}
-float maxNumberDiff;
 
+float tabell1Unchanged1;
+float tabell1Unchanged2;
+float tabell1Unchanged3;
 
 
 
 private float setTextSize(String s, double i , int width){
+	String newstring;
 	Paint p = new Paint();
 	while(s.length() < 2){
 		s = s + " ";}
+	if(s.length()>5){
+		for(int j = 0; j < s.length() ;j++){
+			
+		}
+		
+		tabellvalue = tabellvaluebig;
+	}
+	if(s.length()<5){
+		tabellvalue = tabellvaluesmall;
+	}
+	
 	float textsize = 40;
 	i = i*(width*2)/10;
 	float step = (float) 0.1;
@@ -231,69 +357,74 @@ private float setTextSize(String s, double i , int width){
 	while(i > p.measureText(s)){
 		textsize =textsize+step;
 		p.setTextSize(textsize);
-		Log.d("", "letafela" + p.measureText(s));
+		
 		}
 	while(i < p.measureText(s)){
 		textsize =textsize-step;
-		Log.d("", "letafelaa" + p.measureText(s));
+		
 		p.setTextSize(textsize);
 	}
+	
 	
 	return textsize;
 	
 }
-float lasttext;
+
 		private void drawText(Canvas canvas, Paint pBlue) {
-			Log.d("", "LetaFel3");
 			
 	
 			pBlue.setColor(Color.BLACK);
-			pBlue.setTextSize(sizeSeven);
-			lasttext = pBlue.measureText(String.format("%.0f", min));
-			
-			canvas.drawText("" + String.format("%.0f", min), (float) (fixedwidth*4), (float) (canvas.getHeight() - fixedheight*min - 20), pBlue);
-			canvas.drawText("" + String.format("%.0f", medel), (float) (fixedwidth*7), (float) (canvas.getHeight() - fixedheight*medel- 20), pBlue);
-			canvas.drawText("" + String.format("%.0f", max), (float) (fixedwidth*1), (float) (canvas.getHeight() - fixedheight*max- 20), pBlue);
+			pBlue.setTextSize(sizeValue);
+			lasttext = pBlue.measureText(String.format("%.0f", tabell2));
 		
-			pBlue.setTextSize(sizeThree);
+			canvas.drawText("" + String.format("%.0f", tabell1), (float) (fixedwidth*1), (float) (canvas.getHeight() - fixedheight*tabell1- 20), pBlue);
+			canvas.drawText("" + String.format("%.0f", tabell2), (float) (fixedwidth*4), (float) (canvas.getHeight() - fixedheight*tabell2 - 20), pBlue);
+			canvas.drawText("" + String.format("%.0f", tabell3), (float) (fixedwidth*7), (float) (canvas.getHeight() - fixedheight*tabell3- 20), pBlue);
+			
+			
+		
+			pBlue.setTextSize(sizePrefix);
 			pBlue.setTextAlign(Align.RIGHT);
 			
-			canvas.drawText("kr", (float) (fixedwidth*6) , (float) (canvas.getHeight() - fixedheight*min- 20), pBlue);
-			canvas.drawText("kr", (float) (fixedwidth*9), (float) (canvas.getHeight() - fixedheight*medel- 20), pBlue);
-			canvas.drawText("kr", (float) (fixedwidth*3), (float) (canvas.getHeight() - fixedheight*max- 20), pBlue);
+			canvas.drawText(tabellvalue, (float) (fixedwidth*6) , (float) (canvas.getHeight() - fixedheight*tabell2- 20), pBlue);
+			canvas.drawText(tabellvalue, (float) (fixedwidth*9), (float) (canvas.getHeight() - fixedheight*tabell3- 20), pBlue);
+			canvas.drawText(tabellvalue, (float) (fixedwidth*3), (float) (canvas.getHeight() - fixedheight*tabell1- 20), pBlue);
 			
 			pBlue.setTextAlign(Align.LEFT);
-			pBlue.setTextSize(sizeSix);
+			pBlue.setTextSize(sizeTitle);
+			
+			canvas.drawText(tabell1string, (float) (fixedwidth*1), (float) (canvas.getHeight() - fixedheight*tabell1-sizeValue- 20), pBlue);
+			canvas.drawText(tabell2string, (float) (fixedwidth*4), (float) (canvas.getHeight() - fixedheight*tabell2-sizeValue- 20), pBlue);
+			canvas.drawText(tabell3string, (float) (fixedwidth*7), (float) (canvas.getHeight() - fixedheight*tabell3-sizeValue- 20), pBlue);
 			
 			
-			canvas.drawText("Fast", (float) (fixedwidth*4), (float) (canvas.getHeight() - fixedheight*min-sizeSeven- 20), pBlue);
-			canvas.drawText("Skillnad", (float) (fixedwidth*7), (float) (canvas.getHeight() - fixedheight*medel-sizeSeven- 20), pBlue);
-			canvas.drawText("Rörlig", (float) (fixedwidth*1), (float) (canvas.getHeight() - fixedheight*max-sizeSeven- 20), pBlue);
-			
-			
-			
+		
 			
 		}
-		float tabellheight1 = 0;
-		float tabellheight2 = 0;
-		float tabellheight3 = 0;
-		int turn = 1;
+
 
 
 		
 		
-		private void drawMax(Canvas canvas, Paint pBlue) {
-			pBlue.setColor(Color.parseColor("#127990"));
-			
+		private void drawTabell(Canvas canvas, Paint pBlue , float tabellheight, String color, int start , int end ) {
+			pBlue.setColor(Color.parseColor(color));
 
 			Rect r = new Rect();
-			r.set((int) fixedwidth*1, (int) (canvas.getHeight()- 20 - fixedheight*tabellheight1),(int) fixedwidth*3, canvas.getHeight());
+			r.set((int) fixedwidth*start
+					, (int) (canvas.getHeight()- 20 - fixedheight*tabellheight)
+					,(int) fixedwidth*end, canvas.getHeight());
 			canvas.drawRect(r, pBlue);
 		}
 
+
+		public boolean isFinished() {
+			
+			return isfinished;
+		}
+
 		
 
-	private void drawMin(Canvas canvas, Paint pBlue) {
+/*	private void drawMin(Canvas canvas, Paint pBlue) {
 		pBlue.setColor(Color.parseColor("#72336b"));
 
 		Rect r = new Rect();
@@ -309,7 +440,7 @@ float lasttext;
 		r.set((int) fixedwidth*7, (int) (canvas.getHeight()- 20-fixedheight*tabellheight3),(int) fixedwidth*9, canvas.getHeight());
 		canvas.drawRect(r, pBlue);
 		
-	}
+	}*/
 	
 
 
